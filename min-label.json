@@ -1,0 +1,40 @@
+{
+  "run": "labels-a",
+  "mode": "min_label",
+  "edges": [
+    {
+      "src": "a",
+      "dst": "b",
+      "delta": 0
+    },
+    {
+      "src": "b",
+      "dst": "c",
+      "delta": 0
+    },
+    {
+      "src": "c",
+      "dst": "a",
+      "delta": 0
+    }
+  ],
+  "initial": [
+    {
+      "key": "a",
+      "value": 1
+    },
+    {
+      "key": "b",
+      "value": 7
+    },
+    {
+      "key": "c",
+      "value": 9
+    },
+    {
+      "key": "alone",
+      "value": 4
+    }
+  ],
+  "max_rounds": 10
+}

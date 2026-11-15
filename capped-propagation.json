@@ -1,0 +1,41 @@
+{
+  "run": "reach-b",
+  "mode": "capped_max",
+  "cap": 3,
+  "edges": [
+    {
+      "src": "a",
+      "dst": "b",
+      "delta": 1
+    },
+    {
+      "src": "b",
+      "dst": "c",
+      "delta": 1
+    },
+    {
+      "src": "c",
+      "dst": "a",
+      "delta": 1
+    }
+  ],
+  "initial": [
+    {
+      "key": "a",
+      "value": 0
+    },
+    {
+      "key": "b",
+      "value": 0
+    },
+    {
+      "key": "c",
+      "value": 0
+    },
+    {
+      "key": "alone",
+      "value": 2
+    }
+  ],
+  "max_rounds": 10
+}

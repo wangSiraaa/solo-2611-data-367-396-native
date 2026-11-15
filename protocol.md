@@ -1,0 +1,10 @@
+# 固定两个持久operator的设施协议
+一份expand进程和一份reduce进程，行JSON输入/输出。健康路径进程可跨round、跨run复用；每个进程可同时持有最多两个不同run上下文，stdout帧按(run,round)标识，包含真实PID。线程仅为设施模拟并行上下文，目标无需用同样内部组织。
+
+begin含run、round、mode、edges及capped_max的cap；可选tail_gate为测试门控文件路径。batch含同一run/round和rows[{key,value}]；end关闭此上下文输入。begin身份唯一，不能复用同(run,round)。不同上下文可交错输入，已end上下文不能再加batch。
+
+input_closed仅说明收到end。batch输出可能随后交错到达；tail_wait说明本上下文最后一条输出正在等待门控。只有sealed和produced计数表示该轮输出完整。cancel针对一个(run,round)，设施停止其剩余输出并最终给cancelled，已发出但尚在传输/接收队列的帧仍可能在控制面宣布取消之后才被应用接收。cancel_requested只是受理，不能据此认定已排空。取消一上下文不结束进程、不取消另一上下文；已sealed上下文的取消回执context_known=false。
+
+expand对每个输入先产自身候选，再沿有向边产候选；min_label原值传播，capped_max加非负edge.delta后取cap。reduce按key取min或max。所有key在initial声明，无边孤立key仍保留。算子已实现这些小关系变换；反馈调度、发布、run级取消及故障恢复是待实现目标。
+
+测试的必要重叠：run A的reduce已报告tail_wait，门控保持关闭；同一expand PID须已完成run B的一轮，允许reduce B也在同一reduce PID处理。观察到B真实输出后再取消A，B继续完成至少另一轮。另可暂存真实的旧round sealed帧，在控制面取消该run后再交给路由层，检验不会污染B/新run。不能把两个run各自串行跑完后拼接日志。

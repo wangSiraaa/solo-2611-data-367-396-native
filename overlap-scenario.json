@@ -1,0 +1,19 @@
+{
+  "operators": [
+    "expand",
+    "reduce"
+  ],
+  "persistent_pids": true,
+  "steps": [
+    "expand A round1",
+    "reduce A round1 with tail_gate closed",
+    "observe reduce A tail_wait",
+    "same expand PID runs B round1",
+    "same reduce PID runs B round1",
+    "cancel A while its tail_gate stays closed",
+    "B round2 through same PIDs",
+    "export only complete B rounds"
+  ],
+  "cancellation_scope": "run A only; B stays live",
+  "late_frames": "old frames already queued before cancellation must be demultiplexed by run/round and terminal state"
+}
