@@ -1,0 +1,19 @@
+{
+  "file": "data.bin",
+  "size": 16384,
+  "first_interruption_bytes": 4096,
+  "stable_generation_after_interruption_data_budget": {
+    "a": 12288,
+    "b": 16384
+  },
+  "prefix_binding": [
+    "batch_id",
+    "logical_file_id",
+    "remote_generation",
+    "expected_full_sha256",
+    "prefix_length",
+    "prefix_sha256"
+  ],
+  "local_prefix_corrupted": "discard or explicit unresolved; never resume it",
+  "remote_generation_changed": "reject old resume, keep old batch unresolved; explicit new batch selection starts a new target"
+}
