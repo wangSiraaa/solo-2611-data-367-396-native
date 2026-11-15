@@ -1,0 +1,92 @@
+[
+  {
+    "row_id": 0,
+    "part": "a",
+    "ord": 0,
+    "value": null
+  },
+  {
+    "row_id": 1,
+    "part": "a",
+    "ord": 0,
+    "value": 1
+  },
+  {
+    "row_id": 2,
+    "part": "a",
+    "ord": 1,
+    "value": 2
+  },
+  {
+    "row_id": 3,
+    "part": "a",
+    "ord": 1,
+    "value": 3
+  },
+  {
+    "row_id": 4,
+    "part": "a",
+    "ord": 2,
+    "value": null
+  },
+  {
+    "row_id": 5,
+    "part": "a",
+    "ord": 2,
+    "value": 5
+  },
+  {
+    "row_id": 6,
+    "part": "a",
+    "ord": 0,
+    "value": 6
+  },
+  {
+    "row_id": 7,
+    "part": "a",
+    "ord": null,
+    "value": 7
+  },
+  {
+    "row_id": 8,
+    "part": "a",
+    "ord": null,
+    "value": null
+  },
+  {
+    "row_id": 9,
+    "part": "b",
+    "ord": 1,
+    "value": 9
+  },
+  {
+    "row_id": 10,
+    "part": "b",
+    "ord": 2,
+    "value": 10
+  },
+  {
+    "row_id": 11,
+    "part": "b",
+    "ord": 2,
+    "value": 11
+  },
+  {
+    "row_id": 12,
+    "part": "b",
+    "ord": null,
+    "value": null
+  },
+  {
+    "row_id": 13,
+    "part": "b",
+    "ord": 0,
+    "value": 13
+  },
+  {
+    "row_id": 14,
+    "part": "b",
+    "ord": 1,
+    "value": 14
+  }
+]

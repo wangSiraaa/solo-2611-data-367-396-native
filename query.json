@@ -1,0 +1,37 @@
+{
+  "partition_by": "part",
+  "order_by": [
+    {
+      "column": "ord",
+      "direction": "ASC",
+      "nulls": "LAST"
+    }
+  ],
+  "functions": [
+    {
+      "name": "running_groups",
+      "op": "sum",
+      "column": "value",
+      "frame": {
+        "unit": "GROUPS",
+        "start": -1,
+        "end": 1
+      }
+    },
+    {
+      "name": "rows_sum",
+      "op": "sum",
+      "column": "value",
+      "frame": {
+        "unit": "ROWS",
+        "start": -2,
+        "end": 2
+      }
+    },
+    {
+      "name": "dense_rank",
+      "op": "dense_rank"
+    }
+  ],
+  "tie_order": "row_id for ROWS only; peers for GROUPS/dense_rank use ord without row_id"
+}

@@ -1,0 +1,1 @@
+CREATE TABLE input_rows(row_id INTEGER PRIMARY KEY,part TEXT NOT NULL,ord INTEGER,value INTEGER);

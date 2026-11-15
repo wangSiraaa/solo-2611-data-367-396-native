@@ -1,0 +1,1 @@
+query.json给有限窗口语义：GROUPS和dense_rank的peer键只含ord；ROWS用row_id打破同ord并列，但不能反向污染peer定义。oracle.py在独立SQLite中执行成熟窗口函数，仅供小输入/验收参考；目标正式执行路径需从有限输入批和自建外存状态生成窗口结果。
