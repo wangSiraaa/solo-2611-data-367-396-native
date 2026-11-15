@@ -1,0 +1,25 @@
+{
+  "known_fraction": "3/4",
+  "min_points": 2,
+  "aligned_query": [
+    0,
+    80
+  ],
+  "aligned_max_raw_rows": 0,
+  "unaligned_query": [
+    3,
+    77
+  ],
+  "unaligned_max_raw_rows_per_stream": 32,
+  "streams": [
+    "interval_total",
+    "interval_mean",
+    "instant",
+    "long"
+  ],
+  "cost_scope": "new Source per benchmark; count all read_raw returned rows including retries/redundant overlap, not oracle validation or fixture construction; summaries separately counted",
+  "summary_widths": [
+    10,
+    40
+  ]
+}
