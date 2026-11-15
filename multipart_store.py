@@ -32,6 +32,8 @@ class Store:
  def abort(self,uid,delivery):
   if self.s['uploads'][uid]['delivery']!=delivery:raise ValueError('UPLOAD_OWNER_MISMATCH')
   del self.s['uploads'][uid];self._save()
+ def reload(self):
+  self.s=json.loads(self.state.read_text()) if self.state.exists() else {'uploads':{},'objects':{},'receipts':{},'next':1};return self
  def receipt(self,delivery):return self.s['receipts'].get(delivery)
  def head(self,key):
   a=self.s['objects'].get(key,[]);return {k:v for k,v in a[-1].items() if k!='data'} if a else None
@@ -51,5 +53,5 @@ def _serialized(method):
    try:return method(self,*args,**kwargs)
    finally:fcntl.flock(lock,fcntl.LOCK_UN)
  return call
-for _name in ('begin','part','list_parts','complete','list_uploads','abort','receipt','head','read'):
+for _name in ('begin','part','list_parts','complete','list_uploads','abort','receipt','head','read','reload'):
  setattr(Store,_name,_serialized(getattr(Store,_name)))
