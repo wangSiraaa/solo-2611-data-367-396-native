@@ -1,0 +1,2 @@
+{"op": "put", "doc": {"doc_id": "d2", "title": ["green blue"], "body": ["café green"]}}
+{"op": "delete", "doc_id": "d3"}

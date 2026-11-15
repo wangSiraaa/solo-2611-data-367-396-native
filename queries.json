@@ -1,0 +1,34 @@
+[
+  {
+    "field": "title",
+    "terms": [
+      "red",
+      "blue"
+    ],
+    "max_gap": 0
+  },
+  {
+    "field": "body",
+    "terms": [
+      "red",
+      "blue"
+    ],
+    "max_gap": 0
+  },
+  {
+    "field": "body",
+    "terms": [
+      "red",
+      "blue"
+    ],
+    "max_gap": 1
+  },
+  {
+    "field": "body",
+    "terms": [
+      "red",
+      "red"
+    ],
+    "max_gap": 0
+  }
+]
