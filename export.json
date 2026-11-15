@@ -1,0 +1,92 @@
+{
+  "format": "near-dedup-export/1",
+  "version": 7,
+  "profile": {
+    "shingle_size": 2,
+    "similarity": "exact-jaccard",
+    "threshold": "1/4",
+    "threshold_p": 1,
+    "threshold_q": 4
+  },
+  "summary": {
+    "documents": 5,
+    "clusters": 3,
+    "kept_representatives": 3,
+    "collapsed": 2,
+    "similarity_edges": 2
+  },
+  "clusters": [
+    {
+      "cluster_id": 6,
+      "representative": "a",
+      "size": 2,
+      "members": [
+        {
+          "doc_id": "a",
+          "quality": 7,
+          "role": "kept_representative",
+          "path_to_representative": []
+        },
+        {
+          "doc_id": "e",
+          "quality": 6,
+          "role": "collapsed",
+          "path_to_representative": [
+            {
+              "from": "e",
+              "to": "a",
+              "intersection": 3,
+              "union": 3,
+              "jaccard": "3/3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": 7,
+      "representative": "c",
+      "size": 1,
+      "members": [
+        {
+          "doc_id": "c",
+          "quality": 8,
+          "role": "kept_representative",
+          "path_to_representative": []
+        }
+      ]
+    },
+    {
+      "cluster_id": 8,
+      "representative": "f",
+      "size": 2,
+      "members": [
+        {
+          "doc_id": "d",
+          "quality": 5,
+          "role": "collapsed",
+          "path_to_representative": [
+            {
+              "from": "d",
+              "to": "f",
+              "intersection": 2,
+              "union": 4,
+              "jaccard": "2/4"
+            }
+          ]
+        },
+        {
+          "doc_id": "f",
+          "quality": 10,
+          "role": "kept_representative",
+          "path_to_representative": []
+        }
+      ]
+    }
+  ],
+  "statistics": {
+    "candidate_visits": 13,
+    "candidates_unique": 7,
+    "exact_comparisons": 7
+  }
+}
