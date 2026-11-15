@@ -1,0 +1,18 @@
+{
+  "stale": [
+    "worker A owns p0 epoch1 reads offsets0..1",
+    "pause A before commit",
+    "rebalance p0 to B epoch2",
+    "B commits offsets0..1",
+    "release A commit: fenced"
+  ],
+  "linearized": [
+    "A commits before rebalance obtains transaction",
+    "rebalance advances epoch",
+    "B starts from next_offset"
+  ],
+  "independent": [
+    "pause p0 after read",
+    "p1 completes"
+  ]
+}

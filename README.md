@@ -1,0 +1,2 @@
+# 分区源与再均衡场景
+source.py partition next_offset limit返回只读片段，source_end_offset固定为5；offset不因worker改变，payload可有跨分区同key。所有协调器、offset和sink状态必须在本题专用SQLite库中，模型不要把其推导成独立Kafka恰好一次。
