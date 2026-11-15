@@ -1,0 +1,11 @@
+{
+  "rule_version": "email-v1",
+  "decisions": [
+    {
+      "contact_id": "c2",
+      "expected_revision": 1,
+      "action": "merge",
+      "survivor": "c1"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "tenant_scope": "exact",
+  "email_normalization": [
+    "strip",
+    "casefold"
+  ],
+  "nulls": "not_participating",
+  "empty_string": "participating"
+}
