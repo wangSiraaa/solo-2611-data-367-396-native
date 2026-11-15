@@ -1,0 +1,40 @@
+{
+  "policy_id": "p1",
+  "sensitive_columns": [
+    "customers.customer_id",
+    "customers.email",
+    "accounts.owner_id",
+    "invoices.account_ref",
+    "invoices.bill_to_email"
+  ],
+  "public_keep_columns": [
+    "invoices.invoice_id",
+    "accounts.account_id"
+  ],
+  "domains": {
+    "customer": {
+      "prefix": "C",
+      "alphabet": "0123456789abcdef",
+      "width": 2
+    },
+    "account": {
+      "prefix": "A",
+      "alphabet": "0123456789abcdef",
+      "width": 2
+    },
+    "email": {
+      "prefix": "E",
+      "alphabet": "0123456789abcdef",
+      "width": 2
+    }
+  },
+  "columns": {
+    "customers.customer_id": "tokenize:customer",
+    "customers.email": "tokenize:email",
+    "accounts.account_id": "drop",
+    "accounts.owner_id": "tokenize:customer",
+    "invoices.invoice_id": "keep",
+    "invoices.account_ref": "tokenize:account",
+    "invoices.bill_to_email": "tokenize:email"
+  }
+}

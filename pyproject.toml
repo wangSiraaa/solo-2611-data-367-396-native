@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maskkit"
+version = "1.0.0"
+description = "本地脱敏数据包生产工具（SQLite + 持久 token-vault）"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+maskkit = "maskkit.cli:main"
+
+[tool.setuptools]
+packages = ["maskkit"]
