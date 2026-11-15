@@ -1,0 +1,9 @@
+运行 python3 -B prepare.py <新建工作目录> 创建两个真实SQLite shard和初始routing.json。每次演示必须用新目录，不能覆写旧生产路径。shard.py只实现本机存储原语，不含迁移协调器、路由客户端或cutover流程。
+
+write(tenant,generation,request_id,payload)在同一SQLite事务提交行、tenant递增rev、请求摘要/原回执与outbox。put替换一行；delete写tombstone，即使逻辑行不存在也允许，避免删除落在旧backfill之后时复活。相同request_id与同payload返回原回执；generation和owner不是payload内容，换路由重试同一业务请求仍相同。
+
+snapshot返回真实WAL读事务及当时tenant clock；snapshot_rows分页在该固定事务读取。读事务不可跨进程持久化，因此本题不要求断电后恢复原快照；协调器中断后可明确重新建一次迁移，不得伪称旧快照仍在。
+
+apply_snapshot_row按rev拒旧覆盖；apply_event将行/tombstone与该请求原回执在目标单库事务写入。receipt_rows/import_receipt支持迁移开始前已有回执，不只搬复制期间outbox。fence原子关闭源tenant新写并返回最后clock；返回旧请求原回执不产生新写，可在fence后继续安全返回。activate只改目标本地generation/writable，没有检查源已fence或路由已更新，这些跨库不变量由候选协调器负责。
+
+outbox rev在同一SQLite单写事务分配/提交，本设施没有先领号后晚提交的洞；不得将此性质推广到其它数据库。允许两独立业务进程操作，但一次只一个迁移协调器。跨两个SQLite和routing文件不存在原子事务；可短暂停顿/显式RETRY，但不得同时开放两个owner的新业务写入。

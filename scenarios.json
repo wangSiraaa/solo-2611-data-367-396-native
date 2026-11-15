@@ -1,0 +1,35 @@
+{
+  "tenant": "moving",
+  "source": "shard-a",
+  "target": "shard-b",
+  "start_generation": 1,
+  "new_generation": 2,
+  "snapshot_batch_rows": 2,
+  "operations_during_copy": [
+    {
+      "request_id": "update-during-copy",
+      "payload": {
+        "op": "put",
+        "row_id": "r0",
+        "value": 777
+      }
+    },
+    {
+      "request_id": "delete-during-copy",
+      "payload": {
+        "op": "delete",
+        "row_id": "r1"
+      }
+    },
+    {
+      "request_id": "insert-behind-cursor",
+      "payload": {
+        "op": "put",
+        "row_id": "r00",
+        "value": 444
+      }
+    }
+  ],
+  "retry_after_cutover": "update-during-copy",
+  "untouched_tenant": "stay"
+}
