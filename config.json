@@ -1,0 +1,5 @@
+{
+  "pool_bytes": 32768,
+  "resident_rows": 16,
+  "max_consumers": 6
+}

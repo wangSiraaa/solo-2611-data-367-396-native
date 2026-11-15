@@ -1,0 +1,18 @@
+{
+  "by_group": {
+    "sql": "SELECT row_id,group_id,value FROM observations WHERE group_id=? ORDER BY row_id",
+    "parameter_types": [
+      "TEXT"
+    ],
+    "max_rows": 200,
+    "max_encoded_bytes": 16384
+  },
+  "at_least": {
+    "sql": "SELECT row_id,group_id,value FROM observations WHERE value>=? ORDER BY row_id",
+    "parameter_types": [
+      "INTEGER"
+    ],
+    "max_rows": 200,
+    "max_encoded_bytes": 16384
+  }
+}
