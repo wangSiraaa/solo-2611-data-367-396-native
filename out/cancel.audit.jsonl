@@ -1,0 +1,42 @@
+{"event": "stream_open", "get_next_fn": "0xf407303f07a0", "release_fn": "0xf407303f0890", "seq": 1, "stream_addr": "0xf40730734b70"}
+{"event": "driver_start", "live_batches": 0, "max_live_batches": 2, "seq": 2}
+{"args": {"batch": "a"}, "event": "op", "index": 0, "op": "next", "seq": 3}
+{"call": 1, "event": "get_next", "length": 5, "live_batches": 1, "n_buffers": 2, "null_count": 1, "offset": 0, "ordinal": 0, "rc": 0, "release_fn": "0xf407303f08d4", "seq": 4}
+{"batch": "a", "buffers": ["0x168be530", "0x168be538"], "event": "import_take", "length": 5, "null_count": 1, "offset": 0, "original_release_cleared": true, "private_data": "0x168be530", "release_fn": "0xf407303f08d4", "seq": 5, "source_ordinal": 0}
+{"batch": "a", "event": "source_state", "imported": true, "live_batches": 1, "op": "next", "released_batches": 9, "released_streams": 6, "seq": 6}
+{"args": {"batch": "a", "id": "c", "length": 5, "start": 0}, "event": "op", "index": 1, "op": "view", "seq": 7}
+{"batch": "a", "deps": 1, "event": "dep_add", "seq": 8}
+{"batch": "a", "depth": 0, "event": "view_create", "id": "c", "length": 5, "offset": 0, "parent": null, "seq": 9, "shares_validity": true, "shares_values": true, "validity_addr": "0x168be530", "values_addr": "0x168be538"}
+{"args": {"batch": "a", "id": "s", "length": 5, "start": 0}, "event": "op", "index": 2, "op": "view", "seq": 10}
+{"batch": "a", "deps": 2, "event": "dep_add", "seq": 11}
+{"batch": "a", "depth": 0, "event": "view_create", "id": "s", "length": 5, "offset": 0, "parent": null, "seq": 12, "shares_validity": true, "shares_values": true, "validity_addr": "0x168be530", "values_addr": "0x168be538"}
+{"args": {"id": "c"}, "event": "op", "index": 3, "op": "cancel", "seq": 13}
+{"batch": "a", "event": "view_cancelled", "id": "c", "length": 5, "offset": 0, "reads": 0, "reason": "scenario cancel", "seq": 14}
+{"batch": "a", "deps": 1, "event": "dep_drop", "reason": "view c cancelled", "seq": 15}
+{"batch": "a", "event": "source_state", "id": "c", "live_batches": 1, "op": "view_terminal", "released_batches": 9, "released_streams": 6, "remaining_views": 1, "seq": 16, "state": "cancelled"}
+{"args": {"expect_error": true, "id": "c"}, "event": "op", "index": 4, "op": "read", "seq": 17}
+{"event": "state_error", "id": "c", "message": "view 'c': cannot read while cancelled", "op": "read", "seq": 18, "state": "cancelled"}
+{"error": "view 'c': cannot read while cancelled", "error_type": "ViewStateError", "event": "read_error", "id": "c", "seq": 19}
+{"error": "view 'c': cannot read while cancelled", "error_type": "ViewStateError", "event": "op_error", "index": 4, "op": "read", "seq": 20}
+{"args": {"expect_error": true, "id": "c"}, "event": "op", "index": 5, "op": "release", "seq": 21}
+{"event": "state_error", "id": "c", "message": "view 'c': cannot release while cancelled", "op": "release", "seq": 22, "state": "cancelled"}
+{"error": "view 'c': cannot release while cancelled", "error_type": "ViewStateError", "event": "op_error", "index": 5, "op": "release", "seq": 23}
+{"args": {"expect_error": true, "id": "c"}, "event": "op", "index": 6, "op": "cancel", "seq": 24}
+{"event": "state_error", "id": "c", "message": "view 'c': cannot cancel while cancelled", "op": "cancel", "seq": 25, "state": "cancelled"}
+{"error": "view 'c': cannot cancel while cancelled", "error_type": "ViewStateError", "event": "op_error", "index": 6, "op": "cancel", "seq": 26}
+{"args": {"expect_null_count": 1, "expect_valid": [true, true, false, true, true], "expect_values": [0, 1, null, 3, 4], "id": "s"}, "event": "op", "index": 7, "op": "read", "seq": 27}
+{"batch": "a", "event": "view_read", "id": "s", "length": 5, "null_count": 1, "offset": 0, "seq": 28, "values": [0, 1, null, 3, 4], "values_addr": "0x168be538"}
+{"args": {"batch": "a"}, "event": "op", "index": 8, "op": "drop_import", "seq": 29}
+{"batch": "a", "deps": 1, "event": "root_drop", "seq": 30}
+{"batch": "a", "event": "source_state", "live_batches": 1, "op": "drop_import", "released_batches": 9, "released_streams": 6, "seq": 31}
+{"args": {"id": "s"}, "event": "op", "index": 9, "op": "release", "seq": 32}
+{"batch": "a", "event": "view_released", "id": "s", "length": 5, "offset": 0, "reads": 1, "reason": "scenario release", "seq": 33}
+{"batch": "a", "deps": 0, "event": "dep_drop", "reason": "view s released", "seq": 34}
+{"batch": "a", "buffers": ["0x168be530", "0x168be538"], "event": "batch_release", "reason": "last dependent dropped (view s released)", "release_fn": "0xf407303f08d4", "seq": 35}
+{"batch": "a", "event": "source_state", "live_batches": 0, "op": "batch_released", "reason": "last dependent dropped (view s released)", "released_batches": 10, "released_streams": 6, "seq": 36}
+{"batch": "a", "event": "source_state", "id": "s", "live_batches": 0, "op": "view_terminal", "released_batches": 10, "released_streams": 6, "remaining_views": 0, "seq": 37, "state": "released"}
+{"event": "driver_finish", "live_batches": 0, "occupied_slots": [], "released_batches": 10, "released_streams": 6, "seq": 38}
+{"event": "cleanup_start", "occupied_slots": [], "reason": "run finalization", "seq": 39}
+{"event": "stream_close", "live_batches": 0, "release_fn": "0xf407303f0890", "seq": 40, "stream_addr": "0xf40730734b70"}
+{"event": "cleanup_done", "live_batches": 0, "released_batches": 10, "released_streams": 7, "seq": 41}
+{"event": "run_end", "held_after_cleanup": 0, "held_before_cleanup": 0, "live_batches": 0, "released_batches": 10, "released_streams": 7, "remaining_roots": [], "remaining_views": [], "seq": 42}

@@ -1,0 +1,33 @@
+{"event": "stream_open", "get_next_fn": "0xf407303f07a0", "release_fn": "0xf407303f0890", "seq": 1, "stream_addr": "0xf40730736340"}
+{"event": "driver_start", "live_batches": 0, "max_live_batches": 2, "seq": 2}
+{"args": {"batch": "a"}, "event": "op", "index": 0, "op": "next", "seq": 3}
+{"call": 1, "event": "get_next", "length": 5, "live_batches": 1, "n_buffers": 2, "null_count": 1, "offset": 0, "ordinal": 0, "rc": 0, "release_fn": "0xf407303f08d4", "seq": 4}
+{"batch": "a", "buffers": ["0x16846b90", "0x16846b98"], "event": "import_take", "length": 5, "null_count": 1, "offset": 0, "original_release_cleared": true, "private_data": "0x16846b90", "release_fn": "0xf407303f08d4", "seq": 5, "source_ordinal": 0}
+{"batch": "a", "event": "source_state", "imported": true, "live_batches": 1, "op": "next", "released_batches": 6, "released_streams": 3, "seq": 6}
+{"args": {}, "event": "op", "index": 1, "op": "close_stream", "seq": 7}
+{"event": "stream_close", "live_batches": 1, "release_fn": "0xf407303f0890", "seq": 8, "stream_addr": "0xf40730736340"}
+{"event": "source_state", "live_batches": 1, "op": "close_stream", "released_batches": 6, "released_streams": 4, "seq": 9}
+{"args": {"batch": "a", "id": "v", "length": 5, "start": 0}, "event": "op", "index": 2, "op": "view", "seq": 10}
+{"batch": "a", "deps": 1, "event": "dep_add", "seq": 11}
+{"batch": "a", "depth": 0, "event": "view_create", "id": "v", "length": 5, "offset": 0, "parent": null, "seq": 12, "shares_validity": true, "shares_values": true, "validity_addr": "0x16846b90", "values_addr": "0x16846b98"}
+{"args": {"expect_null_count": 1, "expect_valid": [true, true, false, true, true], "expect_values": [0, 1, null, 3, 4], "id": "v"}, "event": "op", "index": 3, "op": "read", "seq": 13}
+{"batch": "a", "event": "view_read", "id": "v", "length": 5, "null_count": 1, "offset": 0, "seq": 14, "values": [0, 1, null, 3, 4], "values_addr": "0x16846b98"}
+{"args": {"batch": "a"}, "event": "op", "index": 4, "op": "drop_import", "seq": 15}
+{"batch": "a", "deps": 1, "event": "root_drop", "seq": 16}
+{"batch": "a", "event": "source_state", "live_batches": 1, "op": "drop_import", "released_batches": 6, "released_streams": 4, "seq": 17}
+{"args": {"id": "v"}, "event": "op", "index": 5, "op": "release", "seq": 18}
+{"batch": "a", "event": "view_released", "id": "v", "length": 5, "offset": 0, "reads": 1, "reason": "scenario release", "seq": 19}
+{"batch": "a", "deps": 0, "event": "dep_drop", "reason": "view v released", "seq": 20}
+{"batch": "a", "buffers": ["0x16846b90", "0x16846b98"], "event": "batch_release", "reason": "last dependent dropped (view v released)", "release_fn": "0xf407303f08d4", "seq": 21}
+{"batch": "a", "event": "source_state", "live_batches": 0, "op": "batch_released", "reason": "last dependent dropped (view v released)", "released_batches": 7, "released_streams": 4, "seq": 22}
+{"batch": "a", "event": "source_state", "id": "v", "live_batches": 0, "op": "view_terminal", "released_batches": 7, "released_streams": 4, "remaining_views": 0, "seq": 23, "state": "released"}
+{"args": {"expect_error": true}, "event": "op", "index": 6, "op": "close_stream", "seq": 24}
+{"event": "state_error", "op": "close_stream", "seq": 25, "state": "closed"}
+{"error": "stream already closed", "error_type": "StreamStateError", "event": "op_error", "index": 6, "op": "close_stream", "seq": 26}
+{"args": {"batch": "b", "expect_error": true}, "event": "op", "index": 7, "op": "next", "seq": 27}
+{"event": "state_error", "message": "cannot next: stream is closed", "op": "get_next", "seq": 28, "state": "closed"}
+{"error": "cannot next: stream is closed", "error_type": "StreamStateError", "event": "op_error", "index": 7, "op": "next", "seq": 29}
+{"event": "driver_finish", "live_batches": 0, "occupied_slots": [], "released_batches": 7, "released_streams": 4, "seq": 30}
+{"event": "cleanup_start", "occupied_slots": [], "reason": "run finalization", "seq": 31}
+{"event": "cleanup_done", "live_batches": 0, "released_batches": 7, "released_streams": 4, "seq": 32}
+{"event": "run_end", "held_after_cleanup": 0, "held_before_cleanup": 0, "live_batches": 0, "released_batches": 7, "released_streams": 4, "remaining_roots": [], "remaining_views": [], "seq": 33}

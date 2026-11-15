@@ -1,0 +1,62 @@
+{"event": "stream_open", "get_next_fn": "0xef15fbc507a0", "release_fn": "0xef15fbc50890", "seq": 1, "stream_addr": "0xef15fbdee220"}
+{"event": "driver_start", "live_batches": 0, "max_live_batches": 2, "seq": 2}
+{"args": {"batch": "a"}, "event": "op", "index": 0, "op": "next", "seq": 3}
+{"call": 1, "event": "get_next", "length": 5, "live_batches": 1, "n_buffers": 2, "null_count": 1, "offset": 0, "ordinal": 0, "rc": 0, "release_fn": "0xef15fbc508d4", "seq": 4}
+{"batch": "a", "buffers": ["0x3d2a7b70", "0x3d2a7b78"], "event": "import_take", "length": 5, "null_count": 1, "offset": 0, "original_release_cleared": true, "private_data": "0x3d2a7b70", "release_fn": "0xef15fbc508d4", "seq": 5, "source_ordinal": 0}
+{"batch": "a", "event": "source_state", "imported": true, "live_batches": 1, "op": "next", "released_batches": 0, "released_streams": 0, "seq": 6}
+{"args": {"batch": "a", "id": "slow", "length": 4, "start": 1}, "event": "op", "index": 1, "op": "view", "seq": 7}
+{"batch": "a", "deps": 1, "event": "dep_add", "seq": 8}
+{"batch": "a", "depth": 0, "event": "view_create", "id": "slow", "length": 4, "offset": 1, "parent": null, "seq": 9, "shares_validity": true, "shares_values": true, "validity_addr": "0x3d2a7b70", "values_addr": "0x3d2a7b78"}
+{"args": {"batch": "a", "id": "fast", "length": 3, "start": 0}, "event": "op", "index": 2, "op": "view", "seq": 10}
+{"batch": "a", "deps": 2, "event": "dep_add", "seq": 11}
+{"batch": "a", "depth": 0, "event": "view_create", "id": "fast", "length": 3, "offset": 0, "parent": null, "seq": 12, "shares_validity": true, "shares_values": true, "validity_addr": "0x3d2a7b70", "values_addr": "0x3d2a7b78"}
+{"args": {"batch": "a"}, "event": "op", "index": 3, "op": "drop_import", "seq": 13}
+{"batch": "a", "deps": 2, "event": "root_drop", "seq": 14}
+{"batch": "a", "event": "source_state", "live_batches": 1, "op": "drop_import", "released_batches": 0, "released_streams": 0, "seq": 15}
+{"args": {"id": "fast"}, "event": "op", "index": 4, "op": "read", "seq": 16}
+{"batch": "a", "event": "view_read", "id": "fast", "length": 3, "null_count": 1, "offset": 0, "seq": 17, "values": [0, 1, null], "values_addr": "0x3d2a7b78"}
+{"args": {"id": "fast"}, "event": "op", "index": 5, "op": "release", "seq": 18}
+{"batch": "a", "event": "view_released", "id": "fast", "length": 3, "offset": 0, "reads": 1, "reason": "scenario release", "seq": 19}
+{"batch": "a", "deps": 1, "event": "dep_drop", "reason": "view fast released", "seq": 20}
+{"batch": "a", "event": "source_state", "id": "fast", "live_batches": 1, "op": "view_terminal", "released_batches": 0, "released_streams": 0, "remaining_views": 1, "seq": 21, "state": "released"}
+{"args": {"batch": "b"}, "event": "op", "index": 6, "op": "next", "seq": 22}
+{"call": 2, "event": "get_next", "length": 5, "live_batches": 2, "n_buffers": 2, "null_count": 1, "offset": 0, "ordinal": 1, "rc": 0, "release_fn": "0xef15fbc508d4", "seq": 23}
+{"batch": "b", "buffers": ["0x3d3144b0", "0x3d3144b8"], "event": "import_take", "length": 5, "null_count": 1, "offset": 0, "original_release_cleared": true, "private_data": "0x3d3144b0", "release_fn": "0xef15fbc508d4", "seq": 24, "source_ordinal": 1}
+{"batch": "b", "event": "source_state", "imported": true, "live_batches": 2, "op": "next", "released_batches": 0, "released_streams": 0, "seq": 25}
+{"args": {"batch": "b", "id": "other", "length": 5, "start": 0}, "event": "op", "index": 7, "op": "view", "seq": 26}
+{"batch": "b", "deps": 1, "event": "dep_add", "seq": 27}
+{"batch": "b", "depth": 0, "event": "view_create", "id": "other", "length": 5, "offset": 0, "parent": null, "seq": 28, "shares_validity": true, "shares_values": true, "validity_addr": "0x3d3144b0", "values_addr": "0x3d3144b8"}
+{"args": {"id": "other"}, "event": "op", "index": 8, "op": "cancel", "seq": 29}
+{"batch": "b", "event": "view_cancelled", "id": "other", "length": 5, "offset": 0, "reads": 0, "reason": "scenario cancel", "seq": 30}
+{"batch": "b", "deps": 0, "event": "dep_drop", "reason": "view other cancelled", "seq": 31}
+{"batch": "b", "event": "release_deferred", "reason": "root still held", "seq": 32}
+{"batch": "b", "event": "source_state", "id": "other", "live_batches": 2, "op": "view_terminal", "released_batches": 0, "released_streams": 0, "remaining_views": 0, "seq": 33, "state": "cancelled"}
+{"args": {"batch": "b"}, "event": "op", "index": 9, "op": "drop_import", "seq": 34}
+{"batch": "b", "deps": 0, "event": "root_drop", "seq": 35}
+{"batch": "b", "buffers": ["0x3d3144b0", "0x3d3144b8"], "event": "batch_release", "reason": "root dropped, no dependents", "release_fn": "0xef15fbc508d4", "seq": 36}
+{"batch": "b", "event": "source_state", "live_batches": 1, "op": "batch_released", "reason": "root dropped, no dependents", "released_batches": 1, "released_streams": 0, "seq": 37}
+{"batch": "b", "event": "source_state", "live_batches": 1, "op": "drop_import", "released_batches": 1, "released_streams": 0, "seq": 38}
+{"args": {"batch": "c"}, "event": "op", "index": 10, "op": "next", "seq": 39}
+{"call": 3, "event": "get_next", "length": 5, "live_batches": 2, "n_buffers": 2, "null_count": 1, "offset": 0, "ordinal": 2, "rc": 0, "release_fn": "0xef15fbc508d4", "seq": 40}
+{"batch": "c", "buffers": ["0x3d255db0", "0x3d255db8"], "event": "import_take", "length": 5, "null_count": 1, "offset": 0, "original_release_cleared": true, "private_data": "0x3d255db0", "release_fn": "0xef15fbc508d4", "seq": 41, "source_ordinal": 2}
+{"batch": "c", "event": "source_state", "imported": true, "live_batches": 2, "op": "next", "released_batches": 1, "released_streams": 0, "seq": 42}
+{"args": {}, "event": "op", "index": 11, "op": "close_stream", "seq": 43}
+{"event": "stream_close", "live_batches": 2, "release_fn": "0xef15fbc50890", "seq": 44, "stream_addr": "0xef15fbdee220"}
+{"event": "source_state", "live_batches": 2, "op": "close_stream", "released_batches": 1, "released_streams": 1, "seq": 45}
+{"args": {"id": "slow"}, "event": "op", "index": 12, "op": "read", "seq": 46}
+{"batch": "a", "event": "view_read", "id": "slow", "length": 4, "null_count": 1, "offset": 1, "seq": 47, "values": [1, null, 3, 4], "values_addr": "0x3d2a7b78"}
+{"args": {"id": "slow"}, "event": "op", "index": 13, "op": "release", "seq": 48}
+{"batch": "a", "event": "view_released", "id": "slow", "length": 4, "offset": 1, "reads": 1, "reason": "scenario release", "seq": 49}
+{"batch": "a", "deps": 0, "event": "dep_drop", "reason": "view slow released", "seq": 50}
+{"batch": "a", "buffers": ["0x3d2a7b70", "0x3d2a7b78"], "event": "batch_release", "reason": "last dependent dropped (view slow released)", "release_fn": "0xef15fbc508d4", "seq": 51}
+{"batch": "a", "event": "source_state", "live_batches": 1, "op": "batch_released", "reason": "last dependent dropped (view slow released)", "released_batches": 2, "released_streams": 1, "seq": 52}
+{"batch": "a", "event": "source_state", "id": "slow", "live_batches": 1, "op": "view_terminal", "released_batches": 2, "released_streams": 1, "remaining_views": 0, "seq": 53, "state": "released"}
+{"args": {"batch": "c"}, "event": "op", "index": 14, "op": "drop_import", "seq": 54}
+{"batch": "c", "deps": 0, "event": "root_drop", "seq": 55}
+{"batch": "c", "buffers": ["0x3d255db0", "0x3d255db8"], "event": "batch_release", "reason": "root dropped, no dependents", "release_fn": "0xef15fbc508d4", "seq": 56}
+{"batch": "c", "event": "source_state", "live_batches": 0, "op": "batch_released", "reason": "root dropped, no dependents", "released_batches": 3, "released_streams": 1, "seq": 57}
+{"batch": "c", "event": "source_state", "live_batches": 0, "op": "drop_import", "released_batches": 3, "released_streams": 1, "seq": 58}
+{"event": "driver_finish", "live_batches": 0, "occupied_slots": [], "released_batches": 3, "released_streams": 1, "seq": 59}
+{"event": "cleanup_start", "occupied_slots": [], "reason": "run finalization", "seq": 60}
+{"event": "cleanup_done", "live_batches": 0, "released_batches": 3, "released_streams": 1, "seq": 61}
+{"event": "run_end", "held_after_cleanup": 0, "held_before_cleanup": 0, "live_batches": 0, "released_batches": 3, "released_streams": 1, "remaining_roots": [], "remaining_views": [], "seq": 62}

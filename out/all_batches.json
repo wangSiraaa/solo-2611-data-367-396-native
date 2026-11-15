@@ -1,0 +1,1311 @@
+{
+  "scenario": "all_batches",
+  "description": "Pull all three producer batches, create several views on each, and release in a mixed order.",
+  "max_live_exported_batches": 2,
+  "report": {
+    "scenario": "all_batches",
+    "ok": true,
+    "checks": [
+      {
+        "name": "operation_status",
+        "ok": true,
+        "detail": "all operations matched expectations"
+      },
+      {
+        "name": "source_identity",
+        "ok": true,
+        "detail": "imported batches map 1:1 to producer ordinals [0, 1, 2]"
+      },
+      {
+        "name": "source_value_oracle",
+        "ok": true,
+        "detail": "4 reads matched source values/validity"
+      },
+      {
+        "name": "zero_copy_addresses",
+        "ok": true,
+        "detail": "5 views share the producer buffers"
+      },
+      {
+        "name": "release_exactly_once",
+        "ok": true,
+        "detail": "3 allocations released once each via the original callback"
+      },
+      {
+        "name": "producer_counters",
+        "ok": true,
+        "detail": "live=0 (baseline 0), released_delta=3 imports=3, streams_delta=1 opens=1"
+      },
+      {
+        "name": "get_next_calls",
+        "ok": true,
+        "detail": "real get_next calls=4 expected=4 (backpressure=1)"
+      },
+      {
+        "name": "backpressure_observable",
+        "ok": true,
+        "detail": "1 refusals, none called get_next"
+      },
+      {
+        "name": "state_errors",
+        "ok": true,
+        "detail": "read_errors=0 (want 0), op_errors=1 (want 1); no extra C calls proven by get_next/release counts"
+      },
+      {
+        "name": "empty_views",
+        "ok": true,
+        "detail": "(no empty views in this scenario)"
+      },
+      {
+        "name": "active_view_bound",
+        "ok": true,
+        "detail": "max concurrently active views=4 (limit 8)"
+      },
+      {
+        "name": "declared_read_expectations",
+        "ok": true,
+        "detail": "declared read expectations matched"
+      },
+      {
+        "name": "cleanup_released_everything",
+        "ok": true,
+        "detail": "roots=[] views=[] held_before=0 held_after=0 source_live=0"
+      }
+    ],
+    "failures": []
+  },
+  "summary": {
+    "events": 88,
+    "imported_batches": 3,
+    "real_get_next_calls": 4,
+    "source_release_events": 3,
+    "backpressure_events": 1,
+    "read_errors": 0,
+    "state_errors": 1,
+    "releases_by_batch": {
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "final_live_batches": 0,
+    "final_released_batches": 24,
+    "final_released_streams": 15
+  },
+  "results": [
+    {
+      "status": "ok",
+      "op": "next",
+      "batch": "a",
+      "imported": true,
+      "batch_length": 5,
+      "batch_offset": 0,
+      "slots_used": 1,
+      "index": 0
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "a0",
+      "batch": "a",
+      "offset": 0,
+      "length": 5,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 1
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "a1",
+      "batch": "a",
+      "offset": 1,
+      "length": 4,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 2
+    },
+    {
+      "status": "ok",
+      "op": "next",
+      "batch": "b",
+      "imported": true,
+      "batch_length": 5,
+      "batch_offset": 0,
+      "slots_used": 2,
+      "index": 3
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "b0",
+      "batch": "b",
+      "offset": 0,
+      "length": 5,
+      "depth": 0,
+      "slots_used": 2,
+      "index": 4
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "b1",
+      "batch": "b",
+      "offset": 2,
+      "length": 3,
+      "depth": 0,
+      "slots_used": 2,
+      "index": 5
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "a0",
+      "state": "released",
+      "index": 6
+    },
+    {
+      "status": "ok",
+      "op": "drop_import",
+      "batch": "a",
+      "released": false,
+      "slots_used": 2,
+      "index": 7
+    },
+    {
+      "status": "ok",
+      "op": "next",
+      "batch": "c",
+      "backpressure": true,
+      "attempted": "next",
+      "live_batches": 2,
+      "occupied_slots": [
+        "a",
+        "b"
+      ],
+      "max_live_batches": 2,
+      "get_next_called": false,
+      "index": 8
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "a1",
+      "batch": "a",
+      "offset": 1,
+      "length": 4,
+      "values": [
+        1,
+        null,
+        3,
+        4
+      ],
+      "valid": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "null_count": 1,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "reads": 1,
+      "index": 9
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "b1",
+      "batch": "b",
+      "offset": 2,
+      "length": 3,
+      "values": [
+        null,
+        103,
+        104
+      ],
+      "valid": [
+        false,
+        true,
+        true
+      ],
+      "null_count": 1,
+      "values_addr": "0x168be538",
+      "validity_addr": "0x168be530",
+      "reads": 1,
+      "index": 10
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "a1",
+      "state": "released",
+      "index": 11
+    },
+    {
+      "status": "ok",
+      "op": "next",
+      "batch": "c",
+      "imported": true,
+      "batch_length": 5,
+      "batch_offset": 0,
+      "slots_used": 2,
+      "index": 12
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "b0",
+      "batch": "b",
+      "offset": 0,
+      "length": 5,
+      "values": [
+        100,
+        101,
+        null,
+        103,
+        104
+      ],
+      "valid": [
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "null_count": 1,
+      "values_addr": "0x168be538",
+      "validity_addr": "0x168be530",
+      "reads": 1,
+      "index": 13
+    },
+    {
+      "status": "ok",
+      "op": "drop_import",
+      "batch": "b",
+      "released": false,
+      "slots_used": 2,
+      "index": 14
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "b0",
+      "state": "released",
+      "index": 15
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "b1",
+      "state": "released",
+      "index": 16
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "c0",
+      "batch": "c",
+      "offset": 0,
+      "length": 5,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 17
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "c0",
+      "batch": "c",
+      "offset": 0,
+      "length": 5,
+      "values": [
+        200,
+        201,
+        null,
+        203,
+        204
+      ],
+      "valid": [
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "null_count": 1,
+      "values_addr": "0x168798d8",
+      "validity_addr": "0x168798d0",
+      "reads": 1,
+      "index": 18
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "c0",
+      "state": "released",
+      "index": 19
+    },
+    {
+      "status": "ok",
+      "op": "drop_import",
+      "batch": "c",
+      "released": true,
+      "slots_used": 0,
+      "index": 20
+    },
+    {
+      "status": "ok",
+      "op": "next",
+      "batch": "d",
+      "end_of_stream": true,
+      "index": 21
+    },
+    {
+      "op": "next",
+      "status": "error",
+      "error_type": "StreamStateError",
+      "error": "cannot next: source stream already reported end-of-stream",
+      "index": 22
+    },
+    {
+      "status": "ok",
+      "op": "close_stream",
+      "closed": true,
+      "index": 23
+    }
+  ],
+  "audit": [
+    {
+      "seq": 1,
+      "event": "stream_open",
+      "stream_addr": "0xf407307342d0",
+      "get_next_fn": "0xf407303f07a0",
+      "release_fn": "0xf407303f0890"
+    },
+    {
+      "seq": 2,
+      "event": "driver_start",
+      "max_live_batches": 2,
+      "live_batches": 0
+    },
+    {
+      "seq": 3,
+      "event": "op",
+      "index": 0,
+      "op": "next",
+      "args": {
+        "batch": "a"
+      }
+    },
+    {
+      "seq": 4,
+      "event": "get_next",
+      "call": 1,
+      "rc": 0,
+      "ordinal": 0,
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "n_buffers": 2,
+      "live_batches": 1,
+      "release_fn": "0xf407303f08d4"
+    },
+    {
+      "seq": 5,
+      "event": "import_take",
+      "batch": "a",
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "buffers": [
+        "0x16845540",
+        "0x16845548"
+      ],
+      "release_fn": "0xf407303f08d4",
+      "private_data": "0x16845540",
+      "original_release_cleared": true,
+      "source_ordinal": 0
+    },
+    {
+      "seq": 6,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 21,
+      "released_streams": 14,
+      "op": "next",
+      "batch": "a",
+      "imported": true
+    },
+    {
+      "seq": 7,
+      "event": "op",
+      "index": 1,
+      "op": "view",
+      "args": {
+        "id": "a0",
+        "batch": "a",
+        "start": 0,
+        "length": 5
+      }
+    },
+    {
+      "seq": 8,
+      "event": "dep_add",
+      "batch": "a",
+      "deps": 1
+    },
+    {
+      "seq": 9,
+      "event": "view_create",
+      "id": "a0",
+      "batch": "a",
+      "parent": null,
+      "offset": 0,
+      "length": 5,
+      "depth": 0,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 10,
+      "event": "op",
+      "index": 2,
+      "op": "view",
+      "args": {
+        "id": "a1",
+        "batch": "a",
+        "start": 1,
+        "length": 4
+      }
+    },
+    {
+      "seq": 11,
+      "event": "dep_add",
+      "batch": "a",
+      "deps": 2
+    },
+    {
+      "seq": 12,
+      "event": "view_create",
+      "id": "a1",
+      "batch": "a",
+      "parent": null,
+      "offset": 1,
+      "length": 4,
+      "depth": 0,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 13,
+      "event": "op",
+      "index": 3,
+      "op": "next",
+      "args": {
+        "batch": "b"
+      }
+    },
+    {
+      "seq": 14,
+      "event": "get_next",
+      "call": 2,
+      "rc": 0,
+      "ordinal": 1,
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "n_buffers": 2,
+      "live_batches": 2,
+      "release_fn": "0xf407303f08d4"
+    },
+    {
+      "seq": 15,
+      "event": "import_take",
+      "batch": "b",
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "buffers": [
+        "0x168be530",
+        "0x168be538"
+      ],
+      "release_fn": "0xf407303f08d4",
+      "private_data": "0x168be530",
+      "original_release_cleared": true,
+      "source_ordinal": 1
+    },
+    {
+      "seq": 16,
+      "event": "source_state",
+      "live_batches": 2,
+      "released_batches": 21,
+      "released_streams": 14,
+      "op": "next",
+      "batch": "b",
+      "imported": true
+    },
+    {
+      "seq": 17,
+      "event": "op",
+      "index": 4,
+      "op": "view",
+      "args": {
+        "id": "b0",
+        "batch": "b",
+        "start": 0,
+        "length": 5
+      }
+    },
+    {
+      "seq": 18,
+      "event": "dep_add",
+      "batch": "b",
+      "deps": 1
+    },
+    {
+      "seq": 19,
+      "event": "view_create",
+      "id": "b0",
+      "batch": "b",
+      "parent": null,
+      "offset": 0,
+      "length": 5,
+      "depth": 0,
+      "values_addr": "0x168be538",
+      "validity_addr": "0x168be530",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 20,
+      "event": "op",
+      "index": 5,
+      "op": "view",
+      "args": {
+        "id": "b1",
+        "batch": "b",
+        "start": 2,
+        "length": 3
+      }
+    },
+    {
+      "seq": 21,
+      "event": "dep_add",
+      "batch": "b",
+      "deps": 2
+    },
+    {
+      "seq": 22,
+      "event": "view_create",
+      "id": "b1",
+      "batch": "b",
+      "parent": null,
+      "offset": 2,
+      "length": 3,
+      "depth": 0,
+      "values_addr": "0x168be538",
+      "validity_addr": "0x168be530",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 23,
+      "event": "op",
+      "index": 6,
+      "op": "release",
+      "args": {
+        "id": "a0"
+      }
+    },
+    {
+      "seq": 24,
+      "event": "view_released",
+      "id": "a0",
+      "batch": "a",
+      "offset": 0,
+      "length": 5,
+      "reason": "scenario release",
+      "reads": 0
+    },
+    {
+      "seq": 25,
+      "event": "dep_drop",
+      "batch": "a",
+      "deps": 1,
+      "reason": "view a0 released"
+    },
+    {
+      "seq": 26,
+      "event": "source_state",
+      "live_batches": 2,
+      "released_batches": 21,
+      "released_streams": 14,
+      "op": "view_terminal",
+      "id": "a0",
+      "batch": "a",
+      "state": "released",
+      "remaining_views": 1
+    },
+    {
+      "seq": 27,
+      "event": "op",
+      "index": 7,
+      "op": "drop_import",
+      "args": {
+        "batch": "a"
+      }
+    },
+    {
+      "seq": 28,
+      "event": "root_drop",
+      "batch": "a",
+      "deps": 1
+    },
+    {
+      "seq": 29,
+      "event": "source_state",
+      "live_batches": 2,
+      "released_batches": 21,
+      "released_streams": 14,
+      "op": "drop_import",
+      "batch": "a"
+    },
+    {
+      "seq": 30,
+      "event": "op",
+      "index": 8,
+      "op": "next",
+      "args": {
+        "batch": "c",
+        "expect_backpressure": true
+      }
+    },
+    {
+      "seq": 31,
+      "event": "backpressure",
+      "attempted": "next",
+      "live_batches": 2,
+      "occupied_slots": [
+        "a",
+        "b"
+      ],
+      "max_live_batches": 2,
+      "get_next_called": false
+    },
+    {
+      "seq": 32,
+      "event": "op",
+      "index": 9,
+      "op": "read",
+      "args": {
+        "id": "a1",
+        "expect_values": [
+          1,
+          null,
+          3,
+          4
+        ],
+        "expect_valid": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "expect_null_count": 1
+      }
+    },
+    {
+      "seq": 33,
+      "event": "view_read",
+      "id": "a1",
+      "batch": "a",
+      "offset": 1,
+      "length": 4,
+      "values": [
+        1,
+        null,
+        3,
+        4
+      ],
+      "null_count": 1,
+      "values_addr": "0x16845548"
+    },
+    {
+      "seq": 34,
+      "event": "op",
+      "index": 10,
+      "op": "read",
+      "args": {
+        "id": "b1",
+        "expect_values": [
+          null,
+          103,
+          104
+        ],
+        "expect_valid": [
+          false,
+          true,
+          true
+        ],
+        "expect_null_count": 1
+      }
+    },
+    {
+      "seq": 35,
+      "event": "view_read",
+      "id": "b1",
+      "batch": "b",
+      "offset": 2,
+      "length": 3,
+      "values": [
+        null,
+        103,
+        104
+      ],
+      "null_count": 1,
+      "values_addr": "0x168be538"
+    },
+    {
+      "seq": 36,
+      "event": "op",
+      "index": 11,
+      "op": "release",
+      "args": {
+        "id": "a1"
+      }
+    },
+    {
+      "seq": 37,
+      "event": "view_released",
+      "id": "a1",
+      "batch": "a",
+      "offset": 1,
+      "length": 4,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 38,
+      "event": "dep_drop",
+      "batch": "a",
+      "deps": 0,
+      "reason": "view a1 released"
+    },
+    {
+      "seq": 39,
+      "event": "batch_release",
+      "batch": "a",
+      "release_fn": "0xf407303f08d4",
+      "buffers": [
+        "0x16845540",
+        "0x16845548"
+      ],
+      "reason": "last dependent dropped (view a1 released)"
+    },
+    {
+      "seq": 40,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 22,
+      "released_streams": 14,
+      "op": "batch_released",
+      "batch": "a",
+      "reason": "last dependent dropped (view a1 released)"
+    },
+    {
+      "seq": 41,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 22,
+      "released_streams": 14,
+      "op": "view_terminal",
+      "id": "a1",
+      "batch": "a",
+      "state": "released",
+      "remaining_views": 0
+    },
+    {
+      "seq": 42,
+      "event": "op",
+      "index": 12,
+      "op": "next",
+      "args": {
+        "batch": "c"
+      }
+    },
+    {
+      "seq": 43,
+      "event": "get_next",
+      "call": 3,
+      "rc": 0,
+      "ordinal": 2,
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "n_buffers": 2,
+      "live_batches": 2,
+      "release_fn": "0xf407303f08d4"
+    },
+    {
+      "seq": 44,
+      "event": "import_take",
+      "batch": "c",
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "buffers": [
+        "0x168798d0",
+        "0x168798d8"
+      ],
+      "release_fn": "0xf407303f08d4",
+      "private_data": "0x168798d0",
+      "original_release_cleared": true,
+      "source_ordinal": 2
+    },
+    {
+      "seq": 45,
+      "event": "source_state",
+      "live_batches": 2,
+      "released_batches": 22,
+      "released_streams": 14,
+      "op": "next",
+      "batch": "c",
+      "imported": true
+    },
+    {
+      "seq": 46,
+      "event": "op",
+      "index": 13,
+      "op": "read",
+      "args": {
+        "id": "b0",
+        "expect_values": [
+          100,
+          101,
+          null,
+          103,
+          104
+        ],
+        "expect_valid": [
+          true,
+          true,
+          false,
+          true,
+          true
+        ],
+        "expect_null_count": 1
+      }
+    },
+    {
+      "seq": 47,
+      "event": "view_read",
+      "id": "b0",
+      "batch": "b",
+      "offset": 0,
+      "length": 5,
+      "values": [
+        100,
+        101,
+        null,
+        103,
+        104
+      ],
+      "null_count": 1,
+      "values_addr": "0x168be538"
+    },
+    {
+      "seq": 48,
+      "event": "op",
+      "index": 14,
+      "op": "drop_import",
+      "args": {
+        "batch": "b"
+      }
+    },
+    {
+      "seq": 49,
+      "event": "root_drop",
+      "batch": "b",
+      "deps": 2
+    },
+    {
+      "seq": 50,
+      "event": "source_state",
+      "live_batches": 2,
+      "released_batches": 22,
+      "released_streams": 14,
+      "op": "drop_import",
+      "batch": "b"
+    },
+    {
+      "seq": 51,
+      "event": "op",
+      "index": 15,
+      "op": "release",
+      "args": {
+        "id": "b0"
+      }
+    },
+    {
+      "seq": 52,
+      "event": "view_released",
+      "id": "b0",
+      "batch": "b",
+      "offset": 0,
+      "length": 5,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 53,
+      "event": "dep_drop",
+      "batch": "b",
+      "deps": 1,
+      "reason": "view b0 released"
+    },
+    {
+      "seq": 54,
+      "event": "source_state",
+      "live_batches": 2,
+      "released_batches": 22,
+      "released_streams": 14,
+      "op": "view_terminal",
+      "id": "b0",
+      "batch": "b",
+      "state": "released",
+      "remaining_views": 1
+    },
+    {
+      "seq": 55,
+      "event": "op",
+      "index": 16,
+      "op": "release",
+      "args": {
+        "id": "b1"
+      }
+    },
+    {
+      "seq": 56,
+      "event": "view_released",
+      "id": "b1",
+      "batch": "b",
+      "offset": 2,
+      "length": 3,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 57,
+      "event": "dep_drop",
+      "batch": "b",
+      "deps": 0,
+      "reason": "view b1 released"
+    },
+    {
+      "seq": 58,
+      "event": "batch_release",
+      "batch": "b",
+      "release_fn": "0xf407303f08d4",
+      "buffers": [
+        "0x168be530",
+        "0x168be538"
+      ],
+      "reason": "last dependent dropped (view b1 released)"
+    },
+    {
+      "seq": 59,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 23,
+      "released_streams": 14,
+      "op": "batch_released",
+      "batch": "b",
+      "reason": "last dependent dropped (view b1 released)"
+    },
+    {
+      "seq": 60,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 23,
+      "released_streams": 14,
+      "op": "view_terminal",
+      "id": "b1",
+      "batch": "b",
+      "state": "released",
+      "remaining_views": 0
+    },
+    {
+      "seq": 61,
+      "event": "op",
+      "index": 17,
+      "op": "view",
+      "args": {
+        "id": "c0",
+        "batch": "c",
+        "start": 0,
+        "length": 5
+      }
+    },
+    {
+      "seq": 62,
+      "event": "dep_add",
+      "batch": "c",
+      "deps": 1
+    },
+    {
+      "seq": 63,
+      "event": "view_create",
+      "id": "c0",
+      "batch": "c",
+      "parent": null,
+      "offset": 0,
+      "length": 5,
+      "depth": 0,
+      "values_addr": "0x168798d8",
+      "validity_addr": "0x168798d0",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 64,
+      "event": "op",
+      "index": 18,
+      "op": "read",
+      "args": {
+        "id": "c0",
+        "expect_values": [
+          200,
+          201,
+          null,
+          203,
+          204
+        ],
+        "expect_valid": [
+          true,
+          true,
+          false,
+          true,
+          true
+        ],
+        "expect_null_count": 1
+      }
+    },
+    {
+      "seq": 65,
+      "event": "view_read",
+      "id": "c0",
+      "batch": "c",
+      "offset": 0,
+      "length": 5,
+      "values": [
+        200,
+        201,
+        null,
+        203,
+        204
+      ],
+      "null_count": 1,
+      "values_addr": "0x168798d8"
+    },
+    {
+      "seq": 66,
+      "event": "op",
+      "index": 19,
+      "op": "release",
+      "args": {
+        "id": "c0"
+      }
+    },
+    {
+      "seq": 67,
+      "event": "view_released",
+      "id": "c0",
+      "batch": "c",
+      "offset": 0,
+      "length": 5,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 68,
+      "event": "dep_drop",
+      "batch": "c",
+      "deps": 0,
+      "reason": "view c0 released"
+    },
+    {
+      "seq": 69,
+      "event": "release_deferred",
+      "batch": "c",
+      "reason": "root still held"
+    },
+    {
+      "seq": 70,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 23,
+      "released_streams": 14,
+      "op": "view_terminal",
+      "id": "c0",
+      "batch": "c",
+      "state": "released",
+      "remaining_views": 0
+    },
+    {
+      "seq": 71,
+      "event": "op",
+      "index": 20,
+      "op": "drop_import",
+      "args": {
+        "batch": "c"
+      }
+    },
+    {
+      "seq": 72,
+      "event": "root_drop",
+      "batch": "c",
+      "deps": 0
+    },
+    {
+      "seq": 73,
+      "event": "batch_release",
+      "batch": "c",
+      "release_fn": "0xf407303f08d4",
+      "buffers": [
+        "0x168798d0",
+        "0x168798d8"
+      ],
+      "reason": "root dropped, no dependents"
+    },
+    {
+      "seq": 74,
+      "event": "source_state",
+      "live_batches": 0,
+      "released_batches": 24,
+      "released_streams": 14,
+      "op": "batch_released",
+      "batch": "c",
+      "reason": "root dropped, no dependents"
+    },
+    {
+      "seq": 75,
+      "event": "source_state",
+      "live_batches": 0,
+      "released_batches": 24,
+      "released_streams": 14,
+      "op": "drop_import",
+      "batch": "c"
+    },
+    {
+      "seq": 76,
+      "event": "op",
+      "index": 21,
+      "op": "next",
+      "args": {
+        "batch": "d",
+        "expect_end_of_stream": true
+      }
+    },
+    {
+      "seq": 77,
+      "event": "get_next",
+      "call": 4,
+      "rc": 0,
+      "end_of_stream": true,
+      "live_batches": 0
+    },
+    {
+      "seq": 78,
+      "event": "source_state",
+      "live_batches": 0,
+      "released_batches": 24,
+      "released_streams": 14,
+      "op": "next",
+      "batch": "d",
+      "end_of_stream": true
+    },
+    {
+      "seq": 79,
+      "event": "op",
+      "index": 22,
+      "op": "next",
+      "args": {
+        "batch": "e",
+        "expect_error": true
+      }
+    },
+    {
+      "seq": 80,
+      "event": "state_error",
+      "op": "get_next",
+      "state": "end-of-stream",
+      "message": "cannot next: source stream already reported end-of-stream"
+    },
+    {
+      "seq": 81,
+      "event": "op_error",
+      "index": 22,
+      "op": "next",
+      "error_type": "StreamStateError",
+      "error": "cannot next: source stream already reported end-of-stream"
+    },
+    {
+      "seq": 82,
+      "event": "op",
+      "index": 23,
+      "op": "close_stream",
+      "args": {}
+    },
+    {
+      "seq": 83,
+      "event": "stream_close",
+      "stream_addr": "0xf407307342d0",
+      "release_fn": "0xf407303f0890",
+      "live_batches": 0
+    },
+    {
+      "seq": 84,
+      "event": "source_state",
+      "live_batches": 0,
+      "released_batches": 24,
+      "released_streams": 15,
+      "op": "close_stream"
+    },
+    {
+      "seq": 85,
+      "event": "driver_finish",
+      "live_batches": 0,
+      "released_batches": 24,
+      "released_streams": 15,
+      "occupied_slots": []
+    },
+    {
+      "seq": 86,
+      "event": "cleanup_start",
+      "reason": "run finalization",
+      "occupied_slots": []
+    },
+    {
+      "seq": 87,
+      "event": "cleanup_done",
+      "live_batches": 0,
+      "released_batches": 24,
+      "released_streams": 15
+    },
+    {
+      "seq": 88,
+      "event": "run_end",
+      "live_batches": 0,
+      "released_batches": 24,
+      "released_streams": 15,
+      "held_before_cleanup": 0,
+      "held_after_cleanup": 0,
+      "remaining_roots": [],
+      "remaining_views": []
+    }
+  ]
+}

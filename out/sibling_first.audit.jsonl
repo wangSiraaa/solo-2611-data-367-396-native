@@ -1,0 +1,38 @@
+{"event": "stream_open", "get_next_fn": "0xf407303f07a0", "release_fn": "0xf407303f0890", "seq": 1, "stream_addr": "0xf407305ac390"}
+{"event": "driver_start", "live_batches": 0, "max_live_batches": 2, "seq": 2}
+{"args": {"batch": "a"}, "event": "op", "index": 0, "op": "next", "seq": 3}
+{"call": 1, "event": "get_next", "length": 5, "live_batches": 1, "n_buffers": 2, "null_count": 1, "offset": 0, "ordinal": 0, "rc": 0, "release_fn": "0xf407303f08d4", "seq": 4}
+{"batch": "a", "buffers": ["0x1685c9e0", "0x1685c9e8"], "event": "import_take", "length": 5, "null_count": 1, "offset": 0, "original_release_cleared": true, "private_data": "0x1685c9e0", "release_fn": "0xf407303f08d4", "seq": 5, "source_ordinal": 0}
+{"batch": "a", "event": "source_state", "imported": true, "live_batches": 1, "op": "next", "released_batches": 3, "released_streams": 1, "seq": 6}
+{"args": {"batch": "a", "id": "vleft", "length": 3, "start": 0}, "event": "op", "index": 1, "op": "view", "seq": 7}
+{"batch": "a", "deps": 1, "event": "dep_add", "seq": 8}
+{"batch": "a", "depth": 0, "event": "view_create", "id": "vleft", "length": 3, "offset": 0, "parent": null, "seq": 9, "shares_validity": true, "shares_values": true, "validity_addr": "0x1685c9e0", "values_addr": "0x1685c9e8"}
+{"args": {"batch": "a", "id": "vright", "length": 3, "start": 2}, "event": "op", "index": 2, "op": "view", "seq": 10}
+{"batch": "a", "deps": 2, "event": "dep_add", "seq": 11}
+{"batch": "a", "depth": 0, "event": "view_create", "id": "vright", "length": 3, "offset": 2, "parent": null, "seq": 12, "shares_validity": true, "shares_values": true, "validity_addr": "0x1685c9e0", "values_addr": "0x1685c9e8"}
+{"args": {"batch": "a"}, "event": "op", "index": 3, "op": "drop_import", "seq": 13}
+{"batch": "a", "deps": 2, "event": "root_drop", "seq": 14}
+{"batch": "a", "event": "source_state", "live_batches": 1, "op": "drop_import", "released_batches": 3, "released_streams": 1, "seq": 15}
+{"args": {"expect_null_count": 1, "expect_valid": [true, true, false], "expect_values": [0, 1, null], "id": "vleft"}, "event": "op", "index": 4, "op": "read", "seq": 16}
+{"batch": "a", "event": "view_read", "id": "vleft", "length": 3, "null_count": 1, "offset": 0, "seq": 17, "values": [0, 1, null], "values_addr": "0x1685c9e8"}
+{"args": {"id": "vleft"}, "event": "op", "index": 5, "op": "release", "seq": 18}
+{"batch": "a", "event": "view_released", "id": "vleft", "length": 3, "offset": 0, "reads": 1, "reason": "scenario release", "seq": 19}
+{"batch": "a", "deps": 1, "event": "dep_drop", "reason": "view vleft released", "seq": 20}
+{"batch": "a", "event": "source_state", "id": "vleft", "live_batches": 1, "op": "view_terminal", "released_batches": 3, "released_streams": 1, "remaining_views": 1, "seq": 21, "state": "released"}
+{"args": {"expect_null_count": 1, "expect_valid": [false, true, true], "expect_values": [null, 3, 4], "id": "vright"}, "event": "op", "index": 6, "op": "read", "seq": 22}
+{"batch": "a", "event": "view_read", "id": "vright", "length": 3, "null_count": 1, "offset": 2, "seq": 23, "values": [null, 3, 4], "values_addr": "0x1685c9e8"}
+{"args": {}, "event": "op", "index": 7, "op": "close_stream", "seq": 24}
+{"event": "stream_close", "live_batches": 1, "release_fn": "0xf407303f0890", "seq": 25, "stream_addr": "0xf407305ac390"}
+{"event": "source_state", "live_batches": 1, "op": "close_stream", "released_batches": 3, "released_streams": 2, "seq": 26}
+{"args": {"expect_null_count": 1, "expect_valid": [false, true, true], "expect_values": [null, 3, 4], "id": "vright"}, "event": "op", "index": 8, "op": "read", "seq": 27}
+{"batch": "a", "event": "view_read", "id": "vright", "length": 3, "null_count": 1, "offset": 2, "seq": 28, "values": [null, 3, 4], "values_addr": "0x1685c9e8"}
+{"args": {"id": "vright"}, "event": "op", "index": 9, "op": "release", "seq": 29}
+{"batch": "a", "event": "view_released", "id": "vright", "length": 3, "offset": 2, "reads": 2, "reason": "scenario release", "seq": 30}
+{"batch": "a", "deps": 0, "event": "dep_drop", "reason": "view vright released", "seq": 31}
+{"batch": "a", "buffers": ["0x1685c9e0", "0x1685c9e8"], "event": "batch_release", "reason": "last dependent dropped (view vright released)", "release_fn": "0xf407303f08d4", "seq": 32}
+{"batch": "a", "event": "source_state", "live_batches": 0, "op": "batch_released", "reason": "last dependent dropped (view vright released)", "released_batches": 4, "released_streams": 2, "seq": 33}
+{"batch": "a", "event": "source_state", "id": "vright", "live_batches": 0, "op": "view_terminal", "released_batches": 4, "released_streams": 2, "remaining_views": 0, "seq": 34, "state": "released"}
+{"event": "driver_finish", "live_batches": 0, "occupied_slots": [], "released_batches": 4, "released_streams": 2, "seq": 35}
+{"event": "cleanup_start", "occupied_slots": [], "reason": "run finalization", "seq": 36}
+{"event": "cleanup_done", "live_batches": 0, "released_batches": 4, "released_streams": 2, "seq": 37}
+{"event": "run_end", "held_after_cleanup": 0, "held_before_cleanup": 0, "live_batches": 0, "released_batches": 4, "released_streams": 2, "remaining_roots": [], "remaining_views": [], "seq": 38}

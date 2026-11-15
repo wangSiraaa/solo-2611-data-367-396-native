@@ -1,0 +1,29 @@
+{"event": "stream_open", "get_next_fn": "0xf407303f07a0", "release_fn": "0xf407303f0890", "seq": 1, "stream_addr": "0xf40730734900"}
+{"event": "driver_start", "live_batches": 0, "max_live_batches": 2, "seq": 2}
+{"args": {"batch": "a"}, "event": "op", "index": 0, "op": "next", "seq": 3}
+{"call": 1, "event": "get_next", "length": 5, "live_batches": 1, "n_buffers": 2, "null_count": 1, "offset": 0, "ordinal": 0, "rc": 0, "release_fn": "0xf407303f08d4", "seq": 4}
+{"batch": "a", "buffers": ["0x1684aac0", "0x1684aac8"], "event": "import_take", "length": 5, "null_count": 1, "offset": 0, "original_release_cleared": true, "private_data": "0x1684aac0", "release_fn": "0xf407303f08d4", "seq": 5, "source_ordinal": 0}
+{"batch": "a", "event": "source_state", "imported": true, "live_batches": 1, "op": "next", "released_batches": 15, "released_streams": 10, "seq": 6}
+{"args": {"batch": "a", "id": "keep", "length": 5, "start": 0}, "event": "op", "index": 1, "op": "view", "seq": 7}
+{"batch": "a", "deps": 1, "event": "dep_add", "seq": 8}
+{"batch": "a", "depth": 0, "event": "view_create", "id": "keep", "length": 5, "offset": 0, "parent": null, "seq": 9, "shares_validity": true, "shares_values": true, "validity_addr": "0x1684aac0", "values_addr": "0x1684aac8"}
+{"args": {"batch": "a"}, "event": "op", "index": 2, "op": "drop_import", "seq": 10}
+{"batch": "a", "deps": 1, "event": "root_drop", "seq": 11}
+{"batch": "a", "event": "source_state", "live_batches": 1, "op": "drop_import", "released_batches": 15, "released_streams": 10, "seq": 12}
+{"args": {"batch": "a", "expect_error": true, "id": "late", "length": 1, "start": 0}, "event": "op", "index": 3, "op": "view", "seq": 13}
+{"batch": "a", "event": "state_error", "message": "batch 'a': import handle was dropped; cannot create new views", "op": "view", "seq": 14}
+{"batch": "a", "error": "batch 'a': import handle was dropped; cannot create new views", "error_type": "BatchReleasedError", "event": "view_rejected", "id": "late", "length": 1, "parent": null, "seq": 15, "start": 0}
+{"error": "batch 'a': import handle was dropped; cannot create new views", "error_type": "BatchReleasedError", "event": "op_error", "index": 3, "op": "view", "seq": 16}
+{"args": {"expect_null_count": 1, "expect_valid": [true, true, false, true, true], "expect_values": [0, 1, null, 3, 4], "id": "keep"}, "event": "op", "index": 4, "op": "read", "seq": 17}
+{"batch": "a", "event": "view_read", "id": "keep", "length": 5, "null_count": 1, "offset": 0, "seq": 18, "values": [0, 1, null, 3, 4], "values_addr": "0x1684aac8"}
+{"args": {"id": "keep"}, "event": "op", "index": 5, "op": "release", "seq": 19}
+{"batch": "a", "event": "view_released", "id": "keep", "length": 5, "offset": 0, "reads": 1, "reason": "scenario release", "seq": 20}
+{"batch": "a", "deps": 0, "event": "dep_drop", "reason": "view keep released", "seq": 21}
+{"batch": "a", "buffers": ["0x1684aac0", "0x1684aac8"], "event": "batch_release", "reason": "last dependent dropped (view keep released)", "release_fn": "0xf407303f08d4", "seq": 22}
+{"batch": "a", "event": "source_state", "live_batches": 0, "op": "batch_released", "reason": "last dependent dropped (view keep released)", "released_batches": 16, "released_streams": 10, "seq": 23}
+{"batch": "a", "event": "source_state", "id": "keep", "live_batches": 0, "op": "view_terminal", "released_batches": 16, "released_streams": 10, "remaining_views": 0, "seq": 24, "state": "released"}
+{"event": "driver_finish", "live_batches": 0, "occupied_slots": [], "released_batches": 16, "released_streams": 10, "seq": 25}
+{"event": "cleanup_start", "occupied_slots": [], "reason": "run finalization", "seq": 26}
+{"event": "stream_close", "live_batches": 0, "release_fn": "0xf407303f0890", "seq": 27, "stream_addr": "0xf40730734900"}
+{"event": "cleanup_done", "live_batches": 0, "released_batches": 16, "released_streams": 11, "seq": 28}
+{"event": "run_end", "held_after_cleanup": 0, "held_before_cleanup": 0, "live_batches": 0, "released_batches": 16, "released_streams": 11, "remaining_roots": [], "remaining_views": [], "seq": 29}

@@ -1,0 +1,24 @@
+{"event": "stream_open", "get_next_fn": "0xf407303f07a0", "release_fn": "0xf407303f0890", "seq": 1, "stream_addr": "0xf40730734900"}
+{"event": "driver_start", "live_batches": 0, "max_live_batches": 2, "seq": 2}
+{"args": {"batch": "a"}, "event": "op", "index": 0, "op": "next", "seq": 3}
+{"call": 1, "event": "get_next", "length": 5, "live_batches": 1, "n_buffers": 2, "null_count": 1, "offset": 0, "ordinal": 0, "rc": 0, "release_fn": "0xf407303f08d4", "seq": 4}
+{"batch": "a", "buffers": ["0x16846b90", "0x16846b98"], "event": "import_take", "length": 5, "null_count": 1, "offset": 0, "original_release_cleared": true, "private_data": "0x16846b90", "release_fn": "0xf407303f08d4", "seq": 5, "source_ordinal": 0}
+{"batch": "a", "event": "source_state", "imported": true, "live_batches": 1, "op": "next", "released_batches": 19, "released_streams": 12, "seq": 6}
+{"args": {"batch": "a", "id": "v", "length": 5, "start": 0}, "event": "op", "index": 1, "op": "view", "seq": 7}
+{"batch": "a", "deps": 1, "event": "dep_add", "seq": 8}
+{"batch": "a", "depth": 0, "event": "view_create", "id": "v", "length": 5, "offset": 0, "parent": null, "seq": 9, "shares_validity": true, "shares_values": true, "validity_addr": "0x16846b90", "values_addr": "0x16846b98"}
+{"args": {"id": "v"}, "event": "op", "index": 2, "op": "read", "seq": 10}
+{"batch": "a", "event": "view_read", "id": "v", "length": 5, "null_count": 1, "offset": 0, "seq": 11, "values": [0, 1, null, 3, 4], "values_addr": "0x16846b98"}
+{"event": "injected_failure", "index": 3, "live_batches": 1, "occupied_slots": ["a"], "seq": 12}
+{"error": "RuntimeError: injected consumer failure at operation 3", "event": "uncaught_consumer_exception", "seq": 13, "trace": "Traceback (most recent call last):\n  File \"/workspace/abr/cli.py\", line 46, in _run_one\n    results = driver.execute(\n              ^^^^^^^^^^^^^^^\n  File \"/workspace/abr/driver.py\", line 385, in execute\n    raise RuntimeError(f\"injected consumer failure at operation {index}\")\nRuntimeError: injected consumer failure at operation 3\n"}
+{"event": "cleanup_start", "occupied_slots": ["a"], "reason": "run finalization", "seq": 14}
+{"batch": "a", "event": "view_cancelled", "id": "v", "length": 5, "offset": 0, "reads": 1, "reason": "run finalization", "seq": 15}
+{"batch": "a", "deps": 0, "event": "dep_drop", "reason": "view v cancelled", "seq": 16}
+{"batch": "a", "event": "release_deferred", "reason": "root still held", "seq": 17}
+{"batch": "a", "event": "source_state", "id": "v", "live_batches": 1, "op": "view_terminal", "released_batches": 19, "released_streams": 12, "remaining_views": 0, "seq": 18, "state": "cancelled"}
+{"batch": "a", "deps": 0, "event": "root_drop", "seq": 19}
+{"batch": "a", "buffers": ["0x16846b90", "0x16846b98"], "event": "batch_release", "reason": "root dropped, no dependents", "release_fn": "0xf407303f08d4", "seq": 20}
+{"batch": "a", "event": "source_state", "live_batches": 0, "op": "batch_released", "reason": "root dropped, no dependents", "released_batches": 20, "released_streams": 12, "seq": 21}
+{"event": "stream_close", "live_batches": 0, "release_fn": "0xf407303f0890", "seq": 22, "stream_addr": "0xf40730734900"}
+{"event": "cleanup_done", "live_batches": 0, "released_batches": 20, "released_streams": 13, "seq": 23}
+{"event": "run_end", "held_after_cleanup": 0, "held_before_cleanup": 1, "live_batches": 0, "released_batches": 20, "released_streams": 13, "remaining_roots": [], "remaining_views": [], "seq": 24}

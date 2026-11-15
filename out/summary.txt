@@ -1,0 +1,22 @@
+[given] PASS
+[sibling_first] PASS
+[root_first] PASS
+[stream_first] PASS
+[nested] PASS
+[null_bits] PASS
+[cancel] PASS
+[released_read] PASS
+[backpressure] PASS
+[bounds] PASS
+[import_handle_lifecycle] PASS
+[barrier_multi] PASS
+[exception_cleanup] PASS
+[empty_views] PASS
+[all_batches] PASS
+
+15/15 scenarios passed
+artifacts in out/
+[scenario] PASS
+
+1/1 scenarios passed
+artifacts in out/

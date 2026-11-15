@@ -1,0 +1,701 @@
+{
+  "scenario": "bounds",
+  "description": "Illegal slices (negative start, overrun, underflow via nested parent) are rejected without disturbing live handles.",
+  "max_live_exported_batches": 2,
+  "report": {
+    "scenario": "bounds",
+    "ok": true,
+    "checks": [
+      {
+        "name": "operation_status",
+        "ok": true,
+        "detail": "all operations matched expectations"
+      },
+      {
+        "name": "source_identity",
+        "ok": true,
+        "detail": "imported batches map 1:1 to producer ordinals [0]"
+      },
+      {
+        "name": "source_value_oracle",
+        "ok": true,
+        "detail": "1 reads matched source values/validity"
+      },
+      {
+        "name": "zero_copy_addresses",
+        "ok": true,
+        "detail": "2 views share the producer buffers"
+      },
+      {
+        "name": "release_exactly_once",
+        "ok": true,
+        "detail": "1 allocations released once each via the original callback"
+      },
+      {
+        "name": "producer_counters",
+        "ok": true,
+        "detail": "live=0 (baseline 0), released_delta=1 imports=1, streams_delta=1 opens=1"
+      },
+      {
+        "name": "get_next_calls",
+        "ok": true,
+        "detail": "real get_next calls=1 expected=1 (backpressure=0)"
+      },
+      {
+        "name": "state_errors",
+        "ok": true,
+        "detail": "read_errors=0 (want 0), op_errors=5 (want 5); no extra C calls proven by get_next/release counts"
+      },
+      {
+        "name": "empty_views",
+        "ok": true,
+        "detail": "(no empty views in this scenario)"
+      },
+      {
+        "name": "active_view_bound",
+        "ok": true,
+        "detail": "max concurrently active views=2 (limit 8)"
+      },
+      {
+        "name": "declared_read_expectations",
+        "ok": true,
+        "detail": "declared read expectations matched"
+      },
+      {
+        "name": "cleanup_released_everything",
+        "ok": true,
+        "detail": "roots=[] views=[] held_before=0 held_after=0 source_live=0"
+      }
+    ],
+    "failures": []
+  },
+  "summary": {
+    "events": 48,
+    "imported_batches": 1,
+    "real_get_next_calls": 1,
+    "source_release_events": 1,
+    "backpressure_events": 0,
+    "read_errors": 0,
+    "state_errors": 0,
+    "releases_by_batch": {
+      "a": 1
+    },
+    "final_live_batches": 0,
+    "final_released_batches": 15,
+    "final_released_streams": 10
+  },
+  "results": [
+    {
+      "status": "ok",
+      "op": "next",
+      "batch": "a",
+      "imported": true,
+      "batch_length": 5,
+      "batch_offset": 0,
+      "slots_used": 1,
+      "index": 0
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "v",
+      "batch": "a",
+      "offset": 0,
+      "length": 5,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 1
+    },
+    {
+      "op": "view",
+      "status": "error",
+      "error_type": "ValueError",
+      "error": "view 'neg': negative start/length (-1, 2)",
+      "index": 2
+    },
+    {
+      "op": "view",
+      "status": "error",
+      "error_type": "ValueError",
+      "error": "view 'over': slice [2, 6) out of bounds for parent length 5",
+      "index": 3
+    },
+    {
+      "op": "view",
+      "status": "error",
+      "error_type": "ValueError",
+      "error": "view 'over2': slice [5, 6) out of bounds for parent length 5",
+      "index": 4
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "zero_ok",
+      "batch": "a",
+      "offset": 5,
+      "length": 0,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 5
+    },
+    {
+      "op": "view",
+      "status": "error",
+      "error_type": "ValueError",
+      "error": "view 'parent_over': slice [4, 6) out of bounds for parent length 5",
+      "index": 6
+    },
+    {
+      "op": "view",
+      "status": "error",
+      "error_type": "ValueError",
+      "error": "view 'parent_neg': negative start/length (-1, 1)",
+      "index": 7
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "v",
+      "batch": "a",
+      "offset": 0,
+      "length": 5,
+      "values": [
+        0,
+        1,
+        null,
+        3,
+        4
+      ],
+      "valid": [
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "null_count": 1,
+      "values_addr": "0x167d7308",
+      "validity_addr": "0x167d7300",
+      "reads": 1,
+      "index": 8
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "v",
+      "state": "released",
+      "index": 9
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "zero_ok",
+      "state": "released",
+      "index": 10
+    },
+    {
+      "status": "ok",
+      "op": "drop_import",
+      "batch": "a",
+      "released": true,
+      "slots_used": 0,
+      "index": 11
+    }
+  ],
+  "audit": [
+    {
+      "seq": 1,
+      "event": "stream_open",
+      "stream_addr": "0xf40730736130",
+      "get_next_fn": "0xf407303f07a0",
+      "release_fn": "0xf407303f0890"
+    },
+    {
+      "seq": 2,
+      "event": "driver_start",
+      "max_live_batches": 2,
+      "live_batches": 0
+    },
+    {
+      "seq": 3,
+      "event": "op",
+      "index": 0,
+      "op": "next",
+      "args": {
+        "batch": "a"
+      }
+    },
+    {
+      "seq": 4,
+      "event": "get_next",
+      "call": 1,
+      "rc": 0,
+      "ordinal": 0,
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "n_buffers": 2,
+      "live_batches": 1,
+      "release_fn": "0xf407303f08d4"
+    },
+    {
+      "seq": 5,
+      "event": "import_take",
+      "batch": "a",
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "buffers": [
+        "0x167d7300",
+        "0x167d7308"
+      ],
+      "release_fn": "0xf407303f08d4",
+      "private_data": "0x167d7300",
+      "original_release_cleared": true,
+      "source_ordinal": 0
+    },
+    {
+      "seq": 6,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 14,
+      "released_streams": 9,
+      "op": "next",
+      "batch": "a",
+      "imported": true
+    },
+    {
+      "seq": 7,
+      "event": "op",
+      "index": 1,
+      "op": "view",
+      "args": {
+        "id": "v",
+        "batch": "a",
+        "start": 0,
+        "length": 5
+      }
+    },
+    {
+      "seq": 8,
+      "event": "dep_add",
+      "batch": "a",
+      "deps": 1
+    },
+    {
+      "seq": 9,
+      "event": "view_create",
+      "id": "v",
+      "batch": "a",
+      "parent": null,
+      "offset": 0,
+      "length": 5,
+      "depth": 0,
+      "values_addr": "0x167d7308",
+      "validity_addr": "0x167d7300",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 10,
+      "event": "op",
+      "index": 2,
+      "op": "view",
+      "args": {
+        "id": "neg",
+        "batch": "a",
+        "start": -1,
+        "length": 2,
+        "expect_error": true
+      }
+    },
+    {
+      "seq": 11,
+      "event": "view_rejected",
+      "id": "neg",
+      "batch": "a",
+      "parent": null,
+      "start": -1,
+      "length": 2,
+      "error_type": "ValueError",
+      "error": "view 'neg': negative start/length (-1, 2)"
+    },
+    {
+      "seq": 12,
+      "event": "op_error",
+      "index": 2,
+      "op": "view",
+      "error_type": "ValueError",
+      "error": "view 'neg': negative start/length (-1, 2)"
+    },
+    {
+      "seq": 13,
+      "event": "op",
+      "index": 3,
+      "op": "view",
+      "args": {
+        "id": "over",
+        "batch": "a",
+        "start": 2,
+        "length": 4,
+        "expect_error": true
+      }
+    },
+    {
+      "seq": 14,
+      "event": "view_rejected",
+      "id": "over",
+      "batch": "a",
+      "parent": null,
+      "start": 2,
+      "length": 4,
+      "error_type": "ValueError",
+      "error": "view 'over': slice [2, 6) out of bounds for parent length 5"
+    },
+    {
+      "seq": 15,
+      "event": "op_error",
+      "index": 3,
+      "op": "view",
+      "error_type": "ValueError",
+      "error": "view 'over': slice [2, 6) out of bounds for parent length 5"
+    },
+    {
+      "seq": 16,
+      "event": "op",
+      "index": 4,
+      "op": "view",
+      "args": {
+        "id": "over2",
+        "batch": "a",
+        "start": 5,
+        "length": 1,
+        "expect_error": true
+      }
+    },
+    {
+      "seq": 17,
+      "event": "view_rejected",
+      "id": "over2",
+      "batch": "a",
+      "parent": null,
+      "start": 5,
+      "length": 1,
+      "error_type": "ValueError",
+      "error": "view 'over2': slice [5, 6) out of bounds for parent length 5"
+    },
+    {
+      "seq": 18,
+      "event": "op_error",
+      "index": 4,
+      "op": "view",
+      "error_type": "ValueError",
+      "error": "view 'over2': slice [5, 6) out of bounds for parent length 5"
+    },
+    {
+      "seq": 19,
+      "event": "op",
+      "index": 5,
+      "op": "view",
+      "args": {
+        "id": "zero_ok",
+        "batch": "a",
+        "start": 5,
+        "length": 0
+      }
+    },
+    {
+      "seq": 20,
+      "event": "dep_add",
+      "batch": "a",
+      "deps": 2
+    },
+    {
+      "seq": 21,
+      "event": "view_create",
+      "id": "zero_ok",
+      "batch": "a",
+      "parent": null,
+      "offset": 5,
+      "length": 0,
+      "depth": 0,
+      "values_addr": "0x167d7308",
+      "validity_addr": "0x167d7300",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 22,
+      "event": "op",
+      "index": 6,
+      "op": "view",
+      "args": {
+        "id": "parent_over",
+        "batch": "v",
+        "start": 4,
+        "length": 2,
+        "parent": "v",
+        "expect_error": true
+      }
+    },
+    {
+      "seq": 23,
+      "event": "view_rejected",
+      "id": "parent_over",
+      "batch": "v",
+      "parent": "v",
+      "start": 4,
+      "length": 2,
+      "error_type": "ValueError",
+      "error": "view 'parent_over': slice [4, 6) out of bounds for parent length 5"
+    },
+    {
+      "seq": 24,
+      "event": "op_error",
+      "index": 6,
+      "op": "view",
+      "error_type": "ValueError",
+      "error": "view 'parent_over': slice [4, 6) out of bounds for parent length 5"
+    },
+    {
+      "seq": 25,
+      "event": "op",
+      "index": 7,
+      "op": "view",
+      "args": {
+        "id": "parent_neg",
+        "batch": "v",
+        "start": -1,
+        "length": 1,
+        "parent": "v",
+        "expect_error": true
+      }
+    },
+    {
+      "seq": 26,
+      "event": "view_rejected",
+      "id": "parent_neg",
+      "batch": "v",
+      "parent": "v",
+      "start": -1,
+      "length": 1,
+      "error_type": "ValueError",
+      "error": "view 'parent_neg': negative start/length (-1, 1)"
+    },
+    {
+      "seq": 27,
+      "event": "op_error",
+      "index": 7,
+      "op": "view",
+      "error_type": "ValueError",
+      "error": "view 'parent_neg': negative start/length (-1, 1)"
+    },
+    {
+      "seq": 28,
+      "event": "op",
+      "index": 8,
+      "op": "read",
+      "args": {
+        "id": "v",
+        "expect_values": [
+          0,
+          1,
+          null,
+          3,
+          4
+        ],
+        "expect_valid": [
+          true,
+          true,
+          false,
+          true,
+          true
+        ],
+        "expect_null_count": 1
+      }
+    },
+    {
+      "seq": 29,
+      "event": "view_read",
+      "id": "v",
+      "batch": "a",
+      "offset": 0,
+      "length": 5,
+      "values": [
+        0,
+        1,
+        null,
+        3,
+        4
+      ],
+      "null_count": 1,
+      "values_addr": "0x167d7308"
+    },
+    {
+      "seq": 30,
+      "event": "op",
+      "index": 9,
+      "op": "release",
+      "args": {
+        "id": "v"
+      }
+    },
+    {
+      "seq": 31,
+      "event": "view_released",
+      "id": "v",
+      "batch": "a",
+      "offset": 0,
+      "length": 5,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 32,
+      "event": "dep_drop",
+      "batch": "a",
+      "deps": 1,
+      "reason": "view v released"
+    },
+    {
+      "seq": 33,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 14,
+      "released_streams": 9,
+      "op": "view_terminal",
+      "id": "v",
+      "batch": "a",
+      "state": "released",
+      "remaining_views": 1
+    },
+    {
+      "seq": 34,
+      "event": "op",
+      "index": 10,
+      "op": "release",
+      "args": {
+        "id": "zero_ok"
+      }
+    },
+    {
+      "seq": 35,
+      "event": "view_released",
+      "id": "zero_ok",
+      "batch": "a",
+      "offset": 5,
+      "length": 0,
+      "reason": "scenario release",
+      "reads": 0
+    },
+    {
+      "seq": 36,
+      "event": "dep_drop",
+      "batch": "a",
+      "deps": 0,
+      "reason": "view zero_ok released"
+    },
+    {
+      "seq": 37,
+      "event": "release_deferred",
+      "batch": "a",
+      "reason": "root still held"
+    },
+    {
+      "seq": 38,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 14,
+      "released_streams": 9,
+      "op": "view_terminal",
+      "id": "zero_ok",
+      "batch": "a",
+      "state": "released",
+      "remaining_views": 0
+    },
+    {
+      "seq": 39,
+      "event": "op",
+      "index": 11,
+      "op": "drop_import",
+      "args": {
+        "batch": "a"
+      }
+    },
+    {
+      "seq": 40,
+      "event": "root_drop",
+      "batch": "a",
+      "deps": 0
+    },
+    {
+      "seq": 41,
+      "event": "batch_release",
+      "batch": "a",
+      "release_fn": "0xf407303f08d4",
+      "buffers": [
+        "0x167d7300",
+        "0x167d7308"
+      ],
+      "reason": "root dropped, no dependents"
+    },
+    {
+      "seq": 42,
+      "event": "source_state",
+      "live_batches": 0,
+      "released_batches": 15,
+      "released_streams": 9,
+      "op": "batch_released",
+      "batch": "a",
+      "reason": "root dropped, no dependents"
+    },
+    {
+      "seq": 43,
+      "event": "source_state",
+      "live_batches": 0,
+      "released_batches": 15,
+      "released_streams": 9,
+      "op": "drop_import",
+      "batch": "a"
+    },
+    {
+      "seq": 44,
+      "event": "driver_finish",
+      "live_batches": 0,
+      "released_batches": 15,
+      "released_streams": 9,
+      "occupied_slots": []
+    },
+    {
+      "seq": 45,
+      "event": "cleanup_start",
+      "reason": "run finalization",
+      "occupied_slots": []
+    },
+    {
+      "seq": 46,
+      "event": "stream_close",
+      "stream_addr": "0xf40730736130",
+      "release_fn": "0xf407303f0890",
+      "live_batches": 0
+    },
+    {
+      "seq": 47,
+      "event": "cleanup_done",
+      "live_batches": 0,
+      "released_batches": 15,
+      "released_streams": 10
+    },
+    {
+      "seq": 48,
+      "event": "run_end",
+      "live_batches": 0,
+      "released_batches": 15,
+      "released_streams": 10,
+      "held_before_cleanup": 0,
+      "held_after_cleanup": 0,
+      "remaining_roots": [],
+      "remaining_views": []
+    }
+  ]
+}

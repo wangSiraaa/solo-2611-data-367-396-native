@@ -1,0 +1,783 @@
+{
+  "scenario": "null_bits",
+  "description": "Validity is read at absolute bit offset; empty views read zero elements but still own a dependency.",
+  "max_live_exported_batches": 2,
+  "report": {
+    "scenario": "null_bits",
+    "ok": true,
+    "checks": [
+      {
+        "name": "operation_status",
+        "ok": true,
+        "detail": "all operations matched expectations"
+      },
+      {
+        "name": "source_identity",
+        "ok": true,
+        "detail": "imported batches map 1:1 to producer ordinals [0]"
+      },
+      {
+        "name": "source_value_oracle",
+        "ok": true,
+        "detail": "4 reads matched source values/validity"
+      },
+      {
+        "name": "zero_copy_addresses",
+        "ok": true,
+        "detail": "4 views share the producer buffers"
+      },
+      {
+        "name": "release_exactly_once",
+        "ok": true,
+        "detail": "1 allocations released once each via the original callback"
+      },
+      {
+        "name": "producer_counters",
+        "ok": true,
+        "detail": "live=0 (baseline 0), released_delta=1 imports=1, streams_delta=1 opens=1"
+      },
+      {
+        "name": "get_next_calls",
+        "ok": true,
+        "detail": "real get_next calls=1 expected=1 (backpressure=0)"
+      },
+      {
+        "name": "state_errors",
+        "ok": true,
+        "detail": "read_errors=0 (want 0), op_errors=0 (want 0); no extra C calls proven by get_next/release counts"
+      },
+      {
+        "name": "empty_views",
+        "ok": true,
+        "detail": "empty views yielded zero elements"
+      },
+      {
+        "name": "active_view_bound",
+        "ok": true,
+        "detail": "max concurrently active views=4 (limit 8)"
+      },
+      {
+        "name": "declared_read_expectations",
+        "ok": true,
+        "detail": "declared read expectations matched"
+      },
+      {
+        "name": "cleanup_released_everything",
+        "ok": true,
+        "detail": "roots=[] views=[] held_before=0 held_after=0 source_live=0"
+      }
+    ],
+    "failures": []
+  },
+  "summary": {
+    "events": 52,
+    "imported_batches": 1,
+    "real_get_next_calls": 1,
+    "source_release_events": 1,
+    "backpressure_events": 0,
+    "read_errors": 0,
+    "state_errors": 0,
+    "releases_by_batch": {
+      "a": 1
+    },
+    "final_live_batches": 0,
+    "final_released_batches": 9,
+    "final_released_streams": 6
+  },
+  "results": [
+    {
+      "status": "ok",
+      "op": "next",
+      "batch": "a",
+      "imported": true,
+      "batch_length": 5,
+      "batch_offset": 0,
+      "slots_used": 1,
+      "index": 0
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "one",
+      "batch": "a",
+      "offset": 2,
+      "length": 1,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 1
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "one",
+      "batch": "a",
+      "offset": 2,
+      "length": 1,
+      "values": [
+        null
+      ],
+      "valid": [
+        false
+      ],
+      "null_count": 1,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "reads": 1,
+      "index": 2
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "tail",
+      "batch": "a",
+      "offset": 3,
+      "length": 2,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 3
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "tail",
+      "batch": "a",
+      "offset": 3,
+      "length": 2,
+      "values": [
+        3,
+        4
+      ],
+      "valid": [
+        true,
+        true
+      ],
+      "null_count": 0,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "reads": 1,
+      "index": 4
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "empty",
+      "batch": "a",
+      "offset": 5,
+      "length": 0,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 5
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "empty",
+      "batch": "a",
+      "offset": 5,
+      "length": 0,
+      "values": [],
+      "valid": [],
+      "null_count": 0,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "reads": 1,
+      "index": 6
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "empty2",
+      "batch": "a",
+      "offset": 0,
+      "length": 0,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 7
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "empty2",
+      "batch": "a",
+      "offset": 0,
+      "length": 0,
+      "values": [],
+      "valid": [],
+      "null_count": 0,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "reads": 1,
+      "index": 8
+    },
+    {
+      "status": "ok",
+      "op": "drop_import",
+      "batch": "a",
+      "released": false,
+      "slots_used": 1,
+      "index": 9
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "one",
+      "state": "released",
+      "index": 10
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "tail",
+      "state": "released",
+      "index": 11
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "empty",
+      "state": "released",
+      "index": 12
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "empty2",
+      "state": "released",
+      "index": 13
+    }
+  ],
+  "audit": [
+    {
+      "seq": 1,
+      "event": "stream_open",
+      "stream_addr": "0xf40730736c40",
+      "get_next_fn": "0xf407303f07a0",
+      "release_fn": "0xf407303f0890"
+    },
+    {
+      "seq": 2,
+      "event": "driver_start",
+      "max_live_batches": 2,
+      "live_batches": 0
+    },
+    {
+      "seq": 3,
+      "event": "op",
+      "index": 0,
+      "op": "next",
+      "args": {
+        "batch": "a"
+      }
+    },
+    {
+      "seq": 4,
+      "event": "get_next",
+      "call": 1,
+      "rc": 0,
+      "ordinal": 0,
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "n_buffers": 2,
+      "live_batches": 1,
+      "release_fn": "0xf407303f08d4"
+    },
+    {
+      "seq": 5,
+      "event": "import_take",
+      "batch": "a",
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "buffers": [
+        "0x16845540",
+        "0x16845548"
+      ],
+      "release_fn": "0xf407303f08d4",
+      "private_data": "0x16845540",
+      "original_release_cleared": true,
+      "source_ordinal": 0
+    },
+    {
+      "seq": 6,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 8,
+      "released_streams": 5,
+      "op": "next",
+      "batch": "a",
+      "imported": true
+    },
+    {
+      "seq": 7,
+      "event": "op",
+      "index": 1,
+      "op": "view",
+      "args": {
+        "id": "one",
+        "batch": "a",
+        "start": 2,
+        "length": 1
+      }
+    },
+    {
+      "seq": 8,
+      "event": "dep_add",
+      "batch": "a",
+      "deps": 1
+    },
+    {
+      "seq": 9,
+      "event": "view_create",
+      "id": "one",
+      "batch": "a",
+      "parent": null,
+      "offset": 2,
+      "length": 1,
+      "depth": 0,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 10,
+      "event": "op",
+      "index": 2,
+      "op": "read",
+      "args": {
+        "id": "one",
+        "expect_values": [
+          null
+        ],
+        "expect_valid": [
+          false
+        ],
+        "expect_null_count": 1
+      }
+    },
+    {
+      "seq": 11,
+      "event": "view_read",
+      "id": "one",
+      "batch": "a",
+      "offset": 2,
+      "length": 1,
+      "values": [
+        null
+      ],
+      "null_count": 1,
+      "values_addr": "0x16845548"
+    },
+    {
+      "seq": 12,
+      "event": "op",
+      "index": 3,
+      "op": "view",
+      "args": {
+        "id": "tail",
+        "batch": "a",
+        "start": 3,
+        "length": 2
+      }
+    },
+    {
+      "seq": 13,
+      "event": "dep_add",
+      "batch": "a",
+      "deps": 2
+    },
+    {
+      "seq": 14,
+      "event": "view_create",
+      "id": "tail",
+      "batch": "a",
+      "parent": null,
+      "offset": 3,
+      "length": 2,
+      "depth": 0,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 15,
+      "event": "op",
+      "index": 4,
+      "op": "read",
+      "args": {
+        "id": "tail",
+        "expect_values": [
+          3,
+          4
+        ],
+        "expect_valid": [
+          true,
+          true
+        ],
+        "expect_null_count": 0
+      }
+    },
+    {
+      "seq": 16,
+      "event": "view_read",
+      "id": "tail",
+      "batch": "a",
+      "offset": 3,
+      "length": 2,
+      "values": [
+        3,
+        4
+      ],
+      "null_count": 0,
+      "values_addr": "0x16845548"
+    },
+    {
+      "seq": 17,
+      "event": "op",
+      "index": 5,
+      "op": "view",
+      "args": {
+        "id": "empty",
+        "batch": "a",
+        "start": 5,
+        "length": 0
+      }
+    },
+    {
+      "seq": 18,
+      "event": "dep_add",
+      "batch": "a",
+      "deps": 3
+    },
+    {
+      "seq": 19,
+      "event": "view_create",
+      "id": "empty",
+      "batch": "a",
+      "parent": null,
+      "offset": 5,
+      "length": 0,
+      "depth": 0,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 20,
+      "event": "op",
+      "index": 6,
+      "op": "read",
+      "args": {
+        "id": "empty",
+        "expect_values": [],
+        "expect_valid": [],
+        "expect_null_count": 0
+      }
+    },
+    {
+      "seq": 21,
+      "event": "view_read",
+      "id": "empty",
+      "batch": "a",
+      "offset": 5,
+      "length": 0,
+      "values": [],
+      "null_count": 0,
+      "values_addr": "0x16845548"
+    },
+    {
+      "seq": 22,
+      "event": "op",
+      "index": 7,
+      "op": "view",
+      "args": {
+        "id": "empty2",
+        "batch": "a",
+        "start": 0,
+        "length": 0
+      }
+    },
+    {
+      "seq": 23,
+      "event": "dep_add",
+      "batch": "a",
+      "deps": 4
+    },
+    {
+      "seq": 24,
+      "event": "view_create",
+      "id": "empty2",
+      "batch": "a",
+      "parent": null,
+      "offset": 0,
+      "length": 0,
+      "depth": 0,
+      "values_addr": "0x16845548",
+      "validity_addr": "0x16845540",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 25,
+      "event": "op",
+      "index": 8,
+      "op": "read",
+      "args": {
+        "id": "empty2",
+        "expect_values": [],
+        "expect_valid": [],
+        "expect_null_count": 0
+      }
+    },
+    {
+      "seq": 26,
+      "event": "view_read",
+      "id": "empty2",
+      "batch": "a",
+      "offset": 0,
+      "length": 0,
+      "values": [],
+      "null_count": 0,
+      "values_addr": "0x16845548"
+    },
+    {
+      "seq": 27,
+      "event": "op",
+      "index": 9,
+      "op": "drop_import",
+      "args": {
+        "batch": "a"
+      }
+    },
+    {
+      "seq": 28,
+      "event": "root_drop",
+      "batch": "a",
+      "deps": 4
+    },
+    {
+      "seq": 29,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 8,
+      "released_streams": 5,
+      "op": "drop_import",
+      "batch": "a"
+    },
+    {
+      "seq": 30,
+      "event": "op",
+      "index": 10,
+      "op": "release",
+      "args": {
+        "id": "one"
+      }
+    },
+    {
+      "seq": 31,
+      "event": "view_released",
+      "id": "one",
+      "batch": "a",
+      "offset": 2,
+      "length": 1,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 32,
+      "event": "dep_drop",
+      "batch": "a",
+      "deps": 3,
+      "reason": "view one released"
+    },
+    {
+      "seq": 33,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 8,
+      "released_streams": 5,
+      "op": "view_terminal",
+      "id": "one",
+      "batch": "a",
+      "state": "released",
+      "remaining_views": 3
+    },
+    {
+      "seq": 34,
+      "event": "op",
+      "index": 11,
+      "op": "release",
+      "args": {
+        "id": "tail"
+      }
+    },
+    {
+      "seq": 35,
+      "event": "view_released",
+      "id": "tail",
+      "batch": "a",
+      "offset": 3,
+      "length": 2,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 36,
+      "event": "dep_drop",
+      "batch": "a",
+      "deps": 2,
+      "reason": "view tail released"
+    },
+    {
+      "seq": 37,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 8,
+      "released_streams": 5,
+      "op": "view_terminal",
+      "id": "tail",
+      "batch": "a",
+      "state": "released",
+      "remaining_views": 2
+    },
+    {
+      "seq": 38,
+      "event": "op",
+      "index": 12,
+      "op": "release",
+      "args": {
+        "id": "empty"
+      }
+    },
+    {
+      "seq": 39,
+      "event": "view_released",
+      "id": "empty",
+      "batch": "a",
+      "offset": 5,
+      "length": 0,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 40,
+      "event": "dep_drop",
+      "batch": "a",
+      "deps": 1,
+      "reason": "view empty released"
+    },
+    {
+      "seq": 41,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 8,
+      "released_streams": 5,
+      "op": "view_terminal",
+      "id": "empty",
+      "batch": "a",
+      "state": "released",
+      "remaining_views": 1
+    },
+    {
+      "seq": 42,
+      "event": "op",
+      "index": 13,
+      "op": "release",
+      "args": {
+        "id": "empty2"
+      }
+    },
+    {
+      "seq": 43,
+      "event": "view_released",
+      "id": "empty2",
+      "batch": "a",
+      "offset": 0,
+      "length": 0,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 44,
+      "event": "dep_drop",
+      "batch": "a",
+      "deps": 0,
+      "reason": "view empty2 released"
+    },
+    {
+      "seq": 45,
+      "event": "batch_release",
+      "batch": "a",
+      "release_fn": "0xf407303f08d4",
+      "buffers": [
+        "0x16845540",
+        "0x16845548"
+      ],
+      "reason": "last dependent dropped (view empty2 released)"
+    },
+    {
+      "seq": 46,
+      "event": "source_state",
+      "live_batches": 0,
+      "released_batches": 9,
+      "released_streams": 5,
+      "op": "batch_released",
+      "batch": "a",
+      "reason": "last dependent dropped (view empty2 released)"
+    },
+    {
+      "seq": 47,
+      "event": "source_state",
+      "live_batches": 0,
+      "released_batches": 9,
+      "released_streams": 5,
+      "op": "view_terminal",
+      "id": "empty2",
+      "batch": "a",
+      "state": "released",
+      "remaining_views": 0
+    },
+    {
+      "seq": 48,
+      "event": "driver_finish",
+      "live_batches": 0,
+      "released_batches": 9,
+      "released_streams": 5,
+      "occupied_slots": []
+    },
+    {
+      "seq": 49,
+      "event": "cleanup_start",
+      "reason": "run finalization",
+      "occupied_slots": []
+    },
+    {
+      "seq": 50,
+      "event": "stream_close",
+      "stream_addr": "0xf40730736c40",
+      "release_fn": "0xf407303f0890",
+      "live_batches": 0
+    },
+    {
+      "seq": 51,
+      "event": "cleanup_done",
+      "live_batches": 0,
+      "released_batches": 9,
+      "released_streams": 6
+    },
+    {
+      "seq": 52,
+      "event": "run_end",
+      "live_batches": 0,
+      "released_batches": 9,
+      "released_streams": 6,
+      "held_before_cleanup": 0,
+      "held_after_cleanup": 0,
+      "remaining_roots": [],
+      "remaining_views": []
+    }
+  ]
+}

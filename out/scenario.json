@@ -1,0 +1,866 @@
+{
+  "scenario": "scenario",
+  "description": "",
+  "max_live_exported_batches": 2,
+  "report": {
+    "scenario": "scenario",
+    "ok": true,
+    "checks": [
+      {
+        "name": "operation_status",
+        "ok": true,
+        "detail": "all operations matched expectations"
+      },
+      {
+        "name": "source_identity",
+        "ok": true,
+        "detail": "imported batches map 1:1 to producer ordinals [0, 1, 2]"
+      },
+      {
+        "name": "source_value_oracle",
+        "ok": true,
+        "detail": "2 reads matched source values/validity"
+      },
+      {
+        "name": "zero_copy_addresses",
+        "ok": true,
+        "detail": "3 views share the producer buffers"
+      },
+      {
+        "name": "release_exactly_once",
+        "ok": true,
+        "detail": "3 allocations released once each via the original callback"
+      },
+      {
+        "name": "producer_counters",
+        "ok": true,
+        "detail": "live=0 (baseline 0), released_delta=3 imports=3, streams_delta=1 opens=1"
+      },
+      {
+        "name": "get_next_calls",
+        "ok": true,
+        "detail": "real get_next calls=3 expected=3 (backpressure=0)"
+      },
+      {
+        "name": "state_errors",
+        "ok": true,
+        "detail": "read_errors=0 (want 0), op_errors=0 (want 0); no extra C calls proven by get_next/release counts"
+      },
+      {
+        "name": "empty_views",
+        "ok": true,
+        "detail": "(no empty views in this scenario)"
+      },
+      {
+        "name": "active_view_bound",
+        "ok": true,
+        "detail": "max concurrently active views=2 (limit 8)"
+      },
+      {
+        "name": "declared_read_expectations",
+        "ok": true,
+        "detail": "declared read expectations matched"
+      },
+      {
+        "name": "cleanup_released_everything",
+        "ok": true,
+        "detail": "roots=[] views=[] held_before=0 held_after=0 source_live=0"
+      }
+    ],
+    "failures": []
+  },
+  "summary": {
+    "events": 62,
+    "imported_batches": 3,
+    "real_get_next_calls": 3,
+    "source_release_events": 3,
+    "backpressure_events": 0,
+    "read_errors": 0,
+    "state_errors": 0,
+    "releases_by_batch": {
+      "a": 1,
+      "b": 1,
+      "c": 1
+    },
+    "final_live_batches": 0,
+    "final_released_batches": 3,
+    "final_released_streams": 1
+  },
+  "results": [
+    {
+      "status": "ok",
+      "op": "next",
+      "batch": "a",
+      "imported": true,
+      "batch_length": 5,
+      "batch_offset": 0,
+      "slots_used": 1,
+      "index": 0
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "slow",
+      "batch": "a",
+      "offset": 1,
+      "length": 4,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 1
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "fast",
+      "batch": "a",
+      "offset": 0,
+      "length": 3,
+      "depth": 0,
+      "slots_used": 1,
+      "index": 2
+    },
+    {
+      "status": "ok",
+      "op": "drop_import",
+      "batch": "a",
+      "released": false,
+      "slots_used": 1,
+      "index": 3
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "fast",
+      "batch": "a",
+      "offset": 0,
+      "length": 3,
+      "values": [
+        0,
+        1,
+        null
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ],
+      "null_count": 1,
+      "values_addr": "0x3d2a7b78",
+      "validity_addr": "0x3d2a7b70",
+      "reads": 1,
+      "index": 4
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "fast",
+      "state": "released",
+      "index": 5
+    },
+    {
+      "status": "ok",
+      "op": "next",
+      "batch": "b",
+      "imported": true,
+      "batch_length": 5,
+      "batch_offset": 0,
+      "slots_used": 2,
+      "index": 6
+    },
+    {
+      "status": "ok",
+      "op": "view",
+      "id": "other",
+      "batch": "b",
+      "offset": 0,
+      "length": 5,
+      "depth": 0,
+      "slots_used": 2,
+      "index": 7
+    },
+    {
+      "status": "ok",
+      "op": "cancel",
+      "id": "other",
+      "state": "cancelled",
+      "index": 8
+    },
+    {
+      "status": "ok",
+      "op": "drop_import",
+      "batch": "b",
+      "released": true,
+      "slots_used": 1,
+      "index": 9
+    },
+    {
+      "status": "ok",
+      "op": "next",
+      "batch": "c",
+      "imported": true,
+      "batch_length": 5,
+      "batch_offset": 0,
+      "slots_used": 2,
+      "index": 10
+    },
+    {
+      "status": "ok",
+      "op": "close_stream",
+      "closed": true,
+      "index": 11
+    },
+    {
+      "status": "ok",
+      "op": "read",
+      "id": "slow",
+      "batch": "a",
+      "offset": 1,
+      "length": 4,
+      "values": [
+        1,
+        null,
+        3,
+        4
+      ],
+      "valid": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "null_count": 1,
+      "values_addr": "0x3d2a7b78",
+      "validity_addr": "0x3d2a7b70",
+      "reads": 1,
+      "index": 12
+    },
+    {
+      "status": "ok",
+      "op": "release",
+      "id": "slow",
+      "state": "released",
+      "index": 13
+    },
+    {
+      "status": "ok",
+      "op": "drop_import",
+      "batch": "c",
+      "released": true,
+      "slots_used": 0,
+      "index": 14
+    }
+  ],
+  "audit": [
+    {
+      "seq": 1,
+      "event": "stream_open",
+      "stream_addr": "0xef15fbdee220",
+      "get_next_fn": "0xef15fbc507a0",
+      "release_fn": "0xef15fbc50890"
+    },
+    {
+      "seq": 2,
+      "event": "driver_start",
+      "max_live_batches": 2,
+      "live_batches": 0
+    },
+    {
+      "seq": 3,
+      "event": "op",
+      "index": 0,
+      "op": "next",
+      "args": {
+        "batch": "a"
+      }
+    },
+    {
+      "seq": 4,
+      "event": "get_next",
+      "call": 1,
+      "rc": 0,
+      "ordinal": 0,
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "n_buffers": 2,
+      "live_batches": 1,
+      "release_fn": "0xef15fbc508d4"
+    },
+    {
+      "seq": 5,
+      "event": "import_take",
+      "batch": "a",
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "buffers": [
+        "0x3d2a7b70",
+        "0x3d2a7b78"
+      ],
+      "release_fn": "0xef15fbc508d4",
+      "private_data": "0x3d2a7b70",
+      "original_release_cleared": true,
+      "source_ordinal": 0
+    },
+    {
+      "seq": 6,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 0,
+      "released_streams": 0,
+      "op": "next",
+      "batch": "a",
+      "imported": true
+    },
+    {
+      "seq": 7,
+      "event": "op",
+      "index": 1,
+      "op": "view",
+      "args": {
+        "id": "slow",
+        "batch": "a",
+        "start": 1,
+        "length": 4
+      }
+    },
+    {
+      "seq": 8,
+      "event": "dep_add",
+      "batch": "a",
+      "deps": 1
+    },
+    {
+      "seq": 9,
+      "event": "view_create",
+      "id": "slow",
+      "batch": "a",
+      "parent": null,
+      "offset": 1,
+      "length": 4,
+      "depth": 0,
+      "values_addr": "0x3d2a7b78",
+      "validity_addr": "0x3d2a7b70",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 10,
+      "event": "op",
+      "index": 2,
+      "op": "view",
+      "args": {
+        "id": "fast",
+        "batch": "a",
+        "start": 0,
+        "length": 3
+      }
+    },
+    {
+      "seq": 11,
+      "event": "dep_add",
+      "batch": "a",
+      "deps": 2
+    },
+    {
+      "seq": 12,
+      "event": "view_create",
+      "id": "fast",
+      "batch": "a",
+      "parent": null,
+      "offset": 0,
+      "length": 3,
+      "depth": 0,
+      "values_addr": "0x3d2a7b78",
+      "validity_addr": "0x3d2a7b70",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 13,
+      "event": "op",
+      "index": 3,
+      "op": "drop_import",
+      "args": {
+        "batch": "a"
+      }
+    },
+    {
+      "seq": 14,
+      "event": "root_drop",
+      "batch": "a",
+      "deps": 2
+    },
+    {
+      "seq": 15,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 0,
+      "released_streams": 0,
+      "op": "drop_import",
+      "batch": "a"
+    },
+    {
+      "seq": 16,
+      "event": "op",
+      "index": 4,
+      "op": "read",
+      "args": {
+        "id": "fast"
+      }
+    },
+    {
+      "seq": 17,
+      "event": "view_read",
+      "id": "fast",
+      "batch": "a",
+      "offset": 0,
+      "length": 3,
+      "values": [
+        0,
+        1,
+        null
+      ],
+      "null_count": 1,
+      "values_addr": "0x3d2a7b78"
+    },
+    {
+      "seq": 18,
+      "event": "op",
+      "index": 5,
+      "op": "release",
+      "args": {
+        "id": "fast"
+      }
+    },
+    {
+      "seq": 19,
+      "event": "view_released",
+      "id": "fast",
+      "batch": "a",
+      "offset": 0,
+      "length": 3,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 20,
+      "event": "dep_drop",
+      "batch": "a",
+      "deps": 1,
+      "reason": "view fast released"
+    },
+    {
+      "seq": 21,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 0,
+      "released_streams": 0,
+      "op": "view_terminal",
+      "id": "fast",
+      "batch": "a",
+      "state": "released",
+      "remaining_views": 1
+    },
+    {
+      "seq": 22,
+      "event": "op",
+      "index": 6,
+      "op": "next",
+      "args": {
+        "batch": "b"
+      }
+    },
+    {
+      "seq": 23,
+      "event": "get_next",
+      "call": 2,
+      "rc": 0,
+      "ordinal": 1,
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "n_buffers": 2,
+      "live_batches": 2,
+      "release_fn": "0xef15fbc508d4"
+    },
+    {
+      "seq": 24,
+      "event": "import_take",
+      "batch": "b",
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "buffers": [
+        "0x3d3144b0",
+        "0x3d3144b8"
+      ],
+      "release_fn": "0xef15fbc508d4",
+      "private_data": "0x3d3144b0",
+      "original_release_cleared": true,
+      "source_ordinal": 1
+    },
+    {
+      "seq": 25,
+      "event": "source_state",
+      "live_batches": 2,
+      "released_batches": 0,
+      "released_streams": 0,
+      "op": "next",
+      "batch": "b",
+      "imported": true
+    },
+    {
+      "seq": 26,
+      "event": "op",
+      "index": 7,
+      "op": "view",
+      "args": {
+        "id": "other",
+        "batch": "b",
+        "start": 0,
+        "length": 5
+      }
+    },
+    {
+      "seq": 27,
+      "event": "dep_add",
+      "batch": "b",
+      "deps": 1
+    },
+    {
+      "seq": 28,
+      "event": "view_create",
+      "id": "other",
+      "batch": "b",
+      "parent": null,
+      "offset": 0,
+      "length": 5,
+      "depth": 0,
+      "values_addr": "0x3d3144b8",
+      "validity_addr": "0x3d3144b0",
+      "shares_values": true,
+      "shares_validity": true
+    },
+    {
+      "seq": 29,
+      "event": "op",
+      "index": 8,
+      "op": "cancel",
+      "args": {
+        "id": "other"
+      }
+    },
+    {
+      "seq": 30,
+      "event": "view_cancelled",
+      "id": "other",
+      "batch": "b",
+      "offset": 0,
+      "length": 5,
+      "reason": "scenario cancel",
+      "reads": 0
+    },
+    {
+      "seq": 31,
+      "event": "dep_drop",
+      "batch": "b",
+      "deps": 0,
+      "reason": "view other cancelled"
+    },
+    {
+      "seq": 32,
+      "event": "release_deferred",
+      "batch": "b",
+      "reason": "root still held"
+    },
+    {
+      "seq": 33,
+      "event": "source_state",
+      "live_batches": 2,
+      "released_batches": 0,
+      "released_streams": 0,
+      "op": "view_terminal",
+      "id": "other",
+      "batch": "b",
+      "state": "cancelled",
+      "remaining_views": 0
+    },
+    {
+      "seq": 34,
+      "event": "op",
+      "index": 9,
+      "op": "drop_import",
+      "args": {
+        "batch": "b"
+      }
+    },
+    {
+      "seq": 35,
+      "event": "root_drop",
+      "batch": "b",
+      "deps": 0
+    },
+    {
+      "seq": 36,
+      "event": "batch_release",
+      "batch": "b",
+      "release_fn": "0xef15fbc508d4",
+      "buffers": [
+        "0x3d3144b0",
+        "0x3d3144b8"
+      ],
+      "reason": "root dropped, no dependents"
+    },
+    {
+      "seq": 37,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 1,
+      "released_streams": 0,
+      "op": "batch_released",
+      "batch": "b",
+      "reason": "root dropped, no dependents"
+    },
+    {
+      "seq": 38,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 1,
+      "released_streams": 0,
+      "op": "drop_import",
+      "batch": "b"
+    },
+    {
+      "seq": 39,
+      "event": "op",
+      "index": 10,
+      "op": "next",
+      "args": {
+        "batch": "c"
+      }
+    },
+    {
+      "seq": 40,
+      "event": "get_next",
+      "call": 3,
+      "rc": 0,
+      "ordinal": 2,
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "n_buffers": 2,
+      "live_batches": 2,
+      "release_fn": "0xef15fbc508d4"
+    },
+    {
+      "seq": 41,
+      "event": "import_take",
+      "batch": "c",
+      "length": 5,
+      "offset": 0,
+      "null_count": 1,
+      "buffers": [
+        "0x3d255db0",
+        "0x3d255db8"
+      ],
+      "release_fn": "0xef15fbc508d4",
+      "private_data": "0x3d255db0",
+      "original_release_cleared": true,
+      "source_ordinal": 2
+    },
+    {
+      "seq": 42,
+      "event": "source_state",
+      "live_batches": 2,
+      "released_batches": 1,
+      "released_streams": 0,
+      "op": "next",
+      "batch": "c",
+      "imported": true
+    },
+    {
+      "seq": 43,
+      "event": "op",
+      "index": 11,
+      "op": "close_stream",
+      "args": {}
+    },
+    {
+      "seq": 44,
+      "event": "stream_close",
+      "stream_addr": "0xef15fbdee220",
+      "release_fn": "0xef15fbc50890",
+      "live_batches": 2
+    },
+    {
+      "seq": 45,
+      "event": "source_state",
+      "live_batches": 2,
+      "released_batches": 1,
+      "released_streams": 1,
+      "op": "close_stream"
+    },
+    {
+      "seq": 46,
+      "event": "op",
+      "index": 12,
+      "op": "read",
+      "args": {
+        "id": "slow"
+      }
+    },
+    {
+      "seq": 47,
+      "event": "view_read",
+      "id": "slow",
+      "batch": "a",
+      "offset": 1,
+      "length": 4,
+      "values": [
+        1,
+        null,
+        3,
+        4
+      ],
+      "null_count": 1,
+      "values_addr": "0x3d2a7b78"
+    },
+    {
+      "seq": 48,
+      "event": "op",
+      "index": 13,
+      "op": "release",
+      "args": {
+        "id": "slow"
+      }
+    },
+    {
+      "seq": 49,
+      "event": "view_released",
+      "id": "slow",
+      "batch": "a",
+      "offset": 1,
+      "length": 4,
+      "reason": "scenario release",
+      "reads": 1
+    },
+    {
+      "seq": 50,
+      "event": "dep_drop",
+      "batch": "a",
+      "deps": 0,
+      "reason": "view slow released"
+    },
+    {
+      "seq": 51,
+      "event": "batch_release",
+      "batch": "a",
+      "release_fn": "0xef15fbc508d4",
+      "buffers": [
+        "0x3d2a7b70",
+        "0x3d2a7b78"
+      ],
+      "reason": "last dependent dropped (view slow released)"
+    },
+    {
+      "seq": 52,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 2,
+      "released_streams": 1,
+      "op": "batch_released",
+      "batch": "a",
+      "reason": "last dependent dropped (view slow released)"
+    },
+    {
+      "seq": 53,
+      "event": "source_state",
+      "live_batches": 1,
+      "released_batches": 2,
+      "released_streams": 1,
+      "op": "view_terminal",
+      "id": "slow",
+      "batch": "a",
+      "state": "released",
+      "remaining_views": 0
+    },
+    {
+      "seq": 54,
+      "event": "op",
+      "index": 14,
+      "op": "drop_import",
+      "args": {
+        "batch": "c"
+      }
+    },
+    {
+      "seq": 55,
+      "event": "root_drop",
+      "batch": "c",
+      "deps": 0
+    },
+    {
+      "seq": 56,
+      "event": "batch_release",
+      "batch": "c",
+      "release_fn": "0xef15fbc508d4",
+      "buffers": [
+        "0x3d255db0",
+        "0x3d255db8"
+      ],
+      "reason": "root dropped, no dependents"
+    },
+    {
+      "seq": 57,
+      "event": "source_state",
+      "live_batches": 0,
+      "released_batches": 3,
+      "released_streams": 1,
+      "op": "batch_released",
+      "batch": "c",
+      "reason": "root dropped, no dependents"
+    },
+    {
+      "seq": 58,
+      "event": "source_state",
+      "live_batches": 0,
+      "released_batches": 3,
+      "released_streams": 1,
+      "op": "drop_import",
+      "batch": "c"
+    },
+    {
+      "seq": 59,
+      "event": "driver_finish",
+      "live_batches": 0,
+      "released_batches": 3,
+      "released_streams": 1,
+      "occupied_slots": []
+    },
+    {
+      "seq": 60,
+      "event": "cleanup_start",
+      "reason": "run finalization",
+      "occupied_slots": []
+    },
+    {
+      "seq": 61,
+      "event": "cleanup_done",
+      "live_batches": 0,
+      "released_batches": 3,
+      "released_streams": 1
+    },
+    {
+      "seq": 62,
+      "event": "run_end",
+      "live_batches": 0,
+      "released_batches": 3,
+      "released_streams": 1,
+      "held_before_cleanup": 0,
+      "held_after_cleanup": 0,
+      "remaining_roots": [],
+      "remaining_views": []
+    }
+  ]
+}

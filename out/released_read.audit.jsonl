@@ -1,0 +1,41 @@
+{"event": "stream_open", "get_next_fn": "0xf407303f07a0", "release_fn": "0xf407303f0890", "seq": 1, "stream_addr": "0xf40730734480"}
+{"event": "driver_start", "live_batches": 0, "max_live_batches": 2, "seq": 2}
+{"args": {"batch": "a"}, "event": "op", "index": 0, "op": "next", "seq": 3}
+{"call": 1, "event": "get_next", "length": 5, "live_batches": 1, "n_buffers": 2, "null_count": 1, "offset": 0, "ordinal": 0, "rc": 0, "release_fn": "0xf407303f08d4", "seq": 4}
+{"batch": "a", "buffers": ["0x168bbd10", "0x168bbd18"], "event": "import_take", "length": 5, "null_count": 1, "offset": 0, "original_release_cleared": true, "private_data": "0x168bbd10", "release_fn": "0xf407303f08d4", "seq": 5, "source_ordinal": 0}
+{"batch": "a", "event": "source_state", "imported": true, "live_batches": 1, "op": "next", "released_batches": 10, "released_streams": 7, "seq": 6}
+{"args": {"batch": "a", "id": "v", "length": 5, "start": 0}, "event": "op", "index": 1, "op": "view", "seq": 7}
+{"batch": "a", "deps": 1, "event": "dep_add", "seq": 8}
+{"batch": "a", "depth": 0, "event": "view_create", "id": "v", "length": 5, "offset": 0, "parent": null, "seq": 9, "shares_validity": true, "shares_values": true, "validity_addr": "0x168bbd10", "values_addr": "0x168bbd18"}
+{"args": {"id": "v"}, "event": "op", "index": 2, "op": "release", "seq": 10}
+{"batch": "a", "event": "view_released", "id": "v", "length": 5, "offset": 0, "reads": 0, "reason": "scenario release", "seq": 11}
+{"batch": "a", "deps": 0, "event": "dep_drop", "reason": "view v released", "seq": 12}
+{"batch": "a", "event": "release_deferred", "reason": "root still held", "seq": 13}
+{"batch": "a", "event": "source_state", "id": "v", "live_batches": 1, "op": "view_terminal", "released_batches": 10, "released_streams": 7, "remaining_views": 0, "seq": 14, "state": "released"}
+{"args": {"expect_error": true, "id": "v"}, "event": "op", "index": 3, "op": "read", "seq": 15}
+{"event": "state_error", "id": "v", "message": "view 'v': cannot read while released", "op": "read", "seq": 16, "state": "released"}
+{"error": "view 'v': cannot read while released", "error_type": "ViewStateError", "event": "read_error", "id": "v", "seq": 17}
+{"error": "view 'v': cannot read while released", "error_type": "ViewStateError", "event": "op_error", "index": 3, "op": "read", "seq": 18}
+{"args": {"expect_error": true, "id": "v"}, "event": "op", "index": 4, "op": "read", "seq": 19}
+{"event": "state_error", "id": "v", "message": "view 'v': cannot read while released", "op": "read", "seq": 20, "state": "released"}
+{"error": "view 'v': cannot read while released", "error_type": "ViewStateError", "event": "read_error", "id": "v", "seq": 21}
+{"error": "view 'v': cannot read while released", "error_type": "ViewStateError", "event": "op_error", "index": 4, "op": "read", "seq": 22}
+{"args": {"expect_error": true, "id": "v"}, "event": "op", "index": 5, "op": "release", "seq": 23}
+{"event": "state_error", "id": "v", "message": "view 'v': cannot release while released", "op": "release", "seq": 24, "state": "released"}
+{"error": "view 'v': cannot release while released", "error_type": "ViewStateError", "event": "op_error", "index": 5, "op": "release", "seq": 25}
+{"args": {"batch": "a"}, "event": "op", "index": 6, "op": "drop_import", "seq": 26}
+{"batch": "a", "deps": 0, "event": "root_drop", "seq": 27}
+{"batch": "a", "buffers": ["0x168bbd10", "0x168bbd18"], "event": "batch_release", "reason": "root dropped, no dependents", "release_fn": "0xf407303f08d4", "seq": 28}
+{"batch": "a", "event": "source_state", "live_batches": 0, "op": "batch_released", "reason": "root dropped, no dependents", "released_batches": 11, "released_streams": 7, "seq": 29}
+{"batch": "a", "event": "source_state", "live_batches": 0, "op": "drop_import", "released_batches": 11, "released_streams": 7, "seq": 30}
+{"args": {"batch": "a", "expect_error": true}, "event": "op", "index": 7, "op": "drop_import", "seq": 31}
+{"batch": "a", "event": "state_error", "message": "batch 'a': import handle already dropped", "op": "drop_import", "seq": 32}
+{"error": "batch 'a': import handle already dropped", "error_type": "BatchReleasedError", "event": "op_error", "index": 7, "op": "drop_import", "seq": 33}
+{"args": {"expect_error": true, "id": "v"}, "event": "op", "index": 8, "op": "release", "seq": 34}
+{"event": "state_error", "id": "v", "message": "view 'v': cannot release while released", "op": "release", "seq": 35, "state": "released"}
+{"error": "view 'v': cannot release while released", "error_type": "ViewStateError", "event": "op_error", "index": 8, "op": "release", "seq": 36}
+{"event": "driver_finish", "live_batches": 0, "occupied_slots": [], "released_batches": 11, "released_streams": 7, "seq": 37}
+{"event": "cleanup_start", "occupied_slots": [], "reason": "run finalization", "seq": 38}
+{"event": "stream_close", "live_batches": 0, "release_fn": "0xf407303f0890", "seq": 39, "stream_addr": "0xf40730734480"}
+{"event": "cleanup_done", "live_batches": 0, "released_batches": 11, "released_streams": 8, "seq": 40}
+{"event": "run_end", "held_after_cleanup": 0, "held_before_cleanup": 0, "live_batches": 0, "released_batches": 11, "released_streams": 8, "remaining_roots": [], "remaining_views": [], "seq": 41}
