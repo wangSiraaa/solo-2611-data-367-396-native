@@ -1,0 +1,14 @@
+{
+  "public_regions": [
+    "N",
+    "S",
+    "W"
+  ],
+  "per_person_sum_clip_cents": [
+    0,
+    1000
+  ],
+  "total_budget_microepsilon": 1000000,
+  "adjacency": "add/remove all rows of one person; a person belongs to exactly one public region",
+  "test_secret": "synthetic-fixture-only-not-production-secret"
+}

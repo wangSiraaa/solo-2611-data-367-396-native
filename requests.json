@@ -1,0 +1,38 @@
+[
+  {
+    "request_id": "r1",
+    "metric": "count_people",
+    "regions": [
+      "N",
+      "S"
+    ],
+    "epsilon_micro": 400000
+  },
+  {
+    "request_id": "r2",
+    "metric": "count_people",
+    "regions": [
+      "S",
+      "N",
+      "N"
+    ],
+    "epsilon_micro": 400000
+  },
+  {
+    "request_id": "r3",
+    "metric": "sum_clipped_cents",
+    "regions": [
+      "N",
+      "S"
+    ],
+    "epsilon_micro": 600000
+  },
+  {
+    "request_id": "r4",
+    "metric": "count_people",
+    "regions": [
+      "W"
+    ],
+    "epsilon_micro": 100000
+  }
+]

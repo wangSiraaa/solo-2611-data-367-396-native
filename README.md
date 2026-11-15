@@ -1,0 +1,2 @@
+所有数据和secret仅为本地合成。noise.py给出本题确定测试噪声映射，便于故障前后逐字节比对；不是生产密钥方案或完整隐私系统。
+policy的epsilon均用整数microepsilon记账。query规范身份包含冻结数据摘要、政策摘要、metric、去重排序regions、epsilon_micro；request_id仅为调用身份。重复同义查询复用同一已发布结果，不重新消耗预算。每个metric的向量一次发布：count_people灵敏度1，sum_clipped_cents灵敏度1000。先每人合计再截断；每人唯一region。返回所选公共region全集，包括空桶。

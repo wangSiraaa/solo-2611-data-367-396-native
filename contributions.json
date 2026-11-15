@@ -1,0 +1,27 @@
+[
+  {
+    "person_id": "p1",
+    "region": "N",
+    "amount_cents": 600
+  },
+  {
+    "person_id": "p1",
+    "region": "N",
+    "amount_cents": 800
+  },
+  {
+    "person_id": "p2",
+    "region": "N",
+    "amount_cents": -20
+  },
+  {
+    "person_id": "p3",
+    "region": "S",
+    "amount_cents": 350
+  },
+  {
+    "person_id": "p4",
+    "region": "S",
+    "amount_cents": 500
+  }
+]
