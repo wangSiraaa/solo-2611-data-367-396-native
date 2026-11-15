@@ -1,0 +1,42 @@
+{
+  "catalog_version": 1,
+  "tool": "local-column-lineage",
+  "schema_fingerprint": "b2cc11b3b1af3f59ab65d8f88f28bb1dbea2e5ede9d1641ccc702a154c63d45f",
+  "catalog_file": "catalog.json",
+  "views_dir": "views",
+  "sql_dialect": "sqlite",
+  "limits": {
+    "max_views": 20,
+    "max_sources_per_view": 5,
+    "max_base_tables": 10,
+    "max_columns_per_table": 20
+  },
+  "views": {
+    "customer_totals": {
+      "file": "customer_totals.sql",
+      "status": "ok",
+      "sql_sha256": "776a80cee58219e73cbc5107abc453d8b67efa2b5d2e6790fb647ab479cf8d1d",
+      "input_fingerprint": "9a0ff87dd72083e2a9938f2f4494db7d5138435c102195dd96b04609cb502f62",
+      "schema_fingerprint": "b2cc11b3b1af3f59ab65d8f88f28bb1dbea2e5ede9d1641ccc702a154c63d45f",
+      "view_dependencies": []
+    },
+    "report": {
+      "file": "report.sql",
+      "status": "ok",
+      "sql_sha256": "b6beb946d04639f8e069ee8f453f45d1a2671609715f2ee5f9a0e94dd7197c44",
+      "input_fingerprint": "5a9934fd8cb8c13bea86fcd2b41da904ac882c429c813a475841f0fba8050b80",
+      "schema_fingerprint": "b2cc11b3b1af3f59ab65d8f88f28bb1dbea2e5ede9d1641ccc702a154c63d45f",
+      "view_dependencies": [
+        "customer_totals"
+      ]
+    },
+    "unknown_report": {
+      "file": "unknown_report.sql",
+      "status": "ok",
+      "sql_sha256": "1ba5b36b5e84c7a5bf1cc17b17f23642a4d90bf9e7a905ad0cacfdbd348a7e62",
+      "input_fingerprint": "7686a98acb4e0fd1f6b58d514b4fc7dbb94ca3a0b498d5577f2a768d39ec24e8",
+      "schema_fingerprint": "b2cc11b3b1af3f59ab65d8f88f28bb1dbea2e5ede9d1641ccc702a154c63d45f",
+      "view_dependencies": []
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "kind": "table",
+      "name": "customers",
+      "columns": [
+        "customer_id",
+        "region",
+        "note"
+      ]
+    },
+    {
+      "kind": "table",
+      "name": "orders",
+      "columns": [
+        "order_id",
+        "customer_id",
+        "amount",
+        "status"
+      ]
+    },
+    {
+      "kind": "view",
+      "name": "customer_totals",
+      "status": "ok",
+      "columns": [
+        "region",
+        "total",
+        "n"
+      ]
+    },
+    {
+      "kind": "view",
+      "name": "report",
+      "status": "ok",
+      "columns": [
+        "region",
+        "displayed"
+      ]
+    },
+    {
+      "kind": "view",
+      "name": "unknown_report",
+      "status": "ok",
+      "columns": [
+        "score"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "customer_totals",
+      "to": "customers",
+      "type": "table"
+    },
+    {
+      "from": "customer_totals",
+      "to": "orders",
+      "type": "table"
+    },
+    {
+      "from": "report",
+      "to": "customer_totals",
+      "type": "view"
+    },
+    {
+      "from": "unknown_report",
+      "to": "orders",
+      "type": "table"
+    }
+  ]
+}

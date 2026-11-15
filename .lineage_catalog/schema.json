@@ -1,0 +1,13 @@
+{
+  "customers": {
+    "customer_id": "TEXT",
+    "region": "TEXT",
+    "note": "TEXT"
+  },
+  "orders": {
+    "order_id": "TEXT",
+    "customer_id": "TEXT",
+    "amount": "INTEGER",
+    "status": "TEXT"
+  }
+}

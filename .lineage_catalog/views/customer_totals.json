@@ -1,0 +1,461 @@
+{
+  "name": "customer_totals",
+  "sql_file": "customer_totals.sql",
+  "sql_sha256": "776a80cee58219e73cbc5107abc453d8b67efa2b5d2e6790fb647ab479cf8d1d",
+  "status": "ok",
+  "source_objects": [
+    "customers",
+    "orders"
+  ],
+  "source_roles": [
+    {
+      "alias": "o",
+      "object": "orders",
+      "kind": "table",
+      "location": {
+        "line": 1,
+        "col": 66,
+        "start": 60,
+        "end": 68
+      }
+    },
+    {
+      "alias": "c",
+      "object": "customers",
+      "kind": "table",
+      "location": {
+        "line": 1,
+        "col": 88,
+        "start": 79,
+        "end": 90
+      }
+    }
+  ],
+  "view_dependencies": [],
+  "cte_names": [],
+  "input_fingerprint": "9a0ff87dd72083e2a9938f2f4494db7d5138435c102195dd96b04609cb502f62",
+  "schema_fingerprint": "b2cc11b3b1af3f59ab65d8f88f28bb1dbea2e5ede9d1641ccc702a154c63d45f",
+  "error": null,
+  "columns": [
+    {
+      "name": "region",
+      "precision": "exact",
+      "unknown": false,
+      "unknown_reasons": [],
+      "location": {
+        "line": 1,
+        "col": 8,
+        "start": 7,
+        "end": 15
+      },
+      "name_location": {
+        "line": 1,
+        "col": 15,
+        "start": 9,
+        "end": 15
+      },
+      "nullable_sources": [
+        "customers.region"
+      ],
+      "value_sources": [
+        {
+          "kind": "value",
+          "reason": "base_column",
+          "base": {
+            "table": "customers",
+            "column": "region",
+            "id": "customers.region"
+          },
+          "base_alias": "c",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "customers",
+              "to_object_display": "customers",
+              "alias": "c",
+              "alias_display": "c",
+              "to_column": "region",
+              "to_column_display": "region",
+              "kind": "table"
+            }
+          ]
+        }
+      ],
+      "control_sources": [
+        {
+          "kind": "control",
+          "reason": "filter+join_pairing",
+          "base": {
+            "table": "customers",
+            "column": "customer_id",
+            "id": "customers.customer_id"
+          },
+          "base_alias": "c",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "customers",
+              "to_object_display": "customers",
+              "alias": "c",
+              "alias_display": "c",
+              "to_column": "customer_id",
+              "to_column_display": "customer_id",
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "kind": "control",
+          "reason": "group_key+left_null_side",
+          "base": {
+            "table": "customers",
+            "column": "region",
+            "id": "customers.region"
+          },
+          "base_alias": "c",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "customers",
+              "to_object_display": "customers",
+              "alias": "c",
+              "alias_display": "c",
+              "to_column": "region",
+              "to_column_display": "region",
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "kind": "control",
+          "reason": "filter+join_pairing",
+          "base": {
+            "table": "orders",
+            "column": "customer_id",
+            "id": "orders.customer_id"
+          },
+          "base_alias": "o",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "orders",
+              "to_object_display": "orders",
+              "alias": "o",
+              "alias_display": "o",
+              "to_column": "customer_id",
+              "to_column_display": "customer_id",
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "kind": "control",
+          "reason": "filter",
+          "base": {
+            "table": "orders",
+            "column": "status",
+            "id": "orders.status"
+          },
+          "base_alias": "o",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "orders",
+              "to_object_display": "orders",
+              "alias": "o",
+              "alias_display": "o",
+              "to_column": "status",
+              "to_column_display": "status",
+              "kind": "table"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "total",
+      "precision": "exact",
+      "unknown": false,
+      "unknown_reasons": [],
+      "location": {
+        "line": 1,
+        "col": 20,
+        "start": 17,
+        "end": 39
+      },
+      "name_location": {
+        "line": 1,
+        "col": 39,
+        "start": 34,
+        "end": 39
+      },
+      "nullable_sources": [],
+      "value_sources": [
+        {
+          "kind": "value",
+          "reason": "base_column",
+          "base": {
+            "table": "orders",
+            "column": "amount",
+            "id": "orders.amount"
+          },
+          "base_alias": "o",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "orders",
+              "to_object_display": "orders",
+              "alias": "o",
+              "alias_display": "o",
+              "to_column": "amount",
+              "to_column_display": "amount",
+              "kind": "table"
+            }
+          ]
+        }
+      ],
+      "control_sources": [
+        {
+          "kind": "control",
+          "reason": "filter+join_pairing",
+          "base": {
+            "table": "customers",
+            "column": "customer_id",
+            "id": "customers.customer_id"
+          },
+          "base_alias": "c",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "customers",
+              "to_object_display": "customers",
+              "alias": "c",
+              "alias_display": "c",
+              "to_column": "customer_id",
+              "to_column_display": "customer_id",
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "kind": "control",
+          "reason": "group_key+left_null_side",
+          "base": {
+            "table": "customers",
+            "column": "region",
+            "id": "customers.region"
+          },
+          "base_alias": "c",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "customers",
+              "to_object_display": "customers",
+              "alias": "c",
+              "alias_display": "c",
+              "to_column": "region",
+              "to_column_display": "region",
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "kind": "control",
+          "reason": "filter+join_pairing",
+          "base": {
+            "table": "orders",
+            "column": "customer_id",
+            "id": "orders.customer_id"
+          },
+          "base_alias": "o",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "orders",
+              "to_object_display": "orders",
+              "alias": "o",
+              "alias_display": "o",
+              "to_column": "customer_id",
+              "to_column_display": "customer_id",
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "kind": "control",
+          "reason": "filter",
+          "base": {
+            "table": "orders",
+            "column": "status",
+            "id": "orders.status"
+          },
+          "base_alias": "o",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "orders",
+              "to_object_display": "orders",
+              "alias": "o",
+              "alias_display": "o",
+              "to_column": "status",
+              "to_column_display": "status",
+              "kind": "table"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "n",
+      "precision": "no_value_source",
+      "unknown": false,
+      "unknown_reasons": [],
+      "location": {
+        "line": 1,
+        "col": 46,
+        "start": 41,
+        "end": 54
+      },
+      "name_location": {
+        "line": 1,
+        "col": 54,
+        "start": 53,
+        "end": 54
+      },
+      "nullable_sources": [],
+      "value_sources": [],
+      "control_sources": [
+        {
+          "kind": "control",
+          "reason": "filter+join_pairing",
+          "base": {
+            "table": "customers",
+            "column": "customer_id",
+            "id": "customers.customer_id"
+          },
+          "base_alias": "c",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "customers",
+              "to_object_display": "customers",
+              "alias": "c",
+              "alias_display": "c",
+              "to_column": "customer_id",
+              "to_column_display": "customer_id",
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "kind": "control",
+          "reason": "group_key+left_null_side",
+          "base": {
+            "table": "customers",
+            "column": "region",
+            "id": "customers.region"
+          },
+          "base_alias": "c",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "customers",
+              "to_object_display": "customers",
+              "alias": "c",
+              "alias_display": "c",
+              "to_column": "region",
+              "to_column_display": "region",
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "kind": "control",
+          "reason": "filter+join_pairing",
+          "base": {
+            "table": "orders",
+            "column": "customer_id",
+            "id": "orders.customer_id"
+          },
+          "base_alias": "o",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "orders",
+              "to_object_display": "orders",
+              "alias": "o",
+              "alias_display": "o",
+              "to_column": "customer_id",
+              "to_column_display": "customer_id",
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "kind": "control",
+          "reason": "filter",
+          "base": {
+            "table": "orders",
+            "column": "status",
+            "id": "orders.status"
+          },
+          "base_alias": "o",
+          "path": [
+            {
+              "from_view": "customer_totals",
+              "from_view_display": "customer_totals",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "orders",
+              "to_object_display": "orders",
+              "alias": "o",
+              "alias_display": "o",
+              "to_column": "status",
+              "to_column_display": "status",
+              "kind": "table"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

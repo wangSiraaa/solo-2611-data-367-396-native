@@ -1,0 +1,78 @@
+{
+  "name": "unknown_report",
+  "sql_file": "unknown_report.sql",
+  "sql_sha256": "1ba5b36b5e84c7a5bf1cc17b17f23642a4d90bf9e7a905ad0cacfdbd348a7e62",
+  "status": "ok",
+  "source_objects": [
+    "orders"
+  ],
+  "source_roles": [
+    {
+      "alias": "orders",
+      "object": "orders",
+      "kind": "table",
+      "location": {
+        "line": 1,
+        "col": 48,
+        "start": 42,
+        "end": 48
+      }
+    }
+  ],
+  "view_dependencies": [],
+  "cte_names": [],
+  "input_fingerprint": "7686a98acb4e0fd1f6b58d514b4fc7dbb94ca3a0b498d5577f2a768d39ec24e8",
+  "schema_fingerprint": "b2cc11b3b1af3f59ab65d8f88f28bb1dbea2e5ede9d1641ccc702a154c63d45f",
+  "error": null,
+  "columns": [
+    {
+      "name": "score",
+      "precision": "unknown",
+      "unknown": true,
+      "unknown_reasons": [
+        "unknown function opaque_score(amount)"
+      ],
+      "location": {
+        "line": 1,
+        "col": 19,
+        "start": 7,
+        "end": 36
+      },
+      "name_location": {
+        "line": 1,
+        "col": 36,
+        "start": 31,
+        "end": 36
+      },
+      "nullable_sources": [],
+      "value_sources": [
+        {
+          "kind": "value",
+          "reason": "base_column",
+          "base": {
+            "table": "orders",
+            "column": "amount",
+            "id": "orders.amount"
+          },
+          "base_alias": "orders",
+          "path": [
+            {
+              "from_view": "unknown_report",
+              "from_view_display": "unknown_report",
+              "from_column": "",
+              "from_column_display": "",
+              "to_object": "orders",
+              "to_object_display": "orders",
+              "alias": "orders",
+              "alias_display": "orders",
+              "to_column": "amount",
+              "to_column_display": "amount",
+              "kind": "table"
+            }
+          ]
+        }
+      ],
+      "control_sources": []
+    }
+  ]
+}
