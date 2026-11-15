@@ -1,0 +1,12 @@
+# 双副本行版本与传输子集
+固定两个唯一replica_id A/B，独立SQLite文件，拥有同一不可变seed_versions及dataset摘要。业务表items(id TEXT PRIMARY KEY,name TEXT NOT NULL,qty INTEGER NOT NULL且>=0)。版本state是完整{name,qty}或NULL墓碑，NULL与空字符串不同。行键不能更改；不做跨行外键、字段级自动合并、schema演进或墓碑回收。
+
+本地新版本event有dataset、version_id、origin、seq、row_id、parents、kind、state。version_id=origin+":"+seq，seq为该源本地持久递增正整数，仅提供唯一身份；它不是跨源时钟，也不要求其它row的连续seq已全部抵达。seed版本是seed:1、seed:2等，所有副本初始都已知。parents必须引用创建时源副本看到的同一行完整当前head集合；接收端不能因自己已知更多并发head而拒绝一个合法历史事件，也不从seq数字先后补造因果；普通write/delete在无冲突的0或1个head上操作；多head冲突必须用显式resolve并精确绑定当前head集合。kind仅write/delete/resolve；delete的state为NULL，resolve可以显式选择墓碑或新的合法整行值。
+
+版本v是parents所有祖先之后的新版本。每行当前heads是所有因果就绪版本中不被另一就绪版本后代覆盖的前沿；多个互不因果支配head必须显示conflicted，保留每个完整版本值/墓碑，不能自动取最后到达/最大seq/墙钟。一个head且state=NULL表示deleted；一个非空head为resolved；无版本是absent。普通编辑不隐式解决冲突，必须先明确resolve。相同parents下两个不同origin的修改即使墙钟先后也仍并发。
+
+receive允许事件乱序及重复，缺少parents的事件先原样持久化为pending，报告具体缺依赖；parents后到后重新判定。依赖就绪前不能覆盖当前可见前沿。重复相同version_id/规范内容是无变化，换内容拒绝且保留冲突证据。跨row parents、错误dataset/类型/身份必须拒绝。传输包逐项回执，合法独立项可继续，不要求整个包因果闭包一次齐备。事件内容规范JSON为source.py的canonical函数。接收不为远端版本生成新的本地版本身份；本地outbox只含本副本主动write/delete/resolve产生的事件。
+
+query-row必须返回状态、当前heads及每个head原始值/墓碑；业务导出只包含resolved行，deleted行无普通值，conflicted行进入独立冲突表而不静默遗漏解释。可见行/冲突前沿、收件状态和版本依据须在同一SQLite事务发布。本地写的业务效果/新版本/outbox/本地seq也须共同提交或回滚。
+
+source.py仅提供真实低层source写+outbox事务、原始inbox去重及SQL设施。它让调用者直接提供parents，不做合法当前head检查，不推导因果前沿，也不把收到事件应用到业务表。目标须补这些语义，不能把仅存inbox当成复制完成；也不能走local_write套用远端值，因为那会改origin并制造回声。
