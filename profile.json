@@ -1,0 +1,7 @@
+{
+  "session_gap": 5,
+  "time_unit": "integer ticks",
+  "future_event_rule": "after watermark W all accepted new/upsert/retract event times must be >W",
+  "session_membership": "same key consecutive sorted event times with difference <=gap; ties stable event_id",
+  "final_rule": "session last_time+gap<=watermark"
+}

@@ -1,0 +1,49 @@
+[
+  {
+    "op": "upsert",
+    "event_id": "a",
+    "key": "u",
+    "time": 0,
+    "value": 3
+  },
+  {
+    "op": "upsert",
+    "event_id": "b",
+    "key": "u",
+    "time": 10,
+    "value": 7
+  },
+  {
+    "op": "upsert",
+    "event_id": "bridge",
+    "key": "u",
+    "time": 5,
+    "value": 2
+  },
+  {
+    "op": "retract",
+    "event_id": "bridge"
+  },
+  {
+    "op": "upsert",
+    "event_id": "c",
+    "key": "v",
+    "time": 2,
+    "value": 4
+  },
+  {
+    "op": "watermark",
+    "time": 6
+  },
+  {
+    "op": "upsert",
+    "event_id": "late",
+    "key": "u",
+    "time": 5,
+    "value": 99
+  },
+  {
+    "op": "watermark",
+    "time": 15
+  }
+]
