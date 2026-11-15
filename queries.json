@@ -1,0 +1,20 @@
+[
+  {
+    "query_id": "q1",
+    "vector": [
+      5.0,
+      5.0
+    ],
+    "category": "rare",
+    "k": 3
+  },
+  {
+    "query_id": "q2",
+    "vector": [
+      0.0,
+      0.0
+    ],
+    "category": "common",
+    "k": 5
+  }
+]
