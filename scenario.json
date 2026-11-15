@@ -1,0 +1,73 @@
+{
+  "max_live_exported_batches": 2,
+  "operations": [
+    {
+      "op": "next",
+      "batch": "a"
+    },
+    {
+      "op": "view",
+      "id": "slow",
+      "batch": "a",
+      "start": 1,
+      "length": 4
+    },
+    {
+      "op": "view",
+      "id": "fast",
+      "batch": "a",
+      "start": 0,
+      "length": 3
+    },
+    {
+      "op": "drop_import",
+      "batch": "a"
+    },
+    {
+      "op": "read",
+      "id": "fast"
+    },
+    {
+      "op": "release",
+      "id": "fast"
+    },
+    {
+      "op": "next",
+      "batch": "b"
+    },
+    {
+      "op": "view",
+      "id": "other",
+      "batch": "b",
+      "start": 0,
+      "length": 5
+    },
+    {
+      "op": "cancel",
+      "id": "other"
+    },
+    {
+      "op": "drop_import",
+      "batch": "b"
+    },
+    {
+      "op": "next",
+      "batch": "c"
+    },
+    {
+      "op": "close_stream"
+    },
+    {
+      "op": "read",
+      "id": "slow"
+    },
+    {
+      "op": "release",
+      "id": "slow"
+    },
+    {
+      "op": "drop_import",
+      "batch": "c"
+    }
+  ]
+}
