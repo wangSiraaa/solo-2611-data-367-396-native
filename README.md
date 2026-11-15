@@ -1,0 +1,2 @@
+给出真实SQLite schema与行槽/有限值域声明。one_of表示待分配的离散值，其余值固定；NULL是否允许由真实目录决定。生成器必须读取真实schema的PK/UNIQUE/FK和受限CHECK，不为这三个表写死名称。范围见题面。
+常规逐表立即检查会受循环外键阻塞；即使延迟外键，复合UNIQUE与有限值域也要求共同分配。schema.sql的DEFERRABLE是允许的装载设施，不规定生成策略。generation-unsat.json在people的复合UNIQUE上无解。

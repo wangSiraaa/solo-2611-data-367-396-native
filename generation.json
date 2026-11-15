@@ -1,0 +1,97 @@
+{
+  "tables": {
+    "teams": {
+      "rows": [
+        {
+          "team_id": 1,
+          "region": {
+            "one_of": [
+              1,
+              2
+            ]
+          },
+          "lead_id": {
+            "one_of": [
+              10,
+              11
+            ]
+          }
+        },
+        {
+          "team_id": 2,
+          "region": {
+            "one_of": [
+              1,
+              2
+            ]
+          },
+          "lead_id": {
+            "one_of": [
+              12,
+              13
+            ]
+          }
+        }
+      ]
+    },
+    "people": {
+      "rows": [
+        {
+          "person_id": 10,
+          "team_id": 1,
+          "rank": {
+            "one_of": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "person_id": 11,
+          "team_id": 1,
+          "rank": {
+            "one_of": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "person_id": 12,
+          "team_id": 2,
+          "rank": {
+            "one_of": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "person_id": 13,
+          "team_id": 2,
+          "rank": {
+            "one_of": [
+              1,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    "shifts": {
+      "rows": [
+        {
+          "shift_id": 100,
+          "team_id": 1,
+          "rank": 2
+        },
+        {
+          "shift_id": 101,
+          "team_id": 2,
+          "rank": 1
+        }
+      ]
+    }
+  },
+  "seed": 7
+}

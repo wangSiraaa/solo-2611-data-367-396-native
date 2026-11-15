@@ -1,0 +1,31 @@
+{
+  "tables": {
+    "teams": {
+      "rows": [
+        {
+          "team_id": 1,
+          "region": 1,
+          "lead_id": 10
+        }
+      ]
+    },
+    "people": {
+      "rows": [
+        {
+          "person_id": 10,
+          "team_id": 1,
+          "rank": 1
+        },
+        {
+          "person_id": 11,
+          "team_id": 1,
+          "rank": 1
+        }
+      ]
+    },
+    "shifts": {
+      "rows": []
+    }
+  },
+  "seed": 7
+}
