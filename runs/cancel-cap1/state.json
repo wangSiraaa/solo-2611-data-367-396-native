@@ -1,0 +1,466 @@
+{
+  "outcome": "cancelled",
+  "outputs_written": 7,
+  "bytes_on_disk": 394,
+  "budget_peak": 546,
+  "budget_limit": 16384,
+  "spool_capacity_bytes": 0,
+  "retry_staging_peak_bytes": 0,
+  "channel_capacities": [
+    1,
+    1,
+    1
+  ],
+  "channel_peak_frames": {
+    "src:a": 1,
+    "src:b": 1,
+    "r2w:0": 1,
+    "r2w:1": 0,
+    "w2s:0": 1,
+    "w2s:1": 0
+  },
+  "fixed_thread_count": 6,
+  "max_rss_kib": 12928,
+  "error": null,
+  "snapshot": {
+    "outcome": "cancelled",
+    "error": null,
+    "outputs_written": 7,
+    "bytes_on_disk": 394,
+    "retry_staging_bytes": 0,
+    "roles": {
+      "source-a": {
+        "state": "cancelled",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 9,
+        "records_processed": 0,
+        "outputs_emitted": 0,
+        "eos_seen": 0
+      },
+      "source-b": {
+        "state": "cancelled",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 4,
+        "records_processed": 0,
+        "outputs_emitted": 0,
+        "eos_seen": 0
+      },
+      "router": {
+        "state": "cancelled",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 0,
+        "records_processed": 0,
+        "outputs_emitted": 0,
+        "eos_seen": 0
+      },
+      "worker-0": {
+        "state": "cancelled",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 7,
+        "records_processed": 7,
+        "outputs_emitted": 7,
+        "eos_seen": 0
+      },
+      "worker-1": {
+        "state": "cancelled",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 0,
+        "records_processed": 0,
+        "outputs_emitted": 0,
+        "eos_seen": 0
+      },
+      "sink": {
+        "state": "cancelled",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 0,
+        "records_processed": 0,
+        "outputs_emitted": 0,
+        "eos_seen": 0
+      }
+    },
+    "channels": {
+      "src:a": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 1,
+        "closed": true
+      },
+      "src:b": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 1,
+        "closed": true
+      },
+      "r2w:0": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 1,
+        "closed": true
+      },
+      "r2w:1": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 0,
+        "closed": true
+      },
+      "w2s:0": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 1,
+        "closed": true
+      },
+      "w2s:1": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 0,
+        "closed": true
+      }
+    },
+    "events": [
+      {
+        "t": 284925.897442,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "b:0",
+          "fanout": 0
+        }
+      },
+      {
+        "t": 284925.897462,
+        "name": "source.emit",
+        "detail": {
+          "source": "a",
+          "identity": "a:0"
+        }
+      },
+      {
+        "t": 284925.897468,
+        "name": "source.emit",
+        "detail": {
+          "source": "a",
+          "identity": "a:1"
+        }
+      },
+      {
+        "t": 284925.897493,
+        "name": "router.route",
+        "detail": {
+          "identity": "a:0",
+          "to": 0
+        }
+      },
+      {
+        "t": 284925.897504,
+        "name": "router.route",
+        "detail": {
+          "identity": "b:1",
+          "to": 0
+        }
+      },
+      {
+        "t": 284925.897524,
+        "name": "source.emit",
+        "detail": {
+          "source": "a",
+          "identity": "a:2"
+        }
+      },
+      {
+        "t": 284925.897547,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "a:0",
+          "fanout": 0
+        }
+      },
+      {
+        "t": 284925.897564,
+        "name": "router.route",
+        "detail": {
+          "identity": "a:1",
+          "to": 0
+        }
+      },
+      {
+        "t": 284925.897599,
+        "name": "source.emit",
+        "detail": {
+          "source": "a",
+          "identity": "a:3"
+        }
+      },
+      {
+        "t": 284925.897636,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "b:1",
+          "fanout": 1
+        }
+      },
+      {
+        "t": 284925.897659,
+        "name": "source.emit",
+        "detail": {
+          "source": "b",
+          "identity": "b:3"
+        }
+      },
+      {
+        "t": 284925.897683,
+        "name": "router.route",
+        "detail": {
+          "identity": "a:2",
+          "to": 0
+        }
+      },
+      {
+        "t": 284925.897696,
+        "name": "source.emit",
+        "detail": {
+          "source": "a",
+          "identity": "a:4"
+        }
+      },
+      {
+        "t": 284925.89774,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "a:1",
+          "fanout": 1
+        }
+      },
+      {
+        "t": 284925.897749,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:1",
+          "n": 1
+        }
+      },
+      {
+        "t": 284925.897776,
+        "name": "router.route",
+        "detail": {
+          "identity": "a:3",
+          "to": 0
+        }
+      },
+      {
+        "t": 284925.897793,
+        "name": "source.emit",
+        "detail": {
+          "source": "a",
+          "identity": "a:5"
+        }
+      },
+      {
+        "t": 284925.897844,
+        "name": "sink.written",
+        "detail": {
+          "identity": "a:1",
+          "n": 2
+        }
+      },
+      {
+        "t": 284925.897866,
+        "name": "router.route",
+        "detail": {
+          "identity": "a:4",
+          "to": 0
+        }
+      },
+      {
+        "t": 284925.897888,
+        "name": "source.emit",
+        "detail": {
+          "source": "a",
+          "identity": "a:6"
+        }
+      },
+      {
+        "t": 284925.897911,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "a:2",
+          "fanout": 2
+        }
+      },
+      {
+        "t": 284925.897937,
+        "name": "sink.written",
+        "detail": {
+          "identity": "a:2",
+          "n": 3
+        }
+      },
+      {
+        "t": 284925.897961,
+        "name": "router.route",
+        "detail": {
+          "identity": "a:5",
+          "to": 0
+        }
+      },
+      {
+        "t": 284925.898018,
+        "name": "source.emit",
+        "detail": {
+          "source": "a",
+          "identity": "a:7"
+        }
+      },
+      {
+        "t": 284925.89804,
+        "name": "sink.written",
+        "detail": {
+          "identity": "a:2",
+          "n": 4
+        }
+      },
+      {
+        "t": 284925.898113,
+        "name": "sink.written",
+        "detail": {
+          "identity": "a:3",
+          "n": 5
+        }
+      },
+      {
+        "t": 284925.898118,
+        "name": "test.barrier.arm",
+        "detail": {
+          "at_output": 5
+        }
+      },
+      {
+        "t": 284925.898129,
+        "name": "engine.cancel",
+        "detail": {
+          "reason": "schedules.cancel"
+        }
+      },
+      {
+        "t": 284925.898165,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "a:3",
+          "fanout": 3
+        }
+      },
+      {
+        "t": 284925.898172,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "a:4",
+          "fanout": 0
+        }
+      },
+      {
+        "t": 284925.89818,
+        "name": "thread.exited_cancelled",
+        "detail": {
+          "thread": "worker-0"
+        }
+      },
+      {
+        "t": 284925.898213,
+        "name": "router.route",
+        "detail": {
+          "identity": "a:6",
+          "to": 0
+        }
+      },
+      {
+        "t": 284925.898217,
+        "name": "thread.exited_cancelled",
+        "detail": {
+          "thread": "router"
+        }
+      },
+      {
+        "t": 284925.89825,
+        "name": "source.emit",
+        "detail": {
+          "source": "a",
+          "identity": "a:8"
+        }
+      },
+      {
+        "t": 284925.8984,
+        "name": "sink.written",
+        "detail": {
+          "identity": "a:3",
+          "n": 6
+        }
+      },
+      {
+        "t": 284925.898505,
+        "name": "sink.written",
+        "detail": {
+          "identity": "a:3",
+          "n": 7
+        }
+      },
+      {
+        "t": 284925.898521,
+        "name": "thread.exited_cancelled",
+        "detail": {
+          "thread": "source-a"
+        }
+      },
+      {
+        "t": 284925.898655,
+        "name": "thread.exited_cancelled",
+        "detail": {
+          "thread": "sink"
+        }
+      },
+      {
+        "t": 284925.947467,
+        "name": "thread.exited_cancelled",
+        "detail": {
+          "thread": "worker-1"
+        }
+      },
+      {
+        "t": 284925.947848,
+        "name": "thread.exited_cancelled",
+        "detail": {
+          "thread": "source-b"
+        }
+      }
+    ],
+    "budget": {
+      "used": 0,
+      "peak": 546,
+      "limit": 16384
+    },
+    "threads_alive": {
+      "source-a": false,
+      "source-b": false,
+      "router": false,
+      "worker-0": false,
+      "worker-1": false,
+      "sink": false
+    }
+  }
+}

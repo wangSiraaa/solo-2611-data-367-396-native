@@ -1,0 +1,12 @@
+{"source_id":"a","seq":1,"part_no":0,"key":0,"value":1}
+{"source_id":"b","seq":1,"part_no":0,"key":0,"value":4}
+{"source_id":"b","seq":2,"part_no":0,"key":0,"value":1}
+{"source_id":"b","seq":2,"part_no":1,"key":0,"value":2}
+{"source_id":"b","seq":3,"part_no":0,"key":0,"value":0}
+{"source_id":"b","seq":3,"part_no":1,"key":0,"value":1}
+{"source_id":"b","seq":3,"part_no":2,"key":0,"value":2}
+{"source_id":"a","seq":2,"part_no":0,"key":0,"value":4}
+{"source_id":"a","seq":2,"part_no":1,"key":0,"value":5}
+{"source_id":"a","seq":3,"part_no":0,"key":0,"value":9}
+{"source_id":"a","seq":3,"part_no":1,"key":0,"value":10}
+{"source_id":"a","seq":3,"part_no":2,"key":0,"value":11}

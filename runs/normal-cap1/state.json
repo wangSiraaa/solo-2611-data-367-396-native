@@ -1,0 +1,468 @@
+{
+  "outcome": "complete",
+  "outputs_written": 36,
+  "bytes_on_disk": 2055,
+  "budget_peak": 608,
+  "budget_limit": 16384,
+  "spool_capacity_bytes": 0,
+  "retry_staging_peak_bytes": 0,
+  "channel_capacities": [
+    1,
+    1,
+    1
+  ],
+  "channel_peak_frames": {
+    "src:a": 1,
+    "src:b": 1,
+    "r2w:0": 1,
+    "r2w:1": 1,
+    "w2s:0": 1,
+    "w2s:1": 1
+  },
+  "fixed_thread_count": 6,
+  "max_rss_kib": 12672,
+  "error": null,
+  "snapshot": {
+    "outcome": "complete",
+    "error": null,
+    "outputs_written": 36,
+    "bytes_on_disk": 2055,
+    "retry_staging_bytes": 0,
+    "roles": {
+      "source-a": {
+        "state": "done",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 12,
+        "records_processed": 0,
+        "outputs_emitted": 0,
+        "eos_seen": 0
+      },
+      "source-b": {
+        "state": "done",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 12,
+        "records_processed": 0,
+        "outputs_emitted": 0,
+        "eos_seen": 0
+      },
+      "router": {
+        "state": "done",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 0,
+        "records_processed": 0,
+        "outputs_emitted": 0,
+        "eos_seen": 0
+      },
+      "worker-0": {
+        "state": "done",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 20,
+        "records_processed": 20,
+        "outputs_emitted": 28,
+        "eos_seen": 1
+      },
+      "worker-1": {
+        "state": "done",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 4,
+        "records_processed": 4,
+        "outputs_emitted": 8,
+        "eos_seen": 1
+      },
+      "sink": {
+        "state": "done",
+        "holding_bytes": 0,
+        "holding_identity": null,
+        "records_seen": 0,
+        "records_processed": 0,
+        "outputs_emitted": 0,
+        "eos_seen": 0
+      }
+    },
+    "channels": {
+      "src:a": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 1,
+        "closed": true
+      },
+      "src:b": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 1,
+        "closed": true
+      },
+      "r2w:0": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 1,
+        "closed": true
+      },
+      "r2w:1": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 1,
+        "closed": true
+      },
+      "w2s:0": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 1,
+        "closed": true
+      },
+      "w2s:1": {
+        "capacity": 1,
+        "frames": 0,
+        "payload_bytes": 0,
+        "peak_frames": 1,
+        "closed": true
+      }
+    },
+    "events": [
+      {
+        "t": 284925.892935,
+        "name": "source.emit",
+        "detail": {
+          "source": "b",
+          "identity": "b:9"
+        }
+      },
+      {
+        "t": 284925.892952,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:3",
+          "n": 20
+        }
+      },
+      {
+        "t": 284925.89297,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "b:5",
+          "fanout": 1
+        }
+      },
+      {
+        "t": 284925.893022,
+        "name": "router.route",
+        "detail": {
+          "identity": "b:8",
+          "to": 0
+        }
+      },
+      {
+        "t": 284925.89305,
+        "name": "source.emit",
+        "detail": {
+          "source": "b",
+          "identity": "b:10"
+        }
+      },
+      {
+        "t": 284925.89307,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:3",
+          "n": 21
+        }
+      },
+      {
+        "t": 284925.893152,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:5",
+          "n": 22
+        }
+      },
+      {
+        "t": 284925.893174,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "b:6",
+          "fanout": 2
+        }
+      },
+      {
+        "t": 284925.893208,
+        "name": "router.route",
+        "detail": {
+          "identity": "b:9",
+          "to": 1
+        }
+      },
+      {
+        "t": 284925.893229,
+        "name": "source.emit",
+        "detail": {
+          "source": "b",
+          "identity": "b:11"
+        }
+      },
+      {
+        "t": 284925.893246,
+        "name": "router.route",
+        "detail": {
+          "identity": "b:10",
+          "to": 0
+        }
+      },
+      {
+        "t": 284925.893268,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:6",
+          "n": 23
+        }
+      },
+      {
+        "t": 284925.893349,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:6",
+          "n": 24
+        }
+      },
+      {
+        "t": 284925.893423,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:7",
+          "n": 25
+        }
+      },
+      {
+        "t": 284925.893445,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "b:7",
+          "fanout": 3
+        }
+      },
+      {
+        "t": 284925.893456,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "b:8",
+          "fanout": 0
+        }
+      },
+      {
+        "t": 284925.893473,
+        "name": "router.route",
+        "detail": {
+          "identity": "b:11",
+          "to": 1
+        }
+      },
+      {
+        "t": 284925.893484,
+        "name": "source.eos",
+        "detail": {
+          "source": "b"
+        }
+      },
+      {
+        "t": 284925.893553,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:7",
+          "n": 26
+        }
+      },
+      {
+        "t": 284925.893627,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:7",
+          "n": 27
+        }
+      },
+      {
+        "t": 284925.893649,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 0,
+          "identity": "b:10",
+          "fanout": 2
+        }
+      },
+      {
+        "t": 284925.893693,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:10",
+          "n": 28
+        }
+      },
+      {
+        "t": 284925.89375,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:10",
+          "n": 29
+        }
+      },
+      {
+        "t": 284925.893819,
+        "name": "sink.written",
+        "detail": {
+          "identity": "a:11",
+          "n": 30
+        }
+      },
+      {
+        "t": 284925.89384,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 1,
+          "identity": "a:11",
+          "fanout": 3
+        }
+      },
+      {
+        "t": 284925.893865,
+        "name": "router.eos",
+        "detail": {
+          "from_channel": "src:b",
+          "remaining": 0
+        }
+      },
+      {
+        "t": 284925.893888,
+        "name": "worker.eos",
+        "detail": {
+          "worker": 0
+        }
+      },
+      {
+        "t": 284925.893918,
+        "name": "sink.written",
+        "detail": {
+          "identity": "a:11",
+          "n": 31
+        }
+      },
+      {
+        "t": 284925.893921,
+        "name": "sink.eos",
+        "detail": {
+          "from_channel": "w2s:0",
+          "remaining": 1
+        }
+      },
+      {
+        "t": 284925.893941,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 1,
+          "identity": "b:9",
+          "fanout": 1
+        }
+      },
+      {
+        "t": 284925.893973,
+        "name": "router.eos_forwarded",
+        "detail": {}
+      },
+      {
+        "t": 284925.894018,
+        "name": "sink.written",
+        "detail": {
+          "identity": "a:11",
+          "n": 32
+        }
+      },
+      {
+        "t": 284925.894092,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:9",
+          "n": 33
+        }
+      },
+      {
+        "t": 284925.894159,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:11",
+          "n": 34
+        }
+      },
+      {
+        "t": 284925.894181,
+        "name": "worker.processed",
+        "detail": {
+          "worker": 1,
+          "identity": "b:11",
+          "fanout": 3
+        }
+      },
+      {
+        "t": 284925.894224,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:11",
+          "n": 35
+        }
+      },
+      {
+        "t": 284925.894245,
+        "name": "worker.eos",
+        "detail": {
+          "worker": 1
+        }
+      },
+      {
+        "t": 284925.894303,
+        "name": "sink.written",
+        "detail": {
+          "identity": "b:11",
+          "n": 36
+        }
+      },
+      {
+        "t": 284925.894307,
+        "name": "sink.eos",
+        "detail": {
+          "from_channel": "w2s:1",
+          "remaining": 0
+        }
+      },
+      {
+        "t": 284925.894852,
+        "name": "sink.complete",
+        "detail": {
+          "outputs": 36
+        }
+      }
+    ],
+    "budget": {
+      "used": 0,
+      "peak": 608,
+      "limit": 16384
+    },
+    "threads_alive": {
+      "source-a": false,
+      "source-b": false,
+      "router": false,
+      "worker-0": false,
+      "worker-1": false,
+      "sink": false
+    }
+  }
+}

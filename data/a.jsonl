@@ -1,0 +1,12 @@
+{"source_id": "a", "seq": 0, "key": 0, "value": 0, "fanout": 0}
+{"source_id": "a", "seq": 1, "key": 0, "value": 1, "fanout": 1}
+{"source_id": "a", "seq": 2, "key": 0, "value": 2, "fanout": 2}
+{"source_id": "a", "seq": 3, "key": 0, "value": 3, "fanout": 3}
+{"source_id": "a", "seq": 4, "key": 0, "value": 4, "fanout": 0}
+{"source_id": "a", "seq": 5, "key": 0, "value": 5, "fanout": 1}
+{"source_id": "a", "seq": 6, "key": 0, "value": 6, "fanout": 2}
+{"source_id": "a", "seq": 7, "key": 0, "value": 7, "fanout": 3}
+{"source_id": "a", "seq": 8, "key": 0, "value": 8, "fanout": 0}
+{"source_id": "a", "seq": 9, "key": 1, "value": 9, "fanout": 1}
+{"source_id": "a", "seq": 10, "key": 0, "value": 10, "fanout": 2}
+{"source_id": "a", "seq": 11, "key": 1, "value": 11, "fanout": 3}
