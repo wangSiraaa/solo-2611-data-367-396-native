@@ -1,0 +1,32 @@
+{
+ "generation": 17,
+ "segments": [
+  17
+ ],
+ "active": {
+  "d0": {
+   "revision": 5,
+   "op": "put",
+   "seg": 17
+  },
+  "d1": {
+   "revision": 6,
+   "op": "put",
+   "seg": 17
+  },
+  "d2": {
+   "revision": 5,
+   "op": "put",
+   "seg": 17
+  }
+ },
+ "next_seg_id": 18,
+ "next_rev": {
+  "d0": 5,
+  "d1": 6,
+  "d2": 5
+ },
+ "stopwords": [
+  "the"
+ ]
+}

@@ -1,0 +1,1 @@
+{"seg_id":12,"postings":{"42":[["d4",2,"title",0,3,18,20]],"alpha":[["d4",2,"title",0,2,12,17],["d4",2,"title",0,4,21,26]],"beta":[["d4",2,"title",0,5,27,31]],"delta":[["d4",2,"title",0,0,0,5]],"gamma":[["d4",2,"title",0,1,6,11],["d4",2,"title",0,6,32,37]]},"docs":{"d4":{"revision":2,"doc":{"doc_id":"d4","title":["delta gamma alpha 42 alpha beta gamma"],"body":["of"]}}}}

@@ -1,0 +1,1 @@
+{"seg_id":4,"postings":{"alpha":[["d3",1,"title",0,0,0,5]],"café":[["d3",1,"body",0,0,0,5]],"gamma":[["d3",1,"body",0,1,6,11]],"naïve":[["d3",1,"body",1,1,4,10]],"of":[["d3",1,"title",0,1,6,8]]},"docs":{"d3":{"revision":1,"doc":{"doc_id":"d3","title":["alpha of"],"body":["café gamma","the naïve",""]}}}}

@@ -1,0 +1,39 @@
+{
+ "generation": 10,
+ "segments": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
+ ],
+ "active": {
+  "d0": {
+   "revision": 3,
+   "op": "put",
+   "seg": 10
+  },
+  "d1": {
+   "revision": 4,
+   "op": "put",
+   "seg": 7
+  },
+  "d2": {
+   "revision": 3,
+   "op": "put",
+   "seg": 9
+  }
+ },
+ "next_seg_id": 11,
+ "next_rev": {
+  "d0": 3,
+  "d1": 4,
+  "d2": 3
+ },
+ "stopwords": []
+}

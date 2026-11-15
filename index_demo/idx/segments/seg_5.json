@@ -1,0 +1,1 @@
+{"seg_id":5,"postings":{"blue":[["b",2,"title",0,1,6,10]],"green":[["b",2,"title",0,0,0,5],["b",2,"body",0,0,0,5]],"only":[["b",2,"body",0,1,6,10]]},"docs":{"b":{"revision":2,"doc":{"doc_id":"b","title":["green blue"],"body":["green only"]}}}}

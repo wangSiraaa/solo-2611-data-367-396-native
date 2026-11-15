@@ -1,0 +1,84 @@
+{
+ "generation": 19,
+ "segments": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "active": {
+  "d0": {
+   "revision": 2,
+   "op": "put",
+   "seg": 19
+  },
+  "d1": {
+   "revision": 3,
+   "op": "put",
+   "seg": 18
+  },
+  "d2": {
+   "revision": 2,
+   "op": "put",
+   "seg": 16
+  },
+  "d3": {
+   "revision": 3,
+   "op": "delete",
+   "seg": 13
+  },
+  "d4": {
+   "revision": 2,
+   "op": "delete",
+   "seg": 12
+  },
+  "d5": {
+   "revision": 2,
+   "op": "put",
+   "seg": 15
+  },
+  "d6": {
+   "revision": 1,
+   "op": "put",
+   "seg": 7
+  },
+  "d7": {
+   "revision": 2,
+   "op": "put",
+   "seg": 14
+  },
+  "d8": {
+   "revision": 2,
+   "op": "put",
+   "seg": 11
+  }
+ },
+ "next_seg_id": 20,
+ "next_rev": {
+  "d0": 2,
+  "d1": 3,
+  "d2": 2,
+  "d3": 3,
+  "d4": 2,
+  "d5": 2,
+  "d6": 1,
+  "d7": 2,
+  "d8": 2
+ },
+ "stopwords": []
+}

@@ -1,0 +1,41 @@
+{
+ "generation": 4,
+ "segments": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "active": {
+  "a": {
+   "revision": 1,
+   "op": "put",
+   "seg": 1
+  },
+  "b": {
+   "revision": 1,
+   "op": "put",
+   "seg": 2
+  },
+  "c": {
+   "revision": 1,
+   "op": "put",
+   "seg": 3
+  },
+  "d": {
+   "revision": 1,
+   "op": "put",
+   "seg": 4
+  }
+ },
+ "next_seg_id": 5,
+ "next_rev": {
+  "a": 1,
+  "b": 1,
+  "c": 1,
+  "d": 1
+ },
+ "stopwords": [
+  "the"
+ ]
+}

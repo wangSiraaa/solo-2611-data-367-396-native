@@ -1,0 +1,1 @@
+{"seg_id":4,"postings":{"42":[["d",1,"body",0,0,0,2]],"7":[["d",1,"body",0,4,21,22]],"beta":[["d",1,"body",0,2,9,13]],"café":[["d",1,"title",0,0,0,5],["d",1,"body",0,1,3,8]],"naïve":[["d",1,"body",0,3,14,20]],"résumé":[["d",1,"title",0,1,6,14]]},"docs":{"d":{"revision":1,"doc":{"doc_id":"d","title":["café résumé"],"body":["42 café beta naïve 7"]}}}}

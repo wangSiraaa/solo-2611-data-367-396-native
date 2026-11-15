@@ -1,0 +1,21 @@
+{
+ "generation": 6,
+ "segments": [
+  6
+ ],
+ "active": {
+  "d0": {
+   "revision": 5,
+   "op": "put",
+   "seg": 6
+  }
+ },
+ "next_seg_id": 7,
+ "next_rev": {
+  "d0": 5
+ },
+ "stopwords": [
+  "of",
+  "the"
+ ]
+}

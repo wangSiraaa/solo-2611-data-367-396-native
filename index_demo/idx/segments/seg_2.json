@@ -1,0 +1,1 @@
+{"seg_id":2,"postings":{"alpha":[["b",1,"title",0,0,0,5],["b",1,"body",0,0,0,5]],"beta":[["b",1,"title",0,2,10,14],["b",1,"body",0,3,14,18]]},"docs":{"b":{"revision":1,"doc":{"doc_id":"b","title":["alpha the beta"],"body":["alpha the the beta"]}}}}

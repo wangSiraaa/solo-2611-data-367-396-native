@@ -1,0 +1,1 @@
+{"seg_id":7,"postings":{"cafe":[["c",3,"title",0,0,0,4],["c",3,"body",0,0,0,4]],"green":[["c",3,"body",0,1,5,10],["c",3,"body",0,2,11,16]]},"docs":{"c":{"revision":3,"doc":{"doc_id":"c","title":["cafe"],"body":["cafe green green"]}}}}

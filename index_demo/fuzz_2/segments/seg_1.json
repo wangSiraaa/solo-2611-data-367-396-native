@@ -1,0 +1,1 @@
+{"seg_id":1,"postings":{"42":[["d0",1,"body",0,3,17,19]],"alpha":[["d0",1,"body",0,0,0,5]],"and":[["d0",1,"title",0,0,0,3],["d0",1,"body",0,4,20,23]],"delta":[["d0",1,"title",0,1,4,9]],"naïve":[["d0",1,"body",0,1,6,12]]},"docs":{"d0":{"revision":1,"doc":{"doc_id":"d0","title":["AND delta the","the"],"body":["alpha naïve the 42 AND"]}}}}

@@ -1,0 +1,69 @@
+{
+ "generation": 15,
+ "segments": [
+  15
+ ],
+ "active": {
+  "d0": {
+   "revision": 3,
+   "op": "put",
+   "seg": 15
+  },
+  "d1": {
+   "revision": 1,
+   "op": "put",
+   "seg": 15
+  },
+  "d2": {
+   "revision": 1,
+   "op": "put",
+   "seg": 15
+  },
+  "d3": {
+   "revision": 1,
+   "op": "put",
+   "seg": 15
+  },
+  "d4": {
+   "revision": 1,
+   "op": "put",
+   "seg": 15
+  },
+  "d5": {
+   "revision": 2,
+   "op": "put",
+   "seg": 15
+  },
+  "d6": {
+   "revision": 2,
+   "op": "delete",
+   "seg": 15
+  },
+  "d7": {
+   "revision": 1,
+   "op": "put",
+   "seg": 15
+  },
+  "d8": {
+   "revision": 2,
+   "op": "put",
+   "seg": 15
+  }
+ },
+ "next_seg_id": 16,
+ "next_rev": {
+  "d0": 3,
+  "d1": 1,
+  "d2": 1,
+  "d3": 1,
+  "d4": 1,
+  "d5": 2,
+  "d6": 2,
+  "d7": 1,
+  "d8": 2
+ },
+ "stopwords": [
+  "of",
+  "the"
+ ]
+}

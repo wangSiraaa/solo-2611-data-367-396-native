@@ -1,0 +1,1 @@
+{"seg_id":15,"postings":{"42":[["d11",2,"title",0,1,6,8],["d11",2,"title",0,3,12,14]],"gamma":[["d11",2,"title",0,0,0,5],["d11",2,"body",0,0,0,5],["d11",2,"body",0,1,6,11],["d11",2,"title",0,4,15,20]],"of":[["d11",2,"title",0,2,9,11]]},"docs":{"d11":{"revision":2,"doc":{"doc_id":"d11","title":["gamma 42 of 42 gamma"],"body":["gamma gamma"]}}}}

@@ -1,0 +1,1 @@
+{"seg_id":4,"postings":{"beta":[["d3",1,"body",0,1,6,10]],"delta":[["d3",1,"body",0,0,0,5]],"naïve":[["d3",1,"body",0,3,14,20]]},"docs":{"d3":{"revision":1,"doc":{"doc_id":"d3","title":["",""],"body":["delta beta of naïve"]}}}}
