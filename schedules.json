@@ -1,0 +1,70 @@
+{
+  "repeatable_read": [
+    {
+      "session": "A",
+      "action": "begin",
+      "isolation": "REPEATABLE READ"
+    },
+    {
+      "session": "A",
+      "action": "read",
+      "sql": "SELECT amount FROM balances WHERE id=1"
+    },
+    {
+      "session": "B",
+      "action": "send_sql",
+      "sql": "UPDATE balances SET amount=120 WHERE id=1"
+    },
+    {
+      "session": "B",
+      "action": "await_result"
+    },
+    {
+      "session": "A",
+      "action": "read",
+      "sql": "SELECT amount FROM balances WHERE id=1"
+    }
+  ],
+  "lock_wait": [
+    {
+      "session": "A",
+      "action": "begin"
+    },
+    {
+      "session": "A",
+      "action": "send_sql",
+      "sql": "UPDATE balances SET amount=amount+1 WHERE id=1"
+    },
+    {
+      "session": "A",
+      "action": "await_result"
+    },
+    {
+      "session": "B",
+      "action": "send_sql",
+      "sql": "UPDATE balances SET amount=amount+2 WHERE id=1"
+    },
+    {
+      "action": "barrier",
+      "fact": "B waits on A row transaction"
+    },
+    {
+      "session": "A",
+      "action": "commit"
+    },
+    {
+      "session": "B",
+      "action": "await_result"
+    }
+  ],
+  "write_skew": {
+    "levels": [
+      "REPEATABLE READ",
+      "SERIALIZABLE"
+    ],
+    "read": "SELECT count(*) FROM duty WHERE on_call",
+    "A_write": "UPDATE duty SET on_call=false WHERE id=1",
+    "B_write": "UPDATE duty SET on_call=false WHERE id=2",
+    "outcome": "report actual commits / SQLSTATE; SERIALIZABLE cannot commit zero-on-call anomaly"
+  }
+}

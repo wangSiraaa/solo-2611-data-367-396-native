@@ -1,0 +1,2 @@
+# 真实PG交错验收材料
+需要PostgreSQL16的initdb/pg_ctl以及psycopg。启动本题独立临时实例和schema，不复用已运行实例。seed.sql是完整小表；schedules.json给现象输入，并非要求所有语句结果都确定。请将read简写编译为send_sql+await_result，在实现中使用一致六类操作格式。
