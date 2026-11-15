@@ -1,0 +1,5 @@
+{
+  "global_slots": 8,
+  "minimum_per_query": 2,
+  "barrier": "q1和q2各消费首批2行后，双方再申请6行；q3同时在等待队列。"
+}

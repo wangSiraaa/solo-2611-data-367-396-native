@@ -1,0 +1,1 @@
+SortBuffer为可执行输入设施，尚无共享仲裁或最终多路归并入口。spill回调可用threading.Event制造真实写入pin窗口。不能只打印pin状态而不写文件。
