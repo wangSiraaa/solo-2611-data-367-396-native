@@ -1,0 +1,2 @@
+# 加密存储合成起点
+make_seed.py创建明文行和3把公开的合成测试key。它不是目标加密存储实现。依赖cryptography，推荐用其AESGCM或其他成熟AEAD。私密生产key不在材料范围。

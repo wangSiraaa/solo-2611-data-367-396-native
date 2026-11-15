@@ -1,0 +1,27 @@
+{
+  "ranges": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      12,
+      12
+    ]
+  ],
+  "lifecycle": [
+    "query old manifest pause after first block",
+    "rotate to k2",
+    "retire k1 must be blocked",
+    "release old query",
+    "retire k1 if no manifest reference"
+  ]
+}
