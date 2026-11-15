@@ -1,0 +1,3 @@
+{
+  "problem": "将accounts.owner_id改为tokenize:account，必须拒绝而不是让外键偶然通过。"
+}
