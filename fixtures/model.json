@@ -1,0 +1,25 @@
+{
+  "snapshot": "s1",
+  "rows": [
+    "A",
+    "B"
+  ],
+  "columns": [
+    "x",
+    "y"
+  ],
+  "reports": {
+    "all": {
+      "kind": "total"
+    },
+    "rows": {
+      "kind": "rows"
+    },
+    "columns": {
+      "kind": "columns"
+    },
+    "detail": {
+      "kind": "cells"
+    }
+  }
+}

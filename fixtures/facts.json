@@ -1,0 +1,26 @@
+[
+  {
+    "source_id": "0",
+    "region": "A",
+    "channel": "x",
+    "weight": "0.6"
+  },
+  {
+    "source_id": "1",
+    "region": "A",
+    "channel": "y",
+    "weight": "0.6"
+  },
+  {
+    "source_id": "2",
+    "region": "B",
+    "channel": "x",
+    "weight": "0.6"
+  },
+  {
+    "source_id": "3",
+    "region": "B",
+    "channel": "y",
+    "weight": "0.6"
+  }
+]
