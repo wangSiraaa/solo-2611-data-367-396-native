@@ -1,0 +1,56 @@
+[
+  {
+    "query_id": "forward-selective",
+    "starts": [
+      "sF"
+    ],
+    "ends": [
+      "zF"
+    ],
+    "labels": [
+      "owns",
+      "uses",
+      "located"
+    ],
+    "budget": {
+      "max_calls": 12,
+      "max_returned_edges": 40
+    }
+  },
+  {
+    "query_id": "reverse-selective",
+    "starts": [
+      "sB"
+    ],
+    "ends": [
+      "zB"
+    ],
+    "labels": [
+      "owns",
+      "uses",
+      "located"
+    ],
+    "budget": {
+      "max_calls": 12,
+      "max_returned_edges": 40
+    }
+  },
+  {
+    "query_id": "cycle-rejected-path",
+    "starts": [
+      "sC"
+    ],
+    "ends": [
+      "zC"
+    ],
+    "labels": [
+      "owns",
+      "uses",
+      "located"
+    ],
+    "budget": {
+      "max_calls": 20,
+      "max_returned_edges": 100
+    }
+  }
+]
