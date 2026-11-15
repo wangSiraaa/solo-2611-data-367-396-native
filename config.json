@@ -1,0 +1,6 @@
+{
+  "delivery_id": "delivery-a",
+  "target_key": "reports/result.csv",
+  "part_bytes": 64,
+  "expected_generation": 0
+}
