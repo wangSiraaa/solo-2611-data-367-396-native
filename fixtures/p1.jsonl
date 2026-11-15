@@ -1,0 +1,2 @@
+{"txn": "t1", "partition": "p1", "part_no": 0, "op_no": 1, "op": "put_order", "id": "o0", "customer": "c1", "amount": 100}
+{"txn": "t4", "partition": "p1", "part_no": 0, "op_no": 0, "op": "put_order", "id": "bad", "customer": "c2", "amount": -1}

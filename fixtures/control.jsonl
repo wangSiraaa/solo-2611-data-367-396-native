@@ -1,0 +1,4 @@
+{"txn": "t1", "parts": {"p0": 1, "p1": 1}, "dependencies": [], "terminal": "commit"}
+{"txn": "t2", "parts": {"p0": 1}, "dependencies": ["t1"], "terminal": "commit"}
+{"txn": "t3", "parts": {"p0": 1}, "dependencies": [], "terminal": "commit"}
+{"txn": "t4", "parts": {"p1": 1}, "dependencies": ["t3"], "terminal": "abort"}
