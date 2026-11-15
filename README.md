@@ -1,0 +1,1 @@
+attempt_task.py真实生成两份相互绑定的任务文件及prepared摘要。多个attempt的业务值相同，但audit中的attempt字段不同，允许检测混合文件。prepared不是可见winner；该题目标是提交协调器及发布manifest，不修改此任务以假装预先选定winner。

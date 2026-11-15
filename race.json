@@ -1,0 +1,27 @@
+{
+  "job": "job-a",
+  "logical_partitions": [
+    "p0",
+    "p1"
+  ],
+  "attempts": [
+    {
+      "partition": "p0",
+      "attempt": "slow"
+    },
+    {
+      "partition": "p0",
+      "attempt": "fast"
+    },
+    {
+      "partition": "p1",
+      "attempt": "only"
+    }
+  ],
+  "commit_rule": "first fully validated commit transaction for a logical partition wins; timestamp/attempt name is not winner priority",
+  "faults": [
+    "prepared_before_commit",
+    "winner_committed_before_ack",
+    "loser_cleanup_after_other_attempt_wins"
+  ]
+}
