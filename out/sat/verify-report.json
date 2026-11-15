@@ -1,0 +1,521 @@
+{
+  "checks": [
+    {
+      "check": "pragma.foreign_keys_on",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "pragma.foreign_key_check_empty",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "schema.table_set",
+      "ok": true,
+      "detail": "actual=['people', 'shifts', 'teams']"
+    },
+    {
+      "check": "catalog[teams].columns",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "catalog[teams].not_null",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "catalog[teams].primary_key",
+      "ok": true,
+      "detail": "got=('team_id',)"
+    },
+    {
+      "check": "catalog[teams].unique_keys",
+      "ok": true,
+      "detail": "got=[]"
+    },
+    {
+      "check": "catalog[teams].foreign_keys",
+      "ok": true,
+      "detail": "got=[(0, 'people', ('lead_id',), ('person_id',))]"
+    },
+    {
+      "check": "catalog[people].columns",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "catalog[people].not_null",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "catalog[people].primary_key",
+      "ok": true,
+      "detail": "got=('person_id',)"
+    },
+    {
+      "check": "catalog[people].unique_keys",
+      "ok": true,
+      "detail": "got=[('team_id', 'rank')]"
+    },
+    {
+      "check": "catalog[people].foreign_keys",
+      "ok": true,
+      "detail": "got=[(0, 'teams', ('team_id',), ('team_id',))]"
+    },
+    {
+      "check": "catalog[shifts].columns",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "catalog[shifts].not_null",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "catalog[shifts].primary_key",
+      "ok": true,
+      "detail": "got=('shift_id',)"
+    },
+    {
+      "check": "catalog[shifts].unique_keys",
+      "ok": true,
+      "detail": "got=[]"
+    },
+    {
+      "check": "catalog[shifts].foreign_keys",
+      "ok": true,
+      "detail": "got=[(0, 'people', ('team_id', 'rank'), ('team_id', 'rank'))]"
+    },
+    {
+      "check": "rows[teams].exact_count",
+      "ok": true,
+      "detail": "db=2 declared=2"
+    },
+    {
+      "check": "rows[people].exact_count",
+      "ok": true,
+      "detail": "db=4 declared=4"
+    },
+    {
+      "check": "rows[shifts].exact_count",
+      "ok": true,
+      "detail": "db=2 declared=2"
+    },
+    {
+      "check": "type[teams#0.team_id]",
+      "ok": true,
+      "detail": "value=1"
+    },
+    {
+      "check": "fixed[teams#0.team_id]",
+      "ok": true,
+      "detail": "expected=1 got=1"
+    },
+    {
+      "check": "type[teams#0.region]",
+      "ok": true,
+      "detail": "value=1"
+    },
+    {
+      "check": "domain[teams#0.region]",
+      "ok": true,
+      "detail": "value=1 domain=[1, 2]"
+    },
+    {
+      "check": "type[teams#0.lead_id]",
+      "ok": true,
+      "detail": "value=10"
+    },
+    {
+      "check": "domain[teams#0.lead_id]",
+      "ok": true,
+      "detail": "value=10 domain=[10, 11]"
+    },
+    {
+      "check": "provenance[teams#0].complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "type[teams#1.team_id]",
+      "ok": true,
+      "detail": "value=2"
+    },
+    {
+      "check": "fixed[teams#1.team_id]",
+      "ok": true,
+      "detail": "expected=2 got=2"
+    },
+    {
+      "check": "type[teams#1.region]",
+      "ok": true,
+      "detail": "value=1"
+    },
+    {
+      "check": "domain[teams#1.region]",
+      "ok": true,
+      "detail": "value=1 domain=[1, 2]"
+    },
+    {
+      "check": "type[teams#1.lead_id]",
+      "ok": true,
+      "detail": "value=12"
+    },
+    {
+      "check": "domain[teams#1.lead_id]",
+      "ok": true,
+      "detail": "value=12 domain=[12, 13]"
+    },
+    {
+      "check": "provenance[teams#1].complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "type[people#0.person_id]",
+      "ok": true,
+      "detail": "value=10"
+    },
+    {
+      "check": "fixed[people#0.person_id]",
+      "ok": true,
+      "detail": "expected=10 got=10"
+    },
+    {
+      "check": "type[people#0.team_id]",
+      "ok": true,
+      "detail": "value=1"
+    },
+    {
+      "check": "fixed[people#0.team_id]",
+      "ok": true,
+      "detail": "expected=1 got=1"
+    },
+    {
+      "check": "type[people#0.rank]",
+      "ok": true,
+      "detail": "value=1"
+    },
+    {
+      "check": "domain[people#0.rank]",
+      "ok": true,
+      "detail": "value=1 domain=[1, 2]"
+    },
+    {
+      "check": "provenance[people#0].complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "type[people#1.person_id]",
+      "ok": true,
+      "detail": "value=11"
+    },
+    {
+      "check": "fixed[people#1.person_id]",
+      "ok": true,
+      "detail": "expected=11 got=11"
+    },
+    {
+      "check": "type[people#1.team_id]",
+      "ok": true,
+      "detail": "value=1"
+    },
+    {
+      "check": "fixed[people#1.team_id]",
+      "ok": true,
+      "detail": "expected=1 got=1"
+    },
+    {
+      "check": "type[people#1.rank]",
+      "ok": true,
+      "detail": "value=2"
+    },
+    {
+      "check": "domain[people#1.rank]",
+      "ok": true,
+      "detail": "value=2 domain=[1, 2]"
+    },
+    {
+      "check": "provenance[people#1].complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "type[people#2.person_id]",
+      "ok": true,
+      "detail": "value=12"
+    },
+    {
+      "check": "fixed[people#2.person_id]",
+      "ok": true,
+      "detail": "expected=12 got=12"
+    },
+    {
+      "check": "type[people#2.team_id]",
+      "ok": true,
+      "detail": "value=2"
+    },
+    {
+      "check": "fixed[people#2.team_id]",
+      "ok": true,
+      "detail": "expected=2 got=2"
+    },
+    {
+      "check": "type[people#2.rank]",
+      "ok": true,
+      "detail": "value=1"
+    },
+    {
+      "check": "domain[people#2.rank]",
+      "ok": true,
+      "detail": "value=1 domain=[1, 2]"
+    },
+    {
+      "check": "provenance[people#2].complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "type[people#3.person_id]",
+      "ok": true,
+      "detail": "value=13"
+    },
+    {
+      "check": "fixed[people#3.person_id]",
+      "ok": true,
+      "detail": "expected=13 got=13"
+    },
+    {
+      "check": "type[people#3.team_id]",
+      "ok": true,
+      "detail": "value=2"
+    },
+    {
+      "check": "fixed[people#3.team_id]",
+      "ok": true,
+      "detail": "expected=2 got=2"
+    },
+    {
+      "check": "type[people#3.rank]",
+      "ok": true,
+      "detail": "value=2"
+    },
+    {
+      "check": "domain[people#3.rank]",
+      "ok": true,
+      "detail": "value=2 domain=[1, 2]"
+    },
+    {
+      "check": "provenance[people#3].complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "type[shifts#0.shift_id]",
+      "ok": true,
+      "detail": "value=100"
+    },
+    {
+      "check": "fixed[shifts#0.shift_id]",
+      "ok": true,
+      "detail": "expected=100 got=100"
+    },
+    {
+      "check": "type[shifts#0.team_id]",
+      "ok": true,
+      "detail": "value=1"
+    },
+    {
+      "check": "fixed[shifts#0.team_id]",
+      "ok": true,
+      "detail": "expected=1 got=1"
+    },
+    {
+      "check": "type[shifts#0.rank]",
+      "ok": true,
+      "detail": "value=2"
+    },
+    {
+      "check": "fixed[shifts#0.rank]",
+      "ok": true,
+      "detail": "expected=2 got=2"
+    },
+    {
+      "check": "provenance[shifts#0].complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "type[shifts#1.shift_id]",
+      "ok": true,
+      "detail": "value=101"
+    },
+    {
+      "check": "fixed[shifts#1.shift_id]",
+      "ok": true,
+      "detail": "expected=101 got=101"
+    },
+    {
+      "check": "type[shifts#1.team_id]",
+      "ok": true,
+      "detail": "value=2"
+    },
+    {
+      "check": "fixed[shifts#1.team_id]",
+      "ok": true,
+      "detail": "expected=2 got=2"
+    },
+    {
+      "check": "type[shifts#1.rank]",
+      "ok": true,
+      "detail": "value=1"
+    },
+    {
+      "check": "fixed[shifts#1.rank]",
+      "ok": true,
+      "detail": "expected=1 got=1"
+    },
+    {
+      "check": "provenance[shifts#1].complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "rows[teams].multiset_match",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "rows[people].multiset_match",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "rows[shifts].multiset_match",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "independent.not_null[teams.region]",
+      "ok": true,
+      "detail": "nulls=0"
+    },
+    {
+      "check": "independent.not_null[teams.lead_id]",
+      "ok": true,
+      "detail": "nulls=0"
+    },
+    {
+      "check": "independent.check[teams:CHECK(region IN(1,2))]",
+      "ok": true,
+      "detail": "violating_rows=0"
+    },
+    {
+      "check": "independent.pk_distinct[teams(team_id)]",
+      "ok": true,
+      "detail": "duplicate_groups=0"
+    },
+    {
+      "check": "independent.fk[teams__fk_1]",
+      "ok": true,
+      "detail": "orphan_child_rows=0"
+    },
+    {
+      "check": "independent.not_null[people.rank]",
+      "ok": true,
+      "detail": "nulls=0"
+    },
+    {
+      "check": "independent.not_null[people.team_id]",
+      "ok": true,
+      "detail": "nulls=0"
+    },
+    {
+      "check": "independent.check[people:CHECK(rank BETWEEN 1 AND 3)]",
+      "ok": true,
+      "detail": "violating_rows=0"
+    },
+    {
+      "check": "independent.pk_distinct[people(person_id)]",
+      "ok": true,
+      "detail": "duplicate_groups=0"
+    },
+    {
+      "check": "independent.unique_distinct[people(team_id,rank)]",
+      "ok": true,
+      "detail": "duplicate_groups=0"
+    },
+    {
+      "check": "independent.fk[people__fk_1]",
+      "ok": true,
+      "detail": "orphan_child_rows=0"
+    },
+    {
+      "check": "independent.not_null[shifts.rank]",
+      "ok": true,
+      "detail": "nulls=0"
+    },
+    {
+      "check": "independent.not_null[shifts.team_id]",
+      "ok": true,
+      "detail": "nulls=0"
+    },
+    {
+      "check": "independent.pk_distinct[shifts(shift_id)]",
+      "ok": true,
+      "detail": "duplicate_groups=0"
+    },
+    {
+      "check": "independent.fk[shifts__fk_1]",
+      "ok": true,
+      "detail": "orphan_child_rows=0"
+    },
+    {
+      "check": "assignment[teams#0.region]",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "assignment[teams#0.lead_id]",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "assignment[teams#1.region]",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "assignment[teams#1.lead_id]",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "assignment[people#0.rank]",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "assignment[people#1.rank]",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "assignment[people#2.rank]",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "assignment[people#3.rank]",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "passed": true,
+  "total_checks": 103
+}

@@ -1,0 +1,11 @@
+{
+  "tables": {
+    "boxes": {
+      "rows": [
+        {"bid": 1, "low": 5, "high": 5},
+        {"bid": 2, "low": 9, "high": 4}
+      ]
+    }
+  },
+  "seed": 2
+}

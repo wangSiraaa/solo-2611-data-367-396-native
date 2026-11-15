@@ -1,0 +1,25 @@
+{
+  "tables": {
+    "squads": {
+      "rows": [
+        {"sid": 1, "area": {"one_of": [1, 2]}, "captain": {"one_of": [10, 11]}},
+        {"sid": 2, "area": {"one_of": [1, 2]}, "captain": {"one_of": [12, 13]}}
+      ]
+    },
+    "members": {
+      "rows": [
+        {"mid": 10, "sid": 1, "level": {"one_of": [1, 2]}},
+        {"mid": 11, "sid": 1, "level": {"one_of": [1, 2]}},
+        {"mid": 12, "sid": 2, "level": {"one_of": [1, 2]}},
+        {"mid": 13, "sid": 2, "level": {"one_of": [1, 2]}}
+      ]
+    },
+    "rosters": {
+      "rows": [
+        {"rid": 200, "sid": 1, "level": 2},
+        {"rid": 201, "sid": 2, "level": 1}
+      ]
+    }
+  },
+  "seed": 7
+}

@@ -1,0 +1,21 @@
+-- 与主 schema 同构但全部改名、并调整列声明顺序，验证生成器不绑定样例名称
+PRAGMA foreign_keys=ON;
+CREATE TABLE squads(
+  sid INTEGER PRIMARY KEY,
+  captain INTEGER NOT NULL,
+  area INTEGER NOT NULL CHECK(area IN(2,1)),
+  FOREIGN KEY(captain) REFERENCES members(mid) DEFERRABLE INITIALLY DEFERRED
+);
+CREATE TABLE members(
+  mid INTEGER PRIMARY KEY,
+  level INTEGER NOT NULL CHECK(level BETWEEN 1 AND 3),
+  sid INTEGER NOT NULL,
+  UNIQUE(sid,level),
+  FOREIGN KEY(sid) REFERENCES squads(sid) DEFERRABLE INITIALLY DEFERRED
+);
+CREATE TABLE rosters(
+  rid INTEGER PRIMARY KEY,
+  sid INTEGER NOT NULL,
+  level INTEGER NOT NULL,
+  FOREIGN KEY(sid,level) REFERENCES members(sid,level) DEFERRABLE INITIALLY DEFERRED
+);

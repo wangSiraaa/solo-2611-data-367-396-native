@@ -1,0 +1,17 @@
+{
+  "tables": {
+    "nodes": {
+      "rows": [
+        {"node_id": 1, "parent_id": null, "lo": -10, "hi": {"one_of": [1, 2]},
+         "cap": {"one_of": [50, 99]}, "code": {"one_of": [7, 8]},
+         "span_a": {"one_of": [1, null]}, "span_b": {"one_of": [2, null]}},
+        {"node_id": 2, "parent_id": 1, "lo": {"one_of": [-5, 0]}, "hi": 3,
+         "cap": 40, "code": 9, "span_a": 4, "span_b": {"one_of": [4, 5]}},
+        {"node_id": 3, "parent_id": {"one_of": [1, 2]}, "lo": -1,
+         "hi": {"one_of": [null, 10]}, "cap": null, "code": {"one_of": [null, 7]},
+         "span_a": null, "span_b": null}
+      ]
+    }
+  },
+  "seed": 11
+}

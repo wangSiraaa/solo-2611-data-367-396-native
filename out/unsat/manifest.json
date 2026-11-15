@@ -1,0 +1,149 @@
+{
+  "created_at_utc": "2026-11-15T19:04:28.919213+00:00",
+  "inputs": {
+    "schema_sql": {
+      "path": "/workspace/schema.sql",
+      "sha256": "c45b4b473ffd6ba3601ac9e92cad2bf0d402804e2dae493460ac27ad3853b9a5"
+    },
+    "generation_json": {
+      "path": "/workspace/generation-unsat.json",
+      "sha256": "7874b636cd340551723cd0e150e0351514b165222c6a39b26db5af0a9bab16d8"
+    }
+  },
+  "schema_summary": {
+    "tables": [
+      {
+        "name": "teams",
+        "source_line": 2,
+        "columns": [
+          "team_id",
+          "region",
+          "lead_id"
+        ],
+        "primary_key": [
+          "team_id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [
+          {
+            "name": "teams__fk_1",
+            "columns": [
+              "lead_id"
+            ],
+            "ref_table": "people",
+            "ref_columns": [
+              "person_id"
+            ],
+            "source": {
+              "line": 3,
+              "text": "FOREIGN KEY(lead_id) REFERENCES people(person_id) DEFERRABLE INITIALLY DEFERRED"
+            }
+          }
+        ],
+        "checks": [
+          {
+            "kind": "in",
+            "source": {
+              "line": 3,
+              "text": "CHECK(region IN(1,2))"
+            },
+            "column": "region",
+            "values": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "name": "people",
+        "source_line": 3,
+        "columns": [
+          "person_id",
+          "team_id",
+          "rank"
+        ],
+        "primary_key": [
+          "person_id"
+        ],
+        "unique_keys": [
+          [
+            "team_id",
+            "rank"
+          ]
+        ],
+        "foreign_keys": [
+          {
+            "name": "people__fk_1",
+            "columns": [
+              "team_id"
+            ],
+            "ref_table": "teams",
+            "ref_columns": [
+              "team_id"
+            ],
+            "source": {
+              "line": 4,
+              "text": "FOREIGN KEY(team_id) REFERENCES teams(team_id) DEFERRABLE INITIALLY DEFERRED"
+            }
+          }
+        ],
+        "checks": [
+          {
+            "kind": "between",
+            "source": {
+              "line": 4,
+              "text": "CHECK(rank BETWEEN 1 AND 3)"
+            },
+            "column": "rank",
+            "lo": 1,
+            "hi": 3
+          }
+        ]
+      },
+      {
+        "name": "shifts",
+        "source_line": 4,
+        "columns": [
+          "shift_id",
+          "team_id",
+          "rank"
+        ],
+        "primary_key": [
+          "shift_id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [
+          {
+            "name": "shifts__fk_1",
+            "columns": [
+              "team_id",
+              "rank"
+            ],
+            "ref_table": "people",
+            "ref_columns": [
+              "team_id",
+              "rank"
+            ],
+            "source": {
+              "line": 5,
+              "text": "FOREIGN KEY(team_id,rank) REFERENCES people(team_id,rank) DEFERRABLE INITIALLY DEFERRED"
+            }
+          }
+        ],
+        "checks": []
+      }
+    ]
+  },
+  "seed": 7,
+  "canonical_ordering": {
+    "tables": "按表名字典序",
+    "slots": "按行槽指纹（固定值+规范域）字典序，平局回退原槽号",
+    "variables": "(表名, 规范槽号, 列名) 字典序",
+    "domains": "整数升序，NULL 置尾；与声明枚举次序无关"
+  },
+  "outcome": "unsat_static",
+  "artifacts": {
+    "conflict": "/workspace/out/unsat/unsat-conflict.json"
+  }
+}

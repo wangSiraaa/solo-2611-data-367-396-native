@@ -1,0 +1,488 @@
+{
+  "inputs": {
+    "tables": [
+      "teams",
+      "people",
+      "shifts"
+    ],
+    "total_declared_slots": 8,
+    "total_variables": 8,
+    "seed": 7
+  },
+  "constraint_sources": {
+    "teams": [
+      {
+        "kind": "NOT NULL",
+        "column": "region",
+        "source_line": 2
+      },
+      {
+        "kind": "NOT NULL",
+        "column": "lead_id",
+        "source_line": 2
+      },
+      {
+        "kind": "in",
+        "source": {
+          "line": 3,
+          "text": "CHECK(region IN(1,2))"
+        },
+        "column": "region",
+        "values": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "PRIMARY KEY",
+        "columns": [
+          "team_id"
+        ],
+        "source_line": 2
+      },
+      {
+        "kind": "FOREIGN KEY",
+        "name": "teams__fk_1",
+        "columns": [
+          "lead_id"
+        ],
+        "ref_table": "people",
+        "ref_columns": [
+          "person_id"
+        ],
+        "source": {
+          "line": 3,
+          "text": "FOREIGN KEY(lead_id) REFERENCES people(person_id) DEFERRABLE INITIALLY DEFERRED"
+        }
+      }
+    ],
+    "people": [
+      {
+        "kind": "NOT NULL",
+        "column": "team_id",
+        "source_line": 3
+      },
+      {
+        "kind": "NOT NULL",
+        "column": "rank",
+        "source_line": 3
+      },
+      {
+        "kind": "between",
+        "source": {
+          "line": 4,
+          "text": "CHECK(rank BETWEEN 1 AND 3)"
+        },
+        "column": "rank",
+        "lo": 1,
+        "hi": 3
+      },
+      {
+        "kind": "PRIMARY KEY",
+        "columns": [
+          "person_id"
+        ],
+        "source_line": 3
+      },
+      {
+        "kind": "UNIQUE",
+        "columns": [
+          "team_id",
+          "rank"
+        ],
+        "source_line": 3
+      },
+      {
+        "kind": "FOREIGN KEY",
+        "name": "people__fk_1",
+        "columns": [
+          "team_id"
+        ],
+        "ref_table": "teams",
+        "ref_columns": [
+          "team_id"
+        ],
+        "source": {
+          "line": 4,
+          "text": "FOREIGN KEY(team_id) REFERENCES teams(team_id) DEFERRABLE INITIALLY DEFERRED"
+        }
+      }
+    ],
+    "shifts": [
+      {
+        "kind": "NOT NULL",
+        "column": "team_id",
+        "source_line": 4
+      },
+      {
+        "kind": "NOT NULL",
+        "column": "rank",
+        "source_line": 4
+      },
+      {
+        "kind": "PRIMARY KEY",
+        "columns": [
+          "shift_id"
+        ],
+        "source_line": 4
+      },
+      {
+        "kind": "FOREIGN KEY",
+        "name": "shifts__fk_1",
+        "columns": [
+          "team_id",
+          "rank"
+        ],
+        "ref_table": "people",
+        "ref_columns": [
+          "team_id",
+          "rank"
+        ],
+        "source": {
+          "line": 5,
+          "text": "FOREIGN KEY(team_id,rank) REFERENCES people(team_id,rank) DEFERRABLE INITIALLY DEFERRED"
+        }
+      }
+    ]
+  },
+  "reference_relationships": {
+    "foreign_keys": [
+      {
+        "name": "teams__fk_1",
+        "child_table": "teams",
+        "child_columns": [
+          "lead_id"
+        ],
+        "parent_table": "people",
+        "parent_columns": [
+          "person_id"
+        ],
+        "composite": false,
+        "deferrable": "DEFERRABLE INITIALLY DEFERRED",
+        "source": {
+          "line": 3,
+          "text": "FOREIGN KEY(lead_id) REFERENCES people(person_id) DEFERRABLE INITIALLY DEFERRED"
+        }
+      },
+      {
+        "name": "people__fk_1",
+        "child_table": "people",
+        "child_columns": [
+          "team_id"
+        ],
+        "parent_table": "teams",
+        "parent_columns": [
+          "team_id"
+        ],
+        "composite": false,
+        "deferrable": "DEFERRABLE INITIALLY DEFERRED",
+        "source": {
+          "line": 4,
+          "text": "FOREIGN KEY(team_id) REFERENCES teams(team_id) DEFERRABLE INITIALLY DEFERRED"
+        }
+      },
+      {
+        "name": "shifts__fk_1",
+        "child_table": "shifts",
+        "child_columns": [
+          "team_id",
+          "rank"
+        ],
+        "parent_table": "people",
+        "parent_columns": [
+          "team_id",
+          "rank"
+        ],
+        "composite": true,
+        "deferrable": "DEFERRABLE INITIALLY DEFERRED",
+        "source": {
+          "line": 5,
+          "text": "FOREIGN KEY(team_id,rank) REFERENCES people(team_id,rank) DEFERRABLE INITIALLY DEFERRED"
+        }
+      }
+    ],
+    "fk_graph": {
+      "teams": [
+        "people"
+      ],
+      "people": [
+        "teams"
+      ],
+      "shifts": [
+        "people"
+      ]
+    },
+    "strongly_connected_components": [
+      [
+        "people",
+        "teams"
+      ],
+      [
+        "shifts"
+      ]
+    ],
+    "cyclic_components_must_solve_together": [
+      [
+        "people",
+        "teams"
+      ]
+    ],
+    "acyclic_components": [
+      [
+        "shifts"
+      ]
+    ],
+    "note": "环内表的外键无法用逐表立即检查满足；复合UNIQUE与有限域要求跨表共同分配，复合外键按整元组匹配同一父键行。"
+  },
+  "loading_boundary": {
+    "fresh_database": "输出路径若已存在则先删除，绝不从旧业务库取子集",
+    "pragma_foreign_keys": "ON（连接级打开，不允许关闭后装脏库）",
+    "transaction": "单事务 BEGIN; 全部外键 DEFERRABLE INITIALLY DEFERRED",
+    "commit_time_checks": [
+      "PRAGMA foreign_key_check 为空",
+      "COMMIT 触发所有延迟外键约束",
+      "UNIQUE/PK/CHECK/NOT NULL 在插入时即由真实 SQLite 强制执行"
+    ],
+    "on_rejection": "回滚、删除半成品文件、把错误映射回行槽/约束，整份不发布"
+  },
+  "tables": {
+    "teams": {
+      "source_line": 2,
+      "columns": [
+        {
+          "name": "team_id",
+          "not_null": false,
+          "checks": []
+        },
+        {
+          "name": "region",
+          "not_null": true,
+          "checks": [
+            {
+              "kind": "in",
+              "source": {
+                "line": 3,
+                "text": "CHECK(region IN(1,2))"
+              },
+              "column": "region",
+              "values": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "name": "lead_id",
+          "not_null": true,
+          "checks": []
+        }
+      ],
+      "primary_key": [
+        "team_id"
+      ],
+      "unique_keys": [],
+      "foreign_keys": [
+        "teams__fk_1"
+      ],
+      "declared_slots": 2,
+      "variables": [
+        {
+          "vid": "teams.slot#0.region",
+          "table": "teams",
+          "canon_slot": 0,
+          "column": "region",
+          "domain": [
+            1,
+            2
+          ],
+          "declared_domain": [
+            1,
+            2
+          ],
+          "orig_slot_index": 0
+        },
+        {
+          "vid": "teams.slot#0.lead_id",
+          "table": "teams",
+          "canon_slot": 0,
+          "column": "lead_id",
+          "domain": [
+            10,
+            11
+          ],
+          "declared_domain": [
+            10,
+            11
+          ],
+          "orig_slot_index": 0
+        },
+        {
+          "vid": "teams.slot#1.region",
+          "table": "teams",
+          "canon_slot": 1,
+          "column": "region",
+          "domain": [
+            1,
+            2
+          ],
+          "declared_domain": [
+            1,
+            2
+          ],
+          "orig_slot_index": 1
+        },
+        {
+          "vid": "teams.slot#1.lead_id",
+          "table": "teams",
+          "canon_slot": 1,
+          "column": "lead_id",
+          "domain": [
+            12,
+            13
+          ],
+          "declared_domain": [
+            12,
+            13
+          ],
+          "orig_slot_index": 1
+        }
+      ]
+    },
+    "people": {
+      "source_line": 3,
+      "columns": [
+        {
+          "name": "person_id",
+          "not_null": false,
+          "checks": []
+        },
+        {
+          "name": "team_id",
+          "not_null": true,
+          "checks": []
+        },
+        {
+          "name": "rank",
+          "not_null": true,
+          "checks": [
+            {
+              "kind": "between",
+              "source": {
+                "line": 4,
+                "text": "CHECK(rank BETWEEN 1 AND 3)"
+              },
+              "column": "rank",
+              "lo": 1,
+              "hi": 3
+            }
+          ]
+        }
+      ],
+      "primary_key": [
+        "person_id"
+      ],
+      "unique_keys": [
+        [
+          "team_id",
+          "rank"
+        ]
+      ],
+      "foreign_keys": [
+        "people__fk_1"
+      ],
+      "declared_slots": 4,
+      "variables": [
+        {
+          "vid": "people.slot#0.rank",
+          "table": "people",
+          "canon_slot": 0,
+          "column": "rank",
+          "domain": [
+            1,
+            2
+          ],
+          "declared_domain": [
+            1,
+            2
+          ],
+          "orig_slot_index": 0
+        },
+        {
+          "vid": "people.slot#1.rank",
+          "table": "people",
+          "canon_slot": 1,
+          "column": "rank",
+          "domain": [
+            1,
+            2
+          ],
+          "declared_domain": [
+            1,
+            2
+          ],
+          "orig_slot_index": 1
+        },
+        {
+          "vid": "people.slot#2.rank",
+          "table": "people",
+          "canon_slot": 2,
+          "column": "rank",
+          "domain": [
+            1,
+            2
+          ],
+          "declared_domain": [
+            1,
+            2
+          ],
+          "orig_slot_index": 2
+        },
+        {
+          "vid": "people.slot#3.rank",
+          "table": "people",
+          "canon_slot": 3,
+          "column": "rank",
+          "domain": [
+            1,
+            2
+          ],
+          "declared_domain": [
+            1,
+            2
+          ],
+          "orig_slot_index": 3
+        }
+      ]
+    },
+    "shifts": {
+      "source_line": 4,
+      "columns": [
+        {
+          "name": "shift_id",
+          "not_null": false,
+          "checks": []
+        },
+        {
+          "name": "team_id",
+          "not_null": true,
+          "checks": []
+        },
+        {
+          "name": "rank",
+          "not_null": true,
+          "checks": []
+        }
+      ],
+      "primary_key": [
+        "shift_id"
+      ],
+      "unique_keys": [],
+      "foreign_keys": [
+        "shifts__fk_1"
+      ],
+      "declared_slots": 2,
+      "variables": []
+    }
+  }
+}

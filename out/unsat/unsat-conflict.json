@@ -1,0 +1,47 @@
+{
+  "reason": "固定行槽违反键唯一性",
+  "table": "people",
+  "columns": [
+    "team_id",
+    "rank"
+  ],
+  "is_primary": false,
+  "source_line": 3,
+  "source_text": "UNIQUE(team_id,rank)",
+  "slots": [
+    {
+      "orig_slot_index": 0,
+      "canon_slot": 0,
+      "values": {
+        "team_id": 1,
+        "rank": 1
+      },
+      "domain": {
+        "team_id": [
+          1
+        ],
+        "rank": [
+          1
+        ]
+      }
+    },
+    {
+      "orig_slot_index": 1,
+      "canon_slot": 1,
+      "values": {
+        "team_id": 1,
+        "rank": 1
+      },
+      "domain": {
+        "team_id": [
+          1
+        ],
+        "rank": [
+          1
+        ]
+      }
+    }
+  ],
+  "sqlite_null_semantics": "含 NULL 的键互不冲突；本冲突全部为非 NULL 重复元组",
+  "independence_note": "该子问题不含待分配变量：全部行槽为固定值，冲突可直接按原 schema 约束与固定槽逐行核对；对成品库的独立 SQL 查询同样会拒绝该数据。"
+}
