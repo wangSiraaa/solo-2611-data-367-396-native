@@ -1,0 +1,39 @@
+{
+  "dataset": "float-demo",
+  "semantic_profile": "binary64-exact-sum/v1",
+  "groups": 8,
+  "chunks": [
+    {
+      "chunk_id": "a",
+      "path": "a.jsonl",
+      "range": [
+        0,
+        2
+      ],
+      "sha256": "02acd48bc6dcfd17737a34346c26b4563ccf771084fb1dba6b2c033e89c6bbcb"
+    },
+    {
+      "chunk_id": "b",
+      "path": "b.jsonl",
+      "range": [
+        2,
+        5
+      ],
+      "sha256": "361980c11deb6d4ff5ac35f4d95b0ddb6a470bc448fdeb1d1e08630a1922ed66"
+    },
+    {
+      "chunk_id": "c",
+      "path": "c.jsonl",
+      "range": [
+        5,
+        14
+      ],
+      "sha256": "f8339dc7676325017705adbe8b2b077fdc27eff8cb0da4ed258932af3db2875a"
+    }
+  ],
+  "reference_input": {
+    "path": "input.jsonl",
+    "sha256": "e24f8965a9ec20eb5ff5bf560e3719071f30a1700bcb803abdc7cfc863dc49a8",
+    "purpose": "仅小样oracle的原始连接视图，执行源以chunks为准"
+  }
+}

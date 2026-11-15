@@ -1,0 +1,9 @@
+# 部分状态交换边界
+
+每个真实worker先发HELLO，reducer回复ACCEPT指定codec或REJECT；接收前不发送DATA。DATA有chunk_id、递增seq及单组充分state；TRAILER声明有效帧数和规范payload摘要。只支持一个明确共同codec也可，未知semantic_profile必须拒绝，不能按字段碰巧一样混合。
+
+frame至8KiB；每worker至2个未ACK DATA。ACK仅表示该帧已在grant内接受或已写入外存，不代表整片已提交成功；最终manifest及TRAILER均校验后才可发布complete。重复同(seq,payload)可ACK但不重复加总，同seq异内容拒绝。输入片区间必须与manifest一致且互不重叠。
+
+128KiB是两个worker与reducer的总数据payload预算：原始输入/输出帧、队列、解码组状态（按其规范交换序列化长度计）、读取旧状态及待写新状态均计入，同时存在的编码/解码副本分别计费。固定解释器、32项片元数据、文件路径及已声明<=16KiB的数据库页缓存另报；不能把所有组key/hash/status表当固定元数据豁免。OS页缓存不计。每个角色记录charge/release；父进程按时序汇合核验总占用。
+
+wire_fixture.py是通用reducer协议测试源，读取给定states文件逐帧发送，不代替目标worker从原始bits生成有界partial。fraction-pair/v1示例state是key、num、den、rows/non_null/nan/pos_inf/neg_inf；可另选兼容格式。num/den为十进制整数字符串。

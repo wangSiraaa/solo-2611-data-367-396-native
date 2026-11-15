@@ -1,0 +1,14 @@
+{"record_id": 0, "key": "cancel", "bits": "4341c37937e08000"}
+{"record_id": 1, "key": "cancel", "bits": "3ff0000000000000"}
+{"record_id": 2, "key": "cancel", "bits": "c341c37937e08000"}
+{"record_id": 3, "key": "overflow", "bits": "7fefffffffffffff"}
+{"record_id": 4, "key": "overflow", "bits": "7fefffffffffffff"}
+{"record_id": 5, "key": "overflow", "bits": "ffefffffffffffff"}
+{"record_id": 6, "key": "tiny", "bits": "0000000000000001"}
+{"record_id": 7, "key": "zero", "bits": "8000000000000000"}
+{"record_id": 8, "key": "zero", "bits": "0000000000000000"}
+{"record_id": 9, "key": "special", "bits": "7ff0000000000000"}
+{"record_id": 10, "key": "special", "bits": "fff0000000000000"}
+{"record_id": 11, "key": "nan", "bits": "7ff8000000000000"}
+{"record_id": 12, "key": "nullonly", "bits": null}
+{"record_id": 13, "key": null, "bits": "0000000000000000"}
