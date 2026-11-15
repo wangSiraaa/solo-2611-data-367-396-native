@@ -1,0 +1,17 @@
+{
+  "normal": {
+    "queue_capacity_frames": 1,
+    "pause": "sink before first receive",
+    "release": "worker 0 is blocked on bounded output while router still has pending input"
+  },
+  "cancel": {
+    "queue_capacity_frames": 1,
+    "pause": "sink after output 5",
+    "action": "cancel then release all test barriers"
+  },
+  "worker_failure": {
+    "queue_capacity_frames": 1,
+    "inject": "worker 0 raises before processing input row a:4 (fanout=0 still counts as a processed input)",
+    "expect": "failed, no complete output, all owned threads/processes joined"
+  }
+}
