@@ -1,0 +1,171 @@
+{
+ "batch_size": 2,
+ "boundary_clock": 9,
+ "created": "2026-11-15T19:40:43.385",
+ "cursor": "r7",
+ "error": null,
+ "fence_clock": 14,
+ "history": [
+  {
+   "phase": "INIT",
+   "route": {
+    "generation": 1,
+    "owner": "shard-a"
+   },
+   "source_state": {
+    "clock": 9,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 1
+   },
+   "target_state": {
+    "clock": 0,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 0
+   },
+   "ts": "2026-11-15T19:40:43.385"
+  },
+  {
+   "boundary_clock": 9,
+   "phase": "COPYING",
+   "route": {
+    "generation": 1,
+    "owner": "shard-a"
+   },
+   "source_state": {
+    "clock": 9,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 1
+   },
+   "target_state": {
+    "clock": 0,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 0
+   },
+   "ts": "2026-11-15T19:40:43.388"
+  },
+  {
+   "phase": "READY",
+   "route": {
+    "generation": 1,
+    "owner": "shard-a"
+   },
+   "source_state": {
+    "clock": 13,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 1
+   },
+   "target_state": {
+    "clock": 13,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 0
+   },
+   "ts": "2026-11-15T19:40:43.459"
+  },
+  {
+   "fence_clock": 14,
+   "phase": "FENCED",
+   "route": {
+    "generation": 1,
+    "owner": "shard-a"
+   },
+   "source_state": {
+    "clock": 14,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 0
+   },
+   "target_state": {
+    "clock": 13,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 0
+   },
+   "ts": "2026-11-15T19:40:43.470"
+  },
+  {
+   "phase": "CAUGHT_UP",
+   "route": {
+    "generation": 1,
+    "owner": "shard-a"
+   },
+   "source_state": {
+    "clock": 14,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 0
+   },
+   "target_state": {
+    "clock": 14,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 0
+   },
+   "ts": "2026-11-15T19:40:43.475"
+  },
+  {
+   "phase": "ACTIVATED",
+   "route": {
+    "generation": 1,
+    "owner": "shard-a"
+   },
+   "source_state": {
+    "clock": 14,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 0
+   },
+   "target_state": {
+    "clock": 14,
+    "generation": 2,
+    "tenant": "moving",
+    "writable": 1
+   },
+   "ts": "2026-11-15T19:40:43.476"
+  },
+  {
+   "phase": "DONE",
+   "route": {
+    "generation": 2,
+    "owner": "shard-b"
+   },
+   "source_state": {
+    "clock": 14,
+    "generation": 1,
+    "tenant": "moving",
+    "writable": 0
+   },
+   "target_state": {
+    "clock": 14,
+    "generation": 2,
+    "tenant": "moving",
+    "writable": 1
+   },
+   "ts": "2026-11-15T19:40:43.479"
+  }
+ ],
+ "hwm": 14,
+ "migration_id": "m1",
+ "new_generation": 2,
+ "phase": "DONE",
+ "receipt_cursor": "update-during-copy",
+ "receipts_done": true,
+ "rows_done": true,
+ "source": "shard-a",
+ "start_generation": 1,
+ "stats": {
+  "backfill_rows_read": 9,
+  "backfill_rows_written": 8,
+  "outbox_events_replayed": 5,
+  "outbox_rows_written": 5,
+  "receipts_imported": 14,
+  "receipts_read": 10
+ },
+ "target": "shard-b",
+ "tenant": "moving"
+}

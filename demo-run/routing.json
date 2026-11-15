@@ -1,0 +1,10 @@
+{
+ "moving": {
+  "generation": 2,
+  "owner": "shard-b"
+ },
+ "stay": {
+  "generation": 1,
+  "owner": "shard-a"
+ }
+}

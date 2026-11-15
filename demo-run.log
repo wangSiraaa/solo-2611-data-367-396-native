@@ -1,0 +1,82 @@
+phase 0: prepare demo-run
+phase 1: pre-migration business traffic
+  [1   ] pre-migration writes committed at source
+phase 2: init + start
+  [2   ] snapshot fixed, continuation boundary C1=9
+phase 3: business commits while the snapshot read txn is open
+  [3   ] write committed at rev 10 while snapshot reads old r0=0
+phase 4: step-wise copy with scenario writes interleaved
+  [4   ] step 1: backfilled r0,r1 as of C1, then caught up (r0 -> 777 via outbox)
+  [4   ] delete r1 + insert r00 behind cursor + update r5 committed at source
+  [4   ] copy phase READY
+  [4   ] shadow target holds r1 tombstone rev 11 (delete not resurrected)
+phase 5: a request commits; the client never consumes the receipt
+  [5   ] lost-receipt committed at source rev 14, response dropped
+phase 6: cutover with a probe client inside the pause
+  [6   ] cutover DONE: fence_clock=14, probe saw 2 RETRY + 2 MOVED, first new-gen write rev 15
+phase 7: post-cutover retries, conflict, stale route, untouched tenant
+  [7   ] same-id retries returned original receipts (rev 10,14,4), no new revs
+  [7   ] same request_id + different content -> REQUEST_ID_CONFLICT
+  [7   ] stale-route write: old owner rejected, MOVED, executed at gen 2 rev 16; source untouched
+  [7   ] post-cutover writes at target; stay still served from shard-a
+phase 8: independent verification
+PASS A1 route points at target with new generation -- {'generation': 2, 'owner': 'shard-b'}
+PASS A2 source tenant fenced at start generation -- {'tenant': 'moving', 'generation': 1, 'writable': 0, 'clock': 14}
+PASS A3 target tenant writable at new generation -- {'tenant': 'moving', 'generation': 2, 'writable': 1, 'clock': 17}
+PASS B1 journal fence_clock == source clock -- {'journal': 14, 'source_clock': 14}
+PASS B2 source outbox is contiguous 1..fence_clock -- {'count': 14, 'fence_clock': 14}
+PASS B3 no source row newer than the fence boundary -- 14
+PASS C1 source outbox events self-consistent (rev order, receipt.rev) 
+PASS C2 source records == replay of source outbox -- {'diff': {}}
+PASS D1 target outbox revs contiguous and all > fence_clock -- {'first': 15, 'fence_clock': 14}
+PASS D2 target rows: imported rows identical, new rows justified, none missing -- {'bad': {}, 'missing': {}}
+PASS D3 target records == replay(source<=fence)+replay(target>fence) -- {'diff': {}}
+PASS E1 every source receipt imported identically (incl. pre-migration) -- {'missing_or_different': []}
+PASS E2 target receipts: old revs proven by source, new revs well-formed gen-2 
+PASS F1 each request_id has exactly one persistent decision 
+PASS F2 no two requests share a rev (no double execution) 
+PASS F3 every receipt maps to exactly one outbox event 
+PASS G1 stay: route matches owner state, still writable -- {'route': {'generation': 1, 'owner': 'shard-a'}, 'state': {'tenant': 'stay', 'generation': 1, 'writable': 1, 'clock': 3}}
+PASS G2 stay: source records == own outbox replay 
+PASS G3 stay: nothing leaked onto target shard 
+PASS H1 journal phase DONE -- DONE
+PASS H2 boundary_clock <= fence_clock -- {'boundary': 9, 'fence': 14}
+PASS H3 target clock == max(fence_clock, own outbox) -- {'target_clock': 17}
+
+22 checks, 22 passed, 0 failed
+
+==== schedule (journal history) ====
+  2026-11-15T19:40:43.385 INIT      route={'generation': 1, 'owner': 'shard-a'} src(gen=1,w=1,clock=9) tgt(gen=1,w=0,clock=0)
+  2026-11-15T19:40:43.388 COPYING   route={'generation': 1, 'owner': 'shard-a'} src(gen=1,w=1,clock=9) tgt(gen=1,w=0,clock=0)
+  2026-11-15T19:40:43.459 READY     route={'generation': 1, 'owner': 'shard-a'} src(gen=1,w=1,clock=13) tgt(gen=1,w=0,clock=13)
+  2026-11-15T19:40:43.470 FENCED    route={'generation': 1, 'owner': 'shard-a'} src(gen=1,w=0,clock=14) tgt(gen=1,w=0,clock=13)
+  2026-11-15T19:40:43.475 CAUGHT_UP route={'generation': 1, 'owner': 'shard-a'} src(gen=1,w=0,clock=14) tgt(gen=1,w=0,clock=14)
+  2026-11-15T19:40:43.476 ACTIVATED route={'generation': 1, 'owner': 'shard-a'} src(gen=1,w=0,clock=14) tgt(gen=2,w=1,clock=14)
+  2026-11-15T19:40:43.479 DONE      route={'generation': 2, 'owner': 'shard-b'} src(gen=1,w=0,clock=14) tgt(gen=2,w=1,clock=14)
+
+==== stats ====
+{
+ "backfill_rows_read": 9,
+ "backfill_rows_written": 8,
+ "outbox_events_replayed": 5,
+ "outbox_rows_written": 5,
+ "receipts_imported": 14,
+ "receipts_read": 10
+}
+
+==== demo notes ====
+  1 pre-migration writes committed at source
+  2 snapshot fixed, continuation boundary C1=9
+  3 write committed at rev 10 while snapshot reads old r0=0
+  4 step 1: backfilled r0,r1 as of C1, then caught up (r0 -> 777 via outbox)
+  4 delete r1 + insert r00 behind cursor + update r5 committed at source
+  4 copy phase READY
+  4 shadow target holds r1 tombstone rev 11 (delete not resurrected)
+  5 lost-receipt committed at source rev 14, response dropped
+  6 cutover DONE: fence_clock=14, probe saw 2 RETRY + 2 MOVED, first new-gen write rev 15
+  7 same-id retries returned original receipts (rev 10,14,4), no new revs
+  7 same request_id + different content -> REQUEST_ID_CONFLICT
+  7 stale-route write: old owner rejected, MOVED, executed at gen 2 rev 16; source untouched
+  7 post-cutover writes at target; stay still served from shard-a
+
+DEMO OK
