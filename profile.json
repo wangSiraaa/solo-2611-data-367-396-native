@@ -1,0 +1,12 @@
+{
+  "shingle_size": 2,
+  "jaccard_threshold": {
+    "numerator": 1,
+    "denominator": 4
+  },
+  "representative_order": [
+    "max_quality",
+    "min_utf8_id"
+  ],
+  "similarity_edges": "undirected exact set Jaccard, identical empty sets similar, exactly one empty set not similar"
+}

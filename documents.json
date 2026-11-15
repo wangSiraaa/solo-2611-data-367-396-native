@@ -1,0 +1,52 @@
+[
+  {
+    "id": "a",
+    "tokens": [
+      "red",
+      "green",
+      "blue",
+      "gold"
+    ],
+    "quality": 7
+  },
+  {
+    "id": "b",
+    "tokens": [
+      "red",
+      "green",
+      "blue",
+      "silver"
+    ],
+    "quality": 9
+  },
+  {
+    "id": "c",
+    "tokens": [
+      "green",
+      "blue",
+      "silver",
+      "black"
+    ],
+    "quality": 8
+  },
+  {
+    "id": "d",
+    "tokens": [
+      "ocean",
+      "wind",
+      "leaf",
+      "gold"
+    ],
+    "quality": 5
+  },
+  {
+    "id": "e",
+    "tokens": [
+      "red",
+      "green",
+      "blue",
+      "gold"
+    ],
+    "quality": 6
+  }
+]

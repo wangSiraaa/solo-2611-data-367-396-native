@@ -1,0 +1,19 @@
+[
+  {
+    "op": "remove",
+    "id": "b"
+  },
+  {
+    "op": "put",
+    "document": {
+      "id": "f",
+      "tokens": [
+        "ocean",
+        "wind",
+        "leaf",
+        "white"
+      ],
+      "quality": 10
+    }
+  }
+]
