@@ -1,0 +1,23 @@
+{
+  "tables": {
+    "customers": {
+      "customer_id": "TEXT",
+      "region": "TEXT",
+      "note": "TEXT"
+    },
+    "orders": {
+      "order_id": "TEXT",
+      "customer_id": "TEXT",
+      "amount": "INTEGER",
+      "status": "TEXT"
+    }
+  },
+  "functions": {
+    "opaque_score": {
+      "dependency": "unknown"
+    },
+    "abs": {
+      "dependency": "argument_dependent"
+    }
+  }
+}

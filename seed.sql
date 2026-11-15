@@ -1,0 +1,1 @@
+CREATE TABLE customers(customer_id TEXT,region TEXT,note TEXT);CREATE TABLE orders(order_id TEXT,customer_id TEXT,amount INTEGER,status TEXT);INSERT INTO customers VALUES ('c1','north','unrelated'),('c2','south','unrelated');INSERT INTO orders VALUES ('o1','c1',10,'ok'),('o2','c1',20,'ok'),('o3','c2',8,'bad');

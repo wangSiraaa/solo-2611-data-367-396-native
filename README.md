@@ -1,0 +1,1 @@
+catalog函数依赖声明是输入语义；unknown_report无需在SQLite执行，不能由执行失败判为无依赖。其它视图可真实执行。
