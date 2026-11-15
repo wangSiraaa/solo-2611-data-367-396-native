@@ -1,0 +1,60 @@
+[
+  {
+    "id": "all-mixed",
+    "group_by": [
+      "region"
+    ],
+    "metrics": [
+      "count",
+      "sum",
+      "avg",
+      "count_distinct_customer"
+    ]
+  },
+  {
+    "id": "scalar-mixed",
+    "group_by": [],
+    "metrics": [
+      "count",
+      "sum",
+      "avg",
+      "count_distinct_customer"
+    ]
+  },
+  {
+    "id": "additive-only",
+    "group_by": [
+      "region"
+    ],
+    "metrics": [
+      "count",
+      "sum",
+      "avg"
+    ]
+  },
+  {
+    "id": "local-amount-filter",
+    "group_by": [
+      "region"
+    ],
+    "metrics": [
+      "count",
+      "avg",
+      "count_distinct_customer"
+    ],
+    "min_cents": 100
+  },
+  {
+    "id": "empty",
+    "group_by": [],
+    "regions": [
+      "not-present"
+    ],
+    "metrics": [
+      "count",
+      "sum",
+      "avg",
+      "count_distinct_customer"
+    ]
+  }
+]

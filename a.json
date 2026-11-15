@@ -1,0 +1,2882 @@
+[
+  {
+    "occurrence_id": "A0000",
+    "region": "east",
+    "amount_cents": null,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0001",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0002",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0003",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0004",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0005",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0006",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0007",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0008",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0009",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0010",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0011",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0012",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0013",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0014",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0015",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0016",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0017",
+    "region": null,
+    "amount_cents": 125,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0018",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0019",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0020",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0021",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0022",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0023",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0024",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0025",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0026",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0027",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0028",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0029",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0030",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0031",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0032",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0033",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0034",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0035",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0036",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0037",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0038",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0039",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0040",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0041",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0042",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0043",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0044",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0045",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0046",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0047",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0048",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0049",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0050",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0051",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0052",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0053",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0054",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0055",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0056",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0057",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0058",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0059",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0060",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0061",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0062",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0063",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0064",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0065",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0066",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0067",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0068",
+    "region": null,
+    "amount_cents": 50,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0069",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0070",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0071",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0072",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0073",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0074",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0075",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0076",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0077",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0078",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0079",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0080",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0081",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0082",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0083",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0084",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0085",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0086",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0087",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0088",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0089",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0090",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0091",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0092",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0093",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0094",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0095",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0096",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0097",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0098",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0099",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0100",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0101",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0102",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0103",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0104",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0105",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0106",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0107",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0108",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0109",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0110",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0111",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0112",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0113",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0114",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0115",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0116",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0117",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0118",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0119",
+    "region": null,
+    "amount_cents": -25,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0120",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0121",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0122",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0123",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0124",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0125",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0126",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0127",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0128",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0129",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0130",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0131",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0132",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0133",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0134",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0135",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0136",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0137",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0138",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0139",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0140",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0141",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0142",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0143",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0144",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0145",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0146",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0147",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0148",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0149",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0150",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0151",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0152",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0153",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0154",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0155",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0156",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0157",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0158",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0159",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0160",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0161",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0162",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0163",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0164",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0165",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0166",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0167",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0168",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0169",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0170",
+    "region": null,
+    "amount_cents": 125,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0171",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0172",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0173",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0174",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0175",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0176",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0177",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0178",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0179",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0180",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0181",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0182",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0183",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0184",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0185",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0186",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0187",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0188",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0189",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0190",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0191",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0192",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0193",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0194",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0195",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0196",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0197",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0198",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0199",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0200",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0201",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0202",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0203",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0204",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0205",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0206",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0207",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0208",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0209",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0210",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0211",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0212",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0213",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0214",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0215",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0216",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0217",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0218",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0219",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0220",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0221",
+    "region": null,
+    "amount_cents": null,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0222",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0223",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0224",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0225",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0226",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0227",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0228",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0229",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0230",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0231",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0232",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0233",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0234",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0235",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0236",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0237",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0238",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0239",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0240",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0241",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0242",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0243",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0244",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0245",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0246",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0247",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0248",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0249",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0250",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0251",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0252",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0253",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0254",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0255",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0256",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0257",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0258",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0259",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0260",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0261",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0262",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0263",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0264",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0265",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0266",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0267",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0268",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0269",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0270",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0271",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0272",
+    "region": null,
+    "amount_cents": -25,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0273",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0274",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0275",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0276",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0277",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0278",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0279",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0280",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0281",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0282",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0283",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0284",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0285",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0286",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0287",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0288",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0289",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0290",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0291",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0292",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0293",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0294",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0295",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0296",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0297",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0298",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0299",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0300",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0301",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0302",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0303",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0304",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0305",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0306",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0307",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0308",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0309",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0310",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0311",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0312",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0313",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0314",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0315",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0316",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0317",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0318",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0319",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0320",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0321",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0322",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0323",
+    "region": null,
+    "amount_cents": 125,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0324",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0325",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0326",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0327",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0328",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0329",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0330",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0331",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0332",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0333",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0334",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0335",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0336",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0337",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0338",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0339",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0340",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0341",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0342",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0343",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0344",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0345",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0346",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0347",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0348",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0349",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0350",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0351",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0352",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0353",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0354",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0355",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0356",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0357",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0358",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0359",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0360",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0361",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0362",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0363",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0364",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0365",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0366",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0367",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0368",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0369",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0370",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0371",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0372",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0373",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0374",
+    "region": null,
+    "amount_cents": 50,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0375",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0376",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0377",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0378",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0379",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0380",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0381",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0382",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0383",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0384",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0385",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0386",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0387",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0388",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0389",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0390",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0391",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0392",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0393",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0394",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0395",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0396",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0397",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0398",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0399",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0400",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0401",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0402",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0403",
+    "region": "west",
+    "amount_cents": null,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0404",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0405",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0406",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0407",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0408",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0409",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0410",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0411",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0412",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0413",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0414",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0415",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0416",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0417",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0418",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0419",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0420",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0421",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0422",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0423",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0424",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0425",
+    "region": null,
+    "amount_cents": -25,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0426",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0427",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0428",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0429",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0430",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0431",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0432",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0433",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0434",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0435",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0436",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c22"
+  },
+  {
+    "occurrence_id": "A0437",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0438",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0439",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0440",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0441",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0442",
+    "region": "west",
+    "amount_cents": null,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0443",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0444",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0445",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0446",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0447",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0448",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0449",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0450",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0451",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0452",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0453",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c16"
+  },
+  {
+    "occurrence_id": "A0454",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0455",
+    "region": null,
+    "amount_cents": null,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0456",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c19"
+  },
+  {
+    "occurrence_id": "A0457",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c20"
+  },
+  {
+    "occurrence_id": "A0458",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c21"
+  },
+  {
+    "occurrence_id": "A0459",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0460",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c0"
+  },
+  {
+    "occurrence_id": "A0461",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c1"
+  },
+  {
+    "occurrence_id": "A0462",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c2"
+  },
+  {
+    "occurrence_id": "A0463",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c3"
+  },
+  {
+    "occurrence_id": "A0464",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c4"
+  },
+  {
+    "occurrence_id": "A0465",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c5"
+  },
+  {
+    "occurrence_id": "A0466",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c6"
+  },
+  {
+    "occurrence_id": "A0467",
+    "region": null,
+    "amount_cents": 125,
+    "customer": "c7"
+  },
+  {
+    "occurrence_id": "A0468",
+    "region": "east",
+    "amount_cents": null,
+    "customer": "c8"
+  },
+  {
+    "occurrence_id": "A0469",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c9"
+  },
+  {
+    "occurrence_id": "A0470",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c10"
+  },
+  {
+    "occurrence_id": "A0471",
+    "region": "east",
+    "amount_cents": 0,
+    "customer": "c11"
+  },
+  {
+    "occurrence_id": "A0472",
+    "region": "west",
+    "amount_cents": 25,
+    "customer": "c12"
+  },
+  {
+    "occurrence_id": "A0473",
+    "region": null,
+    "amount_cents": 50,
+    "customer": "c13"
+  },
+  {
+    "occurrence_id": "A0474",
+    "region": "east",
+    "amount_cents": 75,
+    "customer": "c14"
+  },
+  {
+    "occurrence_id": "A0475",
+    "region": "west",
+    "amount_cents": 100,
+    "customer": "c15"
+  },
+  {
+    "occurrence_id": "A0476",
+    "region": null,
+    "amount_cents": 125,
+    "customer": null
+  },
+  {
+    "occurrence_id": "A0477",
+    "region": "east",
+    "amount_cents": -75,
+    "customer": "c17"
+  },
+  {
+    "occurrence_id": "A0478",
+    "region": "west",
+    "amount_cents": -50,
+    "customer": "c18"
+  },
+  {
+    "occurrence_id": "A0479",
+    "region": null,
+    "amount_cents": -25,
+    "customer": "c19"
+  }
+]
